@@ -1,25 +1,25 @@
-
 package Model;
 
 public class Professor extends Pessoa{
     String formacao;
     String disciplina;
-    String horario[][];
+    Horario horario[];
     int pCod;
 
     public Professor() {
         formacao = "";
         disciplina = "";
-        horario = new String[][] {};
+        horario = new Horario[85];
         pCod = 0;
     }
     
-    public Professor(String formacao, String disciplina, String[][] horário, int pCod) {
+    public Professor(String formacao, String disciplina, Horario[] horario, int tamanho, int pCod) {
         this.formacao = formacao;
         this.disciplina = disciplina;
         this.horario = horario;
         this.pCod = pCod;
     }
+
 
     public String getFormacao() {
         return formacao;
@@ -29,10 +29,15 @@ public class Professor extends Pessoa{
         return disciplina;
     }
 
-    public String[][] getHorário() {
+    public Horario[] getHorario() {
         return horario;
     }
 
+    public void setHorario(Horario[] horario) {
+        this.horario = horario;
+    }
+
+    
     public int getpCod() {
         return pCod;
     }
@@ -43,10 +48,6 @@ public class Professor extends Pessoa{
 
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
-    }
-
-    public void setHorário(String[][] horário) {
-        this.horario = horario;
     }
 
     public void setpCod(int pCod) {
