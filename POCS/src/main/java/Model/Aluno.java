@@ -1,4 +1,3 @@
-
 package Model;
 
 public class Aluno extends Pessoa{
@@ -6,12 +5,14 @@ public class Aluno extends Pessoa{
     String desenvolvimento;
     int aCod;
 
-     public Aluno() {
+    //Construtor
+    public Aluno() {
         escola = "";
         desenvolvimento = "";
         aCod = 0;
     }
     
+    //Construtor - Sobrecarga
     public Aluno(String escola, String desenvolvimento, int aCod) {
         this.escola = escola;
         this.desenvolvimento = desenvolvimento;

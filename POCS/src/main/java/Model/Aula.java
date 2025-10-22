@@ -1,4 +1,3 @@
-
 package Model;
 import java.util.Date;
 
@@ -9,6 +8,7 @@ public class Aula {
     Date dia;
     String tema;
     
+    //Construtor
     public Aula() {
         prof = new Professor();
         aluno = new Aluno();
@@ -17,6 +17,7 @@ public class Aula {
         tema = "";
     }
 
+    //Construtor - Sobrecarga
     public Aula(Professor prof, Aluno aluno, String horario, Date dia, String tema) {
         this.prof = prof;
         this.aluno = aluno;
@@ -25,6 +26,7 @@ public class Aula {
         this.tema = tema;
     }
 
+    //Getters
     public Professor getProf() {
         return prof;
     }
@@ -45,6 +47,7 @@ public class Aula {
         return tema;
     }
 
+    //Setters
     public void setProf(Professor prof) {
         this.prof = prof;
     }

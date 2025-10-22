@@ -1,4 +1,3 @@
-
 package Model;
 
 public abstract class Pessoa {
@@ -9,6 +8,7 @@ public abstract class Pessoa {
     String email;
     int idade;
     
+    //Construtor
     public Pessoa() {
         cpf = "";
         nome = "";
@@ -17,6 +17,7 @@ public abstract class Pessoa {
         idade = 0;
     }
 
+    //Construtor - Sobrecarga
     public Pessoa(String cpf, String nome, String celular, String email, int idade) {
         this.cpf = cpf;
         this.nome = nome;

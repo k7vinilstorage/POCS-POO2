@@ -1,8 +1,6 @@
-
 package Model;
 
 public class Coordenador extends Pessoa{
-    
     int cCod;
 
     public Coordenador() {
