@@ -1,0 +1,14 @@
+Controller\CoordenadorCtrl.class
+Controller\PessoaCtrl.class
+oop\pocs\POCS.class
+Controller\HorarioCtrl.class
+Controller\ProfessorCtrl.class
+Model\Aula.class
+Testes\Teste_CRUD.class
+Model\Professor.class
+Controller\AlunoCtrl.class
+Controller\AulaCtrl.class
+Model\Coordenador.class
+Model\Aluno.class
+Model\Pessoa.class
+Model\Horario.class

@@ -5,13 +5,14 @@ public class Horario {
     char diaPeriodo;
     char diaHorario;
 
+    //Construtor
     public Horario() {
         diaSemana = ' ';
         diaPeriodo = ' ';
         diaHorario = ' ';
     }
     
-    //Sobrecarga
+    //Construtor - Sobrecarga
     public Horario(char diaSemana, char diaPeriodo, char diaHorario) {
         this.diaSemana = diaSemana;
         this.diaPeriodo = diaPeriodo;

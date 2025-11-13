@@ -6,6 +6,7 @@ public class Professor extends Pessoa{
     Horario horario[];
     int pCod;
 
+    //Construtor
     public Professor() {
         formacao = "";
         disciplina = "";
@@ -13,6 +14,7 @@ public class Professor extends Pessoa{
         pCod = 0;
     }
     
+    //Construtor - Sobrecarga
     public Professor(String formacao, String disciplina, Horario[] horario, int tamanho, int pCod) {
         this.formacao = formacao;
         this.disciplina = disciplina;
@@ -20,7 +22,7 @@ public class Professor extends Pessoa{
         this.pCod = pCod;
     }
 
-
+    //Getters
     public String getFormacao() {
         return formacao;
     }
@@ -32,14 +34,14 @@ public class Professor extends Pessoa{
     public Horario[] getHorario() {
         return horario;
     }
-
-    public void setHorario(Horario[] horario) {
-        this.horario = horario;
-    }
-
     
     public int getpCod() {
         return pCod;
+    }
+
+    //Setters
+    public void setHorario(Horario[] horario) {
+        this.horario = horario;
     }
 
     public void setFormacao(String formacao) {
