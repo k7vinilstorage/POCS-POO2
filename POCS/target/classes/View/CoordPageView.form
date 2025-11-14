@@ -4,19 +4,19 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="agendaMenu">
+        <Menu class="javax.swing.JMenu" name="verProfMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver Agenda"/>
+            <Property name="text" type="java.lang.String" value="Ver Professores"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="aulasDadasMenu">
+        <Menu class="javax.swing.JMenu" name="verAluMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver aulas dadas"/>
+            <Property name="text" type="java.lang.String" value="Ver alunos"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="aulasResMenu">
+        <Menu class="javax.swing.JMenu" name="verAulasMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver aulas reservadas"/>
+            <Property name="text" type="java.lang.String" value="Ver aulas"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -49,31 +49,23 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="disciplinaLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="formacaoLb" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="userLb" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="nomeLb" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="cpfLb" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="EmailLb" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="celLb" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Component id="disciplinaTf" max="32767" attributes="0"/>
-                      <Component id="formacaoTf" max="32767" attributes="0"/>
+                      <Component id="userTf" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="nomeTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="cpfTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="emailTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                          <Component id="userTf" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="nomeTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="cpfTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="emailTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="celTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="celTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,17 +97,7 @@
                   <Component id="celLb" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="celTf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="disciplinaLb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="disciplinaTf" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="formacaoLb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="formacaoTf" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="86" max="32767" attributes="0"/>
+              <EmptySpace pref="155" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -161,22 +143,6 @@
         <Property name="text" type="java.lang.String" value="Celular:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="disciplinaLb">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Monocraft" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Disciplina:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="formacaoLb">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Monocraft" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Forma&#xe7;&#xe3;o:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="userTf">
     </Component>
     <Component class="javax.swing.JTextField" name="nomeTf">
@@ -191,13 +157,6 @@
     <Component class="javax.swing.JTextField" name="celTf">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="celTfActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="disciplinaTf">
-    </Component>
-    <Component class="javax.swing.JTextField" name="formacaoTf">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="formacaoTfActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -8,12 +8,12 @@ package View;
  *
  * @author joao
  */
-public class ProfPageView extends javax.swing.JFrame {
+public class PesqAulasView extends javax.swing.JFrame {
 
     /**
      * Creates new form ProfPageView
      */
-    public ProfPageView() {
+    public PesqAulasView() {
         initComponents();
     }
 
@@ -28,46 +28,19 @@ public class ProfPageView extends javax.swing.JFrame {
 
         userLb = new javax.swing.JLabel();
         nomeLb = new javax.swing.JLabel();
-        cpfLb = new javax.swing.JLabel();
-        EmailLb = new javax.swing.JLabel();
-        celLb = new javax.swing.JLabel();
-        disciplinaLb = new javax.swing.JLabel();
-        formacaoLb = new javax.swing.JLabel();
         userTf = new javax.swing.JTextField();
         nomeTf = new javax.swing.JTextField();
-        cpfTf = new javax.swing.JTextField();
-        emailTf = new javax.swing.JTextField();
-        celTf = new javax.swing.JTextField();
-        disciplinaTf = new javax.swing.JTextField();
-        formacaoTf = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        agendaMenu = new javax.swing.JMenu();
-        aulasDadasMenu = new javax.swing.JMenu();
-        aulasResMenu = new javax.swing.JMenu();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Página do Professor");
 
         userLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        userLb.setText("Usuário:");
+        userLb.setText("Pesquisar por professor:");
 
         nomeLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        nomeLb.setText("Nome:");
-
-        cpfLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        cpfLb.setText("CPF:");
-
-        EmailLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        EmailLb.setText("Email:");
-
-        celLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        celLb.setText("Celular:");
-
-        disciplinaLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        disciplinaLb.setText("Disciplina:");
-
-        formacaoLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        formacaoLb.setText("Formação:");
+        nomeLb.setText("Pesquisar por materia:");
 
         nomeTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,89 +48,53 @@ public class ProfPageView extends javax.swing.JFrame {
             }
         });
 
-        celTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                celTfActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Matéria", "Aulas dadas", "Horários"
             }
-        });
-
-        formacaoTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                formacaoTfActionPerformed(evt);
-            }
-        });
-
-        agendaMenu.setText("Ver Agenda");
-        jMenuBar1.add(agendaMenu);
-
-        aulasDadasMenu.setText("Ver aulas dadas");
-        jMenuBar1.add(aulasDadasMenu);
-
-        aulasResMenu.setText("Ver aulas reservadas");
-        jMenuBar1.add(aulasResMenu);
-
-        setJMenuBar(jMenuBar1);
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(disciplinaLb)
-                    .addComponent(formacaoLb)
-                    .addComponent(userLb)
-                    .addComponent(nomeLb)
-                    .addComponent(cpfLb)
-                    .addComponent(EmailLb)
-                    .addComponent(celLb))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(disciplinaTf)
-                        .addComponent(formacaoTf))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nomeTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(celTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(80, 80, 80))
+                            .addComponent(userLb)
+                            .addComponent(nomeLb))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userTf, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                            .addComponent(nomeTf))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userLb)
-                    .addComponent(userTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeLb)
-                    .addComponent(nomeTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpfLb)
-                    .addComponent(cpfTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmailLb)
-                    .addComponent(emailTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(celLb)
-                    .addComponent(celTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(disciplinaLb)
-                    .addComponent(disciplinaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(formacaoLb)
-                    .addComponent(formacaoTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(userTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nomeTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(userLb)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nomeLb)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,14 +103,6 @@ public class ProfPageView extends javax.swing.JFrame {
     private void nomeTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeTfActionPerformed
-
-    private void celTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celTfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_celTfActionPerformed
-
-    private void formacaoTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formacaoTfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formacaoTfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,39 +121,28 @@ public class ProfPageView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProfPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesqAulasView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProfPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesqAulasView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProfPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesqAulasView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProfPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesqAulasView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProfPageView().setVisible(true);
+                new PesqAulasView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EmailLb;
-    private javax.swing.JMenu agendaMenu;
-    private javax.swing.JMenu aulasDadasMenu;
-    private javax.swing.JMenu aulasResMenu;
-    private javax.swing.JLabel celLb;
-    private javax.swing.JTextField celTf;
-    private javax.swing.JLabel cpfLb;
-    private javax.swing.JTextField cpfTf;
-    private javax.swing.JLabel disciplinaLb;
-    private javax.swing.JTextField disciplinaTf;
-    private javax.swing.JTextField emailTf;
-    private javax.swing.JLabel formacaoLb;
-    private javax.swing.JTextField formacaoTf;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;
     private javax.swing.JLabel userLb;
