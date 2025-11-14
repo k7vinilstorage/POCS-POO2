@@ -29,7 +29,7 @@ public class AluPageView extends javax.swing.JFrame {
         userLb = new javax.swing.JLabel();
         nomeLb = new javax.swing.JLabel();
         cpfLb = new javax.swing.JLabel();
-        EmailLb = new javax.swing.JLabel();
+        emailLb = new javax.swing.JLabel();
         celLb = new javax.swing.JLabel();
         escolaLb = new javax.swing.JLabel();
         userTf = new javax.swing.JTextField();
@@ -38,7 +38,8 @@ public class AluPageView extends javax.swing.JFrame {
         emailTf = new javax.swing.JTextField();
         celTf = new javax.swing.JTextField();
         escolaTf = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        sairBt = new javax.swing.JButton();
+        aluMenuBar = new javax.swing.JMenuBar();
         aulasVistasMenu = new javax.swing.JMenu();
         buscarAulasMenu = new javax.swing.JMenu();
         buscaProfMenuI = new javax.swing.JMenuItem();
@@ -58,8 +59,8 @@ public class AluPageView extends javax.swing.JFrame {
         cpfLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         cpfLb.setText("CPF:");
 
-        EmailLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        EmailLb.setText("Email:");
+        emailLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
+        emailLb.setText("Email:");
 
         celLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         celLb.setText("Celular:");
@@ -79,8 +80,15 @@ public class AluPageView extends javax.swing.JFrame {
             }
         });
 
+        sairBt.setText("Sair");
+        sairBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBtActionPerformed(evt);
+            }
+        });
+
         aulasVistasMenu.setText("Ver aulas vistas");
-        jMenuBar1.add(aulasVistasMenu);
+        aluMenuBar.add(aulasVistasMenu);
 
         buscarAulasMenu.setText("Buscar aulas");
 
@@ -90,7 +98,7 @@ public class AluPageView extends javax.swing.JFrame {
         buscaMatMenuI.setText("Procurar por materia");
         buscarAulasMenu.add(buscaMatMenuI);
 
-        jMenuBar1.add(buscarAulasMenu);
+        aluMenuBar.add(buscarAulasMenu);
 
         aulasCadasMenu.setText("Aulas cadastradas");
 
@@ -102,31 +110,36 @@ public class AluPageView extends javax.swing.JFrame {
         });
         aulasCadasMenu.add(verAgendaMenuI);
 
-        jMenuBar1.add(aulasCadasMenu);
+        aluMenuBar.add(aulasCadasMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(aluMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(escolaLb)
-                    .addComponent(userLb)
-                    .addComponent(nomeLb)
-                    .addComponent(cpfLb)
-                    .addComponent(EmailLb)
-                    .addComponent(celLb))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(userTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(nomeTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(cpfTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(emailTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(celTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(escolaTf))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(escolaLb)
+                            .addComponent(userLb)
+                            .addComponent(nomeLb)
+                            .addComponent(cpfLb)
+                            .addComponent(emailLb)
+                            .addComponent(celLb))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(nomeTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(cpfTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(emailTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(celTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(escolaTf)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(sairBt)))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -146,7 +159,7 @@ public class AluPageView extends javax.swing.JFrame {
                     .addComponent(cpfTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmailLb)
+                    .addComponent(emailLb)
                     .addComponent(emailTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -156,7 +169,9 @@ public class AluPageView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(escolaLb)
                     .addComponent(escolaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(sairBt)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,6 +188,10 @@ public class AluPageView extends javax.swing.JFrame {
     private void verAgendaMenuIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verAgendaMenuIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verAgendaMenuIActionPerformed
+
+    private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sairBtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,7 +230,7 @@ public class AluPageView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EmailLb;
+    private javax.swing.JMenuBar aluMenuBar;
     private javax.swing.JMenu aulasCadasMenu;
     private javax.swing.JMenu aulasVistasMenu;
     private javax.swing.JMenuItem buscaMatMenuI;
@@ -221,12 +240,13 @@ public class AluPageView extends javax.swing.JFrame {
     private javax.swing.JTextField celTf;
     private javax.swing.JLabel cpfLb;
     private javax.swing.JTextField cpfTf;
+    private javax.swing.JLabel emailLb;
     private javax.swing.JTextField emailTf;
     private javax.swing.JLabel escolaLb;
     private javax.swing.JTextField escolaTf;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;
+    private javax.swing.JButton sairBt;
     private javax.swing.JLabel userLb;
     private javax.swing.JTextField userTf;
     private javax.swing.JMenuItem verAgendaMenuI;

@@ -26,14 +26,15 @@ public class HistAulaView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        HistTb = new javax.swing.JTable();
+        histAulaSp = new javax.swing.JScrollPane();
+        histAulaTb = new javax.swing.JTable();
+        voltarBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Histórico de aulas");
         setMaximumSize(new java.awt.Dimension(500, 500));
 
-        HistTb.setModel(new javax.swing.table.DefaultTableModel(
+        histAulaTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -52,7 +53,9 @@ public class HistAulaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(HistTb);
+        histAulaSp.setViewportView(histAulaTb);
+
+        voltarBt.setText("Voltar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,15 +63,21 @@ public class HistAulaView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
+                .addComponent(histAulaSp, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
                 .addGap(66, 66, 66))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(voltarBt)
+                .addGap(448, 448, 448))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
-                .addGap(52, 52, 52))
+                .addComponent(histAulaSp, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(voltarBt)
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -110,7 +119,8 @@ public class HistAulaView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable HistTb;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane histAulaSp;
+    private javax.swing.JTable histAulaTb;
+    private javax.swing.JButton voltarBt;
     // End of variables declaration//GEN-END:variables
 }

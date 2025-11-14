@@ -29,7 +29,7 @@ public class ProfPageView extends javax.swing.JFrame {
         userLb = new javax.swing.JLabel();
         nomeLb = new javax.swing.JLabel();
         cpfLb = new javax.swing.JLabel();
-        EmailLb = new javax.swing.JLabel();
+        emailLb = new javax.swing.JLabel();
         celLb = new javax.swing.JLabel();
         disciplinaLb = new javax.swing.JLabel();
         formacaoLb = new javax.swing.JLabel();
@@ -40,7 +40,8 @@ public class ProfPageView extends javax.swing.JFrame {
         celTf = new javax.swing.JTextField();
         disciplinaTf = new javax.swing.JTextField();
         formacaoTf = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        sairBt = new javax.swing.JButton();
+        profMenuBar = new javax.swing.JMenuBar();
         agendaMenu = new javax.swing.JMenu();
         aulasDadasMenu = new javax.swing.JMenu();
         aulasResMenu = new javax.swing.JMenu();
@@ -57,8 +58,8 @@ public class ProfPageView extends javax.swing.JFrame {
         cpfLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         cpfLb.setText("CPF:");
 
-        EmailLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        EmailLb.setText("Email:");
+        emailLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
+        emailLb.setText("Email:");
 
         celLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         celLb.setText("Celular:");
@@ -87,16 +88,18 @@ public class ProfPageView extends javax.swing.JFrame {
             }
         });
 
+        sairBt.setText("Sair");
+
         agendaMenu.setText("Ver Agenda");
-        jMenuBar1.add(agendaMenu);
+        profMenuBar.add(agendaMenu);
 
         aulasDadasMenu.setText("Ver aulas dadas");
-        jMenuBar1.add(aulasDadasMenu);
+        profMenuBar.add(aulasDadasMenu);
 
         aulasResMenu.setText("Ver aulas reservadas");
-        jMenuBar1.add(aulasResMenu);
+        profMenuBar.add(aulasResMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(profMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +113,7 @@ public class ProfPageView extends javax.swing.JFrame {
                     .addComponent(userLb)
                     .addComponent(nomeLb)
                     .addComponent(cpfLb)
-                    .addComponent(EmailLb)
+                    .addComponent(emailLb)
                     .addComponent(celLb))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,6 +128,10 @@ public class ProfPageView extends javax.swing.JFrame {
                             .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(celTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(80, 80, 80))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(sairBt)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +150,7 @@ public class ProfPageView extends javax.swing.JFrame {
                     .addComponent(cpfTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmailLb)
+                    .addComponent(emailLb)
                     .addComponent(emailTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -157,7 +164,9 @@ public class ProfPageView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(formacaoLb)
                     .addComponent(formacaoTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(sairBt)
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -211,7 +220,6 @@ public class ProfPageView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EmailLb;
     private javax.swing.JMenu agendaMenu;
     private javax.swing.JMenu aulasDadasMenu;
     private javax.swing.JMenu aulasResMenu;
@@ -221,12 +229,14 @@ public class ProfPageView extends javax.swing.JFrame {
     private javax.swing.JTextField cpfTf;
     private javax.swing.JLabel disciplinaLb;
     private javax.swing.JTextField disciplinaTf;
+    private javax.swing.JLabel emailLb;
     private javax.swing.JTextField emailTf;
     private javax.swing.JLabel formacaoLb;
     private javax.swing.JTextField formacaoTf;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;
+    private javax.swing.JMenuBar profMenuBar;
+    private javax.swing.JButton sairBt;
     private javax.swing.JLabel userLb;
     private javax.swing.JTextField userTf;
     // End of variables declaration//GEN-END:variables

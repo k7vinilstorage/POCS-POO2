@@ -26,86 +26,103 @@ public class LoginView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        UserLb = new javax.swing.JLabel();
-        SenhaLb = new javax.swing.JLabel();
-        LimpBt = new javax.swing.JButton();
-        LoginBt = new javax.swing.JButton();
-        UserTf = new javax.swing.JTextField();
-        SenhaTf = new javax.swing.JTextField();
-        TittleLB = new javax.swing.JLabel();
+        userLb = new javax.swing.JLabel();
+        senhaLb = new javax.swing.JLabel();
+        cadBt = new javax.swing.JButton();
+        loginBt = new javax.swing.JButton();
+        userTf = new javax.swing.JTextField();
+        senhaTf = new javax.swing.JTextField();
+        tittleLb = new javax.swing.JLabel();
+        sairBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setMaximumSize(new java.awt.Dimension(500, 500));
 
-        UserLb.setText("Usuário:");
+        userLb.setText("Usuário:");
 
-        SenhaLb.setText("Senha:");
+        senhaLb.setText("Senha:");
 
-        LimpBt.setText("Limpar");
-        LimpBt.addActionListener(new java.awt.event.ActionListener() {
+        cadBt.setText("Cadastrar");
+        cadBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimpBtActionPerformed(evt);
+                cadBtActionPerformed(evt);
             }
         });
 
-        LoginBt.setText("Logar");
+        loginBt.setText("Logar");
+        loginBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtActionPerformed(evt);
+            }
+        });
 
-        TittleLB.setFont(new java.awt.Font("Monocraft", 0, 48)); // NOI18N
-        TittleLB.setText("POCS");
+        tittleLb.setFont(new java.awt.Font("Monocraft", 0, 48)); // NOI18N
+        tittleLb.setText("POCS");
+
+        sairBt.setText("Sair");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(186, Short.MAX_VALUE)
+                .addComponent(tittleLb)
+                .addGap(186, 186, 186))
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(SenhaLb)
-                            .addComponent(UserLb))
+                            .addComponent(senhaLb)
+                            .addComponent(userLb))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(UserTf, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(SenhaTf))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(userTf, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(senhaTf)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LimpBt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LoginBt)
-                        .addGap(70, 70, 70))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(186, Short.MAX_VALUE)
-                .addComponent(TittleLB)
-                .addGap(186, 186, 186))
+                        .addGap(48, 48, 48)
+                        .addComponent(cadBt)
+                        .addGap(43, 43, 43)
+                        .addComponent(loginBt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(sairBt)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(TittleLB)
+                .addComponent(tittleLb)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserLb)
-                    .addComponent(UserTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userLb)
+                    .addComponent(userTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SenhaLb)
-                    .addComponent(SenhaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(157, 157, 157)
+                    .addComponent(senhaLb)
+                    .addComponent(senhaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LimpBt)
-                    .addComponent(LoginBt))
-                .addGap(31, 31, 31))
+                    .addComponent(cadBt)
+                    .addComponent(loginBt))
+                .addGap(63, 63, 63)
+                .addComponent(sairBt)
+                .addGap(51, 51, 51))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LimpBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpBtActionPerformed
+    private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LimpBtActionPerformed
+    }//GEN-LAST:event_cadBtActionPerformed
+
+    private void loginBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginBtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,12 +160,13 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton LimpBt;
-    private javax.swing.JButton LoginBt;
-    private javax.swing.JLabel SenhaLb;
-    private javax.swing.JTextField SenhaTf;
-    private javax.swing.JLabel TittleLB;
-    private javax.swing.JLabel UserLb;
-    private javax.swing.JTextField UserTf;
+    private javax.swing.JButton cadBt;
+    private javax.swing.JButton loginBt;
+    private javax.swing.JButton sairBt;
+    private javax.swing.JLabel senhaLb;
+    private javax.swing.JTextField senhaTf;
+    private javax.swing.JLabel tittleLb;
+    private javax.swing.JLabel userLb;
+    private javax.swing.JTextField userTf;
     // End of variables declaration//GEN-END:variables
 }

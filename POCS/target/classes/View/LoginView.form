@@ -27,33 +27,37 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="186" max="32767" attributes="0"/>
+              <Component id="tittleLb" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="SenhaLb" min="-2" max="-2" attributes="0"/>
-                          <Component id="UserLb" min="-2" max="-2" attributes="0"/>
+                          <Component id="senhaLb" min="-2" max="-2" attributes="0"/>
+                          <Component id="userLb" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="UserTf" pref="280" max="32767" attributes="0"/>
-                          <Component id="SenhaTf" max="32767" attributes="0"/>
+                          <Component id="userTf" pref="280" max="32767" attributes="0"/>
+                          <Component id="senhaTf" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="LimpBt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="LoginBt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="cadBt" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="loginBt" min="-2" pref="111" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                      <Component id="sairBt" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="186" max="32767" attributes="0"/>
-              <Component id="TittleLB" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,61 +65,71 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="TittleLB" min="-2" max="-2" attributes="0"/>
+              <Component id="tittleLb" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="141" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="UserLb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="UserTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="userLb" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="userTf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="SenhaLb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SenhaTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="senhaLb" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="senhaTf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LimpBt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LoginBt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cadBt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="loginBt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <Component id="sairBt" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="UserLb">
+    <Component class="javax.swing.JLabel" name="userLb">
       <Properties>
         <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="SenhaLb">
+    <Component class="javax.swing.JLabel" name="senhaLb">
       <Properties>
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="LimpBt">
+    <Component class="javax.swing.JButton" name="cadBt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Limpar"/>
+        <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimpBtActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadBtActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="LoginBt">
+    <Component class="javax.swing.JButton" name="loginBt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Logar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBtActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="UserTf">
+    <Component class="javax.swing.JTextField" name="userTf">
     </Component>
-    <Component class="javax.swing.JTextField" name="SenhaTf">
+    <Component class="javax.swing.JTextField" name="senhaTf">
     </Component>
-    <Component class="javax.swing.JLabel" name="TittleLB">
+    <Component class="javax.swing.JLabel" name="tittleLb">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Monocraft" size="48" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="POCS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="sairBt">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
     </Component>
   </SubComponents>

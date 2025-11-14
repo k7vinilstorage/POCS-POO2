@@ -29,14 +29,15 @@ public class CoordPageView extends javax.swing.JFrame {
         userLb = new javax.swing.JLabel();
         nomeLb = new javax.swing.JLabel();
         cpfLb = new javax.swing.JLabel();
-        EmailLb = new javax.swing.JLabel();
+        emailLb = new javax.swing.JLabel();
         celLb = new javax.swing.JLabel();
         userTf = new javax.swing.JTextField();
         nomeTf = new javax.swing.JTextField();
         cpfTf = new javax.swing.JTextField();
         emailTf = new javax.swing.JTextField();
         celTf = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        sairBt = new javax.swing.JButton();
+        coordMenuBar = new javax.swing.JMenuBar();
         verProfMenu = new javax.swing.JMenu();
         verAluMenu = new javax.swing.JMenu();
         verAulasMenu = new javax.swing.JMenu();
@@ -53,8 +54,8 @@ public class CoordPageView extends javax.swing.JFrame {
         cpfLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         cpfLb.setText("CPF:");
 
-        EmailLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        EmailLb.setText("Email:");
+        emailLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
+        emailLb.setText("Email:");
 
         celLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         celLb.setText("Celular:");
@@ -71,37 +72,49 @@ public class CoordPageView extends javax.swing.JFrame {
             }
         });
 
+        sairBt.setText("Sair");
+        sairBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBtActionPerformed(evt);
+            }
+        });
+
         verProfMenu.setText("Ver Professores");
-        jMenuBar1.add(verProfMenu);
+        coordMenuBar.add(verProfMenu);
 
         verAluMenu.setText("Ver alunos");
-        jMenuBar1.add(verAluMenu);
+        coordMenuBar.add(verAluMenu);
 
         verAulasMenu.setText("Ver aulas");
-        jMenuBar1.add(verAulasMenu);
+        coordMenuBar.add(verAulasMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(coordMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userLb)
-                    .addComponent(nomeLb)
-                    .addComponent(cpfLb)
-                    .addComponent(EmailLb)
-                    .addComponent(celLb))
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(userTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nomeTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cpfTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(celTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userLb)
+                            .addComponent(nomeLb)
+                            .addComponent(cpfLb)
+                            .addComponent(emailLb)
+                            .addComponent(celLb))
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(userTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nomeTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cpfTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(celTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(sairBt)))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,13 +134,15 @@ public class CoordPageView extends javax.swing.JFrame {
                     .addComponent(cpfTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmailLb)
+                    .addComponent(emailLb)
                     .addComponent(emailTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(celLb)
                     .addComponent(celTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(sairBt)
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -140,6 +155,10 @@ public class CoordPageView extends javax.swing.JFrame {
     private void celTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_celTfActionPerformed
+
+    private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sairBtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,15 +197,16 @@ public class CoordPageView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EmailLb;
     private javax.swing.JLabel celLb;
     private javax.swing.JTextField celTf;
+    private javax.swing.JMenuBar coordMenuBar;
     private javax.swing.JLabel cpfLb;
     private javax.swing.JTextField cpfTf;
+    private javax.swing.JLabel emailLb;
     private javax.swing.JTextField emailTf;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;
+    private javax.swing.JButton sairBt;
     private javax.swing.JLabel userLb;
     private javax.swing.JTextField userTf;
     private javax.swing.JMenu verAluMenu;
