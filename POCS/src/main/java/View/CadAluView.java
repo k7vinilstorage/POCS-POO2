@@ -8,12 +8,12 @@ package View;
  *
  * @author joao
  */
-public class CadProfView extends javax.swing.JFrame {
+public class CadAluView extends javax.swing.JFrame {
 
     /**
      * Creates new form ProfPageView
      */
-    public CadProfView() {
+    public CadAluView() {
         initComponents();
     }
 
@@ -30,20 +30,18 @@ public class CadProfView extends javax.swing.JFrame {
         cpfLb = new javax.swing.JLabel();
         emailLb = new javax.swing.JLabel();
         celLb = new javax.swing.JLabel();
-        disciplinaLb = new javax.swing.JLabel();
-        formacaoLb = new javax.swing.JLabel();
+        escolaLb = new javax.swing.JLabel();
         nomeTf = new javax.swing.JTextField();
         cpfTf = new javax.swing.JTextField();
         emailTf = new javax.swing.JTextField();
         celTf = new javax.swing.JTextField();
-        disciplinaTf = new javax.swing.JTextField();
-        formacaoTf = new javax.swing.JTextField();
+        escolaTf = new javax.swing.JTextField();
         sairBt = new javax.swing.JButton();
         cadBt = new javax.swing.JButton();
         limpBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de professor");
+        setTitle("Cadastro de aluno");
 
         nomeLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         nomeLb.setText("Nome:");
@@ -57,11 +55,8 @@ public class CadProfView extends javax.swing.JFrame {
         celLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         celLb.setText("Celular:");
 
-        disciplinaLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        disciplinaLb.setText("Disciplina:");
-
-        formacaoLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
-        formacaoLb.setText("Formação:");
+        escolaLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
+        escolaLb.setText("Escola:");
 
         nomeTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,12 +67,6 @@ public class CadProfView extends javax.swing.JFrame {
         celTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 celTfActionPerformed(evt);
-            }
-        });
-
-        formacaoTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                formacaoTfActionPerformed(evt);
             }
         });
 
@@ -99,17 +88,14 @@ public class CadProfView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(disciplinaLb)
-                    .addComponent(formacaoLb)
+                    .addComponent(escolaLb)
                     .addComponent(nomeLb)
                     .addComponent(cpfLb)
                     .addComponent(emailLb)
                     .addComponent(celLb))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(disciplinaTf)
-                        .addComponent(formacaoTf))
+                    .addComponent(escolaTf)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nomeTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,13 +136,9 @@ public class CadProfView extends javax.swing.JFrame {
                     .addComponent(celTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(disciplinaLb)
-                    .addComponent(disciplinaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(formacaoLb)
-                    .addComponent(formacaoTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                    .addComponent(escolaLb)
+                    .addComponent(escolaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadBt)
                     .addComponent(limpBt))
@@ -175,10 +157,6 @@ public class CadProfView extends javax.swing.JFrame {
     private void celTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_celTfActionPerformed
-
-    private void formacaoTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formacaoTfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formacaoTfActionPerformed
 
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
         // TODO add your handling code here:
@@ -201,21 +179,23 @@ public class CadProfView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadProfView().setVisible(true);
+                new CadAluView().setVisible(true);
             }
         });
     }
@@ -226,12 +206,10 @@ public class CadProfView extends javax.swing.JFrame {
     private javax.swing.JTextField celTf;
     private javax.swing.JLabel cpfLb;
     private javax.swing.JTextField cpfTf;
-    private javax.swing.JLabel disciplinaLb;
-    private javax.swing.JTextField disciplinaTf;
     private javax.swing.JLabel emailLb;
     private javax.swing.JTextField emailTf;
-    private javax.swing.JLabel formacaoLb;
-    private javax.swing.JTextField formacaoTf;
+    private javax.swing.JLabel escolaLb;
+    private javax.swing.JTextField escolaTf;
     private javax.swing.JButton limpBt;
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;
