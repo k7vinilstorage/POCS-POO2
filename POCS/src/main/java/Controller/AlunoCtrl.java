@@ -122,7 +122,7 @@ public class AlunoCtrl {
         }
     }
     
-    //delete (falta testar)
+    //delete
     public void deleteTabela(String condicao){
         String delete = "DELETE FROM aluno WHERE Codigo = 1";
         
