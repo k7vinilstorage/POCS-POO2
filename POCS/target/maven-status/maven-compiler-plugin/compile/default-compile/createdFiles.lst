@@ -1,6 +1,7 @@
 View/ProfPageView$1.class
 View/ProfPageView$4.class
 View/LoginView$2.class
+View/AgendaView.class
 View/AluPageView$1.class
 View/LoginView.class
 View/LoginView$1.class
@@ -13,3 +14,4 @@ View/ProfPageView.class
 View/HistAulaView$1.class
 View/AluPageView$3.class
 View/ProfPageView$3.class
+View/DialogsView.class

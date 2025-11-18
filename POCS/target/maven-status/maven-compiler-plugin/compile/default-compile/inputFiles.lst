@@ -11,8 +11,12 @@
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Model/Pessoa.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Model/Professor.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Testes/Teste_CRUD.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/AgendaView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/AluPageView.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/CadAluView.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/CadProfView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/CoordPageView.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/DialogsView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/HistAulaView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/LoginView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/PesqAulasView.java
