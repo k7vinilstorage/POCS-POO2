@@ -4,6 +4,9 @@
  */
 package View;
 
+import Controller.AlunoCtrl;
+import Model.Aluno;
+
 /**
  *
  * @author joao
@@ -159,9 +162,27 @@ public class CadAluView extends javax.swing.JFrame {
     }//GEN-LAST:event_celTfActionPerformed
 
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
-        // TODO add your handling code here:
+        getAluno();
     }//GEN-LAST:event_cadBtActionPerformed
-
+    
+    private void getAluno(){
+    
+        Aluno aln = new Aluno();
+        aln.setNome(nomeTf.getText());
+        aln.setCpf(cpfTf.getText());
+        aln.setEmail(emailTf.getText());
+        aln.setCelular(celTf.getText());
+        aln.setEscola(escolaTf.getText());
+        
+        AlunoCtrl alnCtrl = AlunoCtrl.AlunoCtrlCreate();
+        
+        alnCtrl.inserirTabela(aln);
+    }
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */

@@ -1,7 +1,9 @@
 package Controller;
 
+import Model.Aluno;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -46,8 +48,11 @@ public class AlunoCtrl {
     
     public void criarTabela(){
         String tabela = "CREATE TABLE IF NOT EXISTS Aluno("
-                + "Codigo int primary key not null,"
+                + "Codigo text primary key not null,"
+                + "Cpf text"
                 + "Nome text,"
+                + "Celular text"
+                + "Idade int"
                 + "Desenvolvimento text,"
                 + "Escola text,"
                 + "Email text)";
@@ -70,23 +75,63 @@ public class AlunoCtrl {
         }
     }
     
-    public void inserirTabela(){
-        String aluno1 = "INSERT INTO aluno VALUES(1,'Arthur Jardim','Bom','artJard@gmail.com')";
-        String aluno2 = "INSERT INTO aluno VALUES(2,'Joao Alberto','Ótimo','joaoTore@gmail.com')";
-        String aluno3 = "INSERT INTO aluno VALUES(3,'Gabriel','Excelente','gabrielpinheiroferrari@gmail.com')";
-        
+    public String geraCodigo(){ 
+	//Select na tabela de aluno e checa se tem algum aluno, se não tiver ele vira o a0001, se tiver ele vai adicionando 
+	String busca= "SELECT Codigo FROM aluno ORDER BY Codigo DESC LIMIT 1"; 
+	try{ 
+		Class.forName(driver); //driver 
+		con = DriverManager.getConnection(url,user,senha); //abro conexão 
+		System.out.println("RSULTADO DA CONSULTA..."); 
+		st = con.createStatement(); 	
+		rs = st.executeQuery(busca); 
+
+		
+                String codAluno = rs.getString("Codigo");
+                if(codAluno == null){ 
+                    codAluno = "a0001";
+                    st.close(); 
+                    con.close(); 
+                    return(codAluno);
+                }else{
+                    String numero = codAluno.substring(1);
+                    int n = Integer.parseInt(numero) + 1;
+                    st.close(); 
+                    con.close(); 
+                    return String.format("a%04d", n);
+                }    
+
+	}catch(Exception e){ 
+		System.out.println("Falha na consulta de alunos..."); 
+		System.out.println(e); 
+	} 
+        return(null);//se der erro
+}
+    //alterado 21/11/25
+    public void inserirTabela(Aluno aln){
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Inserindo na Tabela...");
+            System.out.println("Inserindo na Tabela..."); //Vai continuar esses?
             
-            st = con.createStatement();
-            st.executeUpdate(aluno1);
-            st.executeUpdate(aluno2);
-            st.executeUpdate(aluno3);
+            String insertAln = "INSERT INTO Aluno VALUES(?,?,?,?,?,?,?,?)";
+            
+            PreparedStatement ps = con.prepareStatement(insertAln);
+            
+            String cod  = geraCodigo();
+            
+            ps.setString(1, cod);//codigo
+            ps.setString(2, aln.getCpf());//cpf
+            ps.setString(3, aln.getNome());//nome
+            ps.setString(4, aln.getCelular());//celular
+            ps.setInt(5, aln.getIdade());//idade
+            ps.setString(6, aln.getDesenvolvimento());//desenvolvimento
+            ps.setString(7, aln.getEscola());//escola
+            ps.setString(8, aln.getEmail());//email
+            
+            ps.executeUpdate();
             System.out.println("Alunos cadastrado com sucesso...");
             
-            st.close();
+            ps.close();
             con.close();
             
         }catch(Exception e){
@@ -107,7 +152,7 @@ public class AlunoCtrl {
             rs = st.executeQuery(busca);
             
             while(rs.next()){
-                System.out.println("Codigo: " + rs.getInt(1)); // 1 = primeira coluna
+                System.out.println("Codigo: " + rs.getString(1)); // 1 = primeira coluna
                 System.out.println("NOME: " + rs.getString(2));
                 System.out.println("DESEMPENHO: " + rs.getString(3));
                 System.out.println("EMAIL: " + rs.getString(4));
@@ -146,26 +191,26 @@ public class AlunoCtrl {
     
     //Sobrecargas
     //Sobrecarga Inserir
-    public void inserirTabela(String nome, String desempenho, String email){
-        String aluno = "INSERT INTO aluno VALUES(4," + nome + "," + desempenho + "," + email + ")";
-        
-        try{
-            Class.forName(driver);
-            con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Inserindo na Tabela...");
-            
-            st = con.createStatement();
-            st.executeUpdate(aluno);
-            System.out.println("Aluno cadastrado com sucesso...");
-            
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na inserçãode aluno...");
-            System.out.println(e);
-        }
-    }
+//    public void inserirTabela(String nome, String desempenho, String email){
+//        String aluno = "INSERT INTO aluno VALUES(4," + nome + "," + desempenho + "," + email + ")";
+//        
+//        try{
+//            Class.forName(driver);
+//            con = DriverManager.getConnection(url,user,senha);
+//            System.out.println("Inserindo na Tabela...");
+//            
+//            st = con.createStatement();
+//            st.executeUpdate(aluno);
+//            System.out.println("Aluno cadastrado com sucesso...");
+//            
+//            st.close();
+//            con.close();
+//            
+//        }catch(Exception e){
+//            System.out.println("Falha na inserçãode aluno...");
+//            System.out.println(e);
+//        }
+//    }
     
     //Sobrecarga de busca
     public void selectTabela(String coluna, int condicao){

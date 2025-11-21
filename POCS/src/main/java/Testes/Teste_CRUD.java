@@ -10,9 +10,9 @@ public class Teste_CRUD {
         ProfessorCtrl professor = ProfessorCtrl.ProfessorCtrl();
         
         aluno.criarTabela(); //funciona
-        aluno.inserirTabela(); //funciona
+        //aluno.inserirTabela(); //funciona
         aluno.selectTabela(); //funciona
-        aluno.inserirTabela("'Lusia'","'Extraordinário'","'lusia@gmail.com'");
+        //aluno.inserirTabela("'Lusia'","'Extraordinário'","'lusia@gmail.com'");
         aluno.selectTabela();
         aluno.selectTabela("Nome","'Gabriel'"); // funciona (tem que colocar texto entre '' dentro das "")
         aluno.deleteTabela("Nome");
