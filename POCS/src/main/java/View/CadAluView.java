@@ -83,6 +83,11 @@ public class CadAluView extends javax.swing.JFrame {
         });
 
         limpBt.setText("Limpar");
+        limpBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpBtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,6 +169,10 @@ public class CadAluView extends javax.swing.JFrame {
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
         getAluno();
     }//GEN-LAST:event_cadBtActionPerformed
+
+    private void limpBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtActionPerformed
+        limpaTf();
+    }//GEN-LAST:event_limpBtActionPerformed
     
     private void getAluno(){
     
@@ -177,6 +186,14 @@ public class CadAluView extends javax.swing.JFrame {
         AlunoCtrl alnCtrl = AlunoCtrl.AlunoCtrlCreate();
         
         alnCtrl.inserirTabela(aln);
+    }
+    
+    private void limpaTf(){
+        nomeTf.setText("");
+        cpfTf.setText("");
+        emailTf.setText("");
+        celTf.setText("");
+        escolaTf.setText("");
     }
     
     
