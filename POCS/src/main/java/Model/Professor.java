@@ -4,18 +4,20 @@ public class Professor extends Pessoa{
     String formacao;
     String disciplina;
     Horario horario[];
-    int pCod;
+    String pCod;
 
     //Construtor
     public Professor() {
+        super();
         formacao = "";
         disciplina = "";
         horario = new Horario[85];
-        pCod = 0;
+        pCod = "";
     }
     
     //Construtor - Sobrecarga
-    public Professor(String formacao, String disciplina, Horario[] horario, int tamanho, int pCod) {
+    public Professor(String cpf, String nome, String celular, String email, int idade, String formacao, String disciplina, Horario[] horario, String pCod) {
+        super(cpf, nome, celular, email, idade);
         this.formacao = formacao;
         this.disciplina = disciplina;
         this.horario = horario;
@@ -35,7 +37,7 @@ public class Professor extends Pessoa{
         return horario;
     }
     
-    public int getpCod() {
+    public String getpCod() {
         return pCod;
     }
 
@@ -52,7 +54,7 @@ public class Professor extends Pessoa{
         this.disciplina = disciplina;
     }
 
-    public void setpCod(int pCod) {
+    public void setpCod(String pCod) {
         this.pCod = pCod;
     }
 }

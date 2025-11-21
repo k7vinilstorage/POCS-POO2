@@ -213,80 +213,80 @@ public class AlunoCtrl {
 //    }
     
     //Sobrecarga de busca
-    public void selectTabela(String coluna, int condicao){
-        String busca= "SELECT * FROM aluno WHERE" + coluna + "=" + condicao+ ";"; // ex: id = 1
-        
-        try{
-            Class.forName(driver); //driver
-            con = DriverManager.getConnection(url,user,senha); //abro conexão
-            System.out.println("RSULTADO DA CONSULTA...");
-            st = con.createStatement();
-            rs = st.executeQuery(busca);
-            
-            while(rs.next()){
-                System.out.println("CODIGO: " + rs.getInt(1)); // 1 = primeira coluna
-                System.out.println("NOME: " + rs.getString(2));
-                System.out.println("DESEMPENHO: " + rs.getString(3));
-                System.out.println("EMAIL: " + rs.getString(4));
-                    
-            }
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na consulta de aluno...");
-            System.out.println(e);
-        }
-    }
+//    public void selectTabela(String coluna, int condicao){
+//        String busca= "SELECT * FROM aluno WHERE" + coluna + "=" + condicao+ ";"; // ex: id = 1
+//        
+//        try{
+//            Class.forName(driver); //driver
+//            con = DriverManager.getConnection(url,user,senha); //abro conexão
+//            System.out.println("RSULTADO DA CONSULTA...");
+//            st = con.createStatement();
+//            rs = st.executeQuery(busca);
+//            
+//            while(rs.next()){
+//                System.out.println("CODIGO: " + rs.getInt(1)); // 1 = primeira coluna
+//                System.out.println("NOME: " + rs.getString(2));
+//                System.out.println("DESEMPENHO: " + rs.getString(3));
+//                System.out.println("EMAIL: " + rs.getString(4));
+//                    
+//            }
+//            st.close();
+//            con.close();
+//            
+//        }catch(Exception e){
+//            System.out.println("Falha na consulta de aluno...");
+//            System.out.println(e);
+//        }
+//    }
     
-    public void selectTabela(String coluna, String condicao){
-        String busca = "SELECT * FROM aluno WHERE " + coluna + " = " + condicao; // ex: Codigo = 1
-        
-        try{
-            Class.forName(driver); //driver
-            con = DriverManager.getConnection(url,user,senha); //abro conexão
-            System.out.println("RESULTADO DA CONSULTA...");
-            st = con.createStatement();
-            rs = st.executeQuery(busca);
-            
-            while(rs.next()){
-                System.out.println("CODIGO: " + rs.getInt(1)); // 1 = primeira coluna
-                System.out.println("NOME: " + rs.getString(2));
-                System.out.println("DESEMPENHO: " + rs.getString(3));
-                System.out.println("EMAIL: " + rs.getString(4));
-                    
-            }
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na consulta de alunos...");
-            System.out.println(e);
-        }
-    }
+//    public void selectTabela(String coluna, String condicao){
+//        String busca = "SELECT * FROM aluno WHERE " + coluna + " = " + condicao; // ex: Codigo = 1
+//        
+//        try{
+//            Class.forName(driver); //driver
+//            con = DriverManager.getConnection(url,user,senha); //abro conexão
+//            System.out.println("RESULTADO DA CONSULTA...");
+//            st = con.createStatement();
+//            rs = st.executeQuery(busca);
+//            
+//            while(rs.next()){
+//                System.out.println("CODIGO: " + rs.getInt(1)); // 1 = primeira coluna
+//                System.out.println("NOME: " + rs.getString(2));
+//                System.out.println("DESEMPENHO: " + rs.getString(3));
+//                System.out.println("EMAIL: " + rs.getString(4));
+//                    
+//            }
+//            st.close();
+//            con.close();
+//            
+//        }catch(Exception e){
+//            System.out.println("Falha na consulta de alunos...");
+//            System.out.println(e);
+//        }
+//    }
     
     //Sobrecarga de busca
-    public void selectTabela(String escolha, String coluna, String condicao){
-        String busca= "SELECT" + escolha + "FROM aluno WHERE" + coluna + "=" + condicao+ ";"; // ex: nome; id = 1
-        
-        try{
-            Class.forName(driver); //driver
-            con = DriverManager.getConnection(url,user,senha); //abro conexão
-            System.out.println("RSULTADO DA CONSULTA...");
-            st = con.createStatement();
-            rs = st.executeQuery(busca);
-            
-            while(rs.next()){
-                System.out.println(escolha + rs.getString(escolha));
-                    
-            }
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na inserçãode alunos...");
-            System.out.println(e);
-        }
-    }
+//    public void selectTabela(String escolha, String coluna, String condicao){
+//        String busca= "SELECT" + escolha + "FROM aluno WHERE" + coluna + "=" + condicao+ ";"; // ex: nome; id = 1
+//        
+//        try{
+//            Class.forName(driver); //driver
+//            con = DriverManager.getConnection(url,user,senha); //abro conexão
+//            System.out.println("RSULTADO DA CONSULTA...");
+//            st = con.createStatement();
+//            rs = st.executeQuery(busca);
+//            
+//            while(rs.next()){
+//                System.out.println(escolha + rs.getString(escolha));
+//                    
+//            }
+//            st.close();
+//            con.close();
+//            
+//        }catch(Exception e){
+//            System.out.println("Falha na inserçãode alunos...");
+//            System.out.println(e);
+//        }
+//    }
     
 }

@@ -3,18 +3,18 @@ package Model;
 public class Aluno extends Pessoa{
     String escola;
     String desenvolvimento;
-    int aCod;
+    String aCod;
 
     //Construtor
     public Aluno() {
         super();
         escola = "";
         desenvolvimento = "";
-        aCod = 0;
+        aCod = "";
     }
     
     //Construtor - Sobrecarga
-    public Aluno(String cpf, String nome, String celular, String email, int idade, String escola, String desenvolvimento, int aCod) {
+    public Aluno(String cpf, String nome, String celular, String email, int idade, String escola, String desenvolvimento, String aCod) {
         super(cpf, nome, celular, email, idade);
         this.escola = escola;
         this.desenvolvimento = desenvolvimento;
@@ -29,7 +29,7 @@ public class Aluno extends Pessoa{
         return desenvolvimento;
     }
 
-    public int getaCod() {
+    public String getaCod() {
         return aCod;
     }
 
@@ -41,7 +41,7 @@ public class Aluno extends Pessoa{
         this.desenvolvimento = desenvolvimento;
     }
 
-    public void setaCod(int aCod) {
+    public void setaCod(String aCod) {
         this.aCod = aCod;
     }
 }

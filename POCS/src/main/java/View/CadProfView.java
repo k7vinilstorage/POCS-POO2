@@ -4,6 +4,9 @@
  */
 package View;
 
+import Controller.ProfessorCtrl;
+import Model.Professor;
+
 /**
  *
  * @author joao
@@ -181,9 +184,25 @@ public class CadProfView extends javax.swing.JFrame {
     }//GEN-LAST:event_formacaoTfActionPerformed
 
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
-        // TODO add your handling code here:
+        getProfessor();
     }//GEN-LAST:event_cadBtActionPerformed
 
+    
+    private void getProfessor(){
+    
+        Professor prof = new Professor();
+        prof.setNome(nomeTf.getText());//nome
+        prof.setCpf(cpfTf.getText());//cpf
+        prof.setEmail(emailTf.getText());//email
+        prof.setCelular(celTf.getText());//celular
+        prof.setDisciplina(disciplinaTf.getText());//disciplina
+        prof.setFormacao(formacaoTf.getText());//formacao
+    
+        ProfessorCtrl profCtrl = ProfessorCtrl.ProfessorCtrlCreate();
+        
+        profCtrl.inserirTabela(prof);
+    
+    }
     /**
      * @param args the command line arguments
      */

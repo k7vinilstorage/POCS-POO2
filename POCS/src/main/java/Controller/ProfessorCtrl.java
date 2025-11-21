@@ -1,5 +1,6 @@
 package Controller;
 import Model.Horario;
+import Model.Professor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,7 +25,7 @@ public class ProfessorCtrl {
     static ResultSet rs = null;
 
     //Singleton
-    public static ProfessorCtrl ProfessorCtrl(){ 
+    public static ProfessorCtrl ProfessorCtrlCreate(){ 
         if(professorUnic == null){
             professorUnic = new ProfessorCtrl();
         }
@@ -73,10 +74,7 @@ public class ProfessorCtrl {
         }
     }
     
-    public void inserirTabela(){
-        String professor1 = "INSERT INTO Professor VALUES(1,'Lusia Pinhero','Português','2M3','lusia@gmail.com')";
-        String professor2 = "INSERT INTO Professor VALUES(2,'Adriana Beltrame','Geografia','3M4','Adriana@gmail.com')";
-        String professor3 = "INSERT INTO Professor VALUES(3,'Rita Pegoraro','Matemática','4T1','RitaPeg@gmail.com')";
+    public void inserirTabela(Professor prof){
         
         try{
             Class.forName(driver);
@@ -84,9 +82,6 @@ public class ProfessorCtrl {
             System.out.println("Inserindo PROFESSOR na Tabela...");
             
             st = con.createStatement();
-            st.executeUpdate(professor1);
-            st.executeUpdate(professor2);
-            st.executeUpdate(professor3);
             System.out.println("Professor cadastrado com sucesso...");
             
             st.close();
