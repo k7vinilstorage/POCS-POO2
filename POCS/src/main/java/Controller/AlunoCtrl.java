@@ -77,7 +77,7 @@ public class AlunoCtrl {
     
     public String geraCodigo(){ 
 	//Select na tabela de aluno e checa se tem algum aluno, se não tiver ele vira o a0001, se tiver ele vai adicionando 
-	String busca= "SELECT Codigo FROM aluno ORDER BY Codigo DESC LIMIT 1"; 
+	String busca= "SELECT Codigo FROM Aluno ORDER BY Codigo DESC LIMIT 1"; 
 	try{ 
 		Class.forName(driver); //driver 
 		con = DriverManager.getConnection(url,user,senha); //abro conexão 
@@ -105,7 +105,7 @@ public class AlunoCtrl {
 		System.out.println(e); 
 	} 
         return(null);//se der erro
-}
+    }
     //alterado 21/11/25
     public void inserirTabela(Aluno aln){
         try{

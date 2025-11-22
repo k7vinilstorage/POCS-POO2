@@ -94,6 +94,11 @@ public class CadProfView extends javax.swing.JFrame {
         });
 
         limpBt.setText("Limpar");
+        limpBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpBtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,6 +192,10 @@ public class CadProfView extends javax.swing.JFrame {
         getProfessor();
     }//GEN-LAST:event_cadBtActionPerformed
 
+    private void limpBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtActionPerformed
+        limpaTf();
+    }//GEN-LAST:event_limpBtActionPerformed
+
     
     private void getProfessor(){
     
@@ -203,6 +212,17 @@ public class CadProfView extends javax.swing.JFrame {
         profCtrl.inserirTabela(prof);
     
     }
+    
+    private void limpaTf(){
+        nomeTf.setText("");
+        cpfTf.setText("");
+        emailTf.setText("");
+        celTf.setText("");
+        disciplinaTf.setText("");
+        formacaoTf.setText("");
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

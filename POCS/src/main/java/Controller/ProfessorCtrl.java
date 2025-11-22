@@ -4,6 +4,7 @@ import Model.Professor;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -50,8 +51,12 @@ public class ProfessorCtrl {
     
     public void criarTabela(){
         String tabela = "CREATE TABLE IF NOT EXISTS Professor("
-                + "Codigo int primary key not null,"
+                + "Codigo text primary key not null,"
+                + "Cpf text"
                 + "Nome text,"
+                + "Celular text"
+                + "Idade int"
+                + "Formacao text"
                 + "Disciplina text,"
                 + "Horario text,"
                 + "Email text)";
@@ -74,6 +79,37 @@ public class ProfessorCtrl {
         }
     }
     
+        public String geraCodigo(){
+	String busca= "SELECT Codigo FROM Professor ORDER BY Codigo DESC LIMIT 1"; 
+	try{ 
+		Class.forName(driver); //driver 
+		con = DriverManager.getConnection(url,user,senha); //abro conexão 
+		System.out.println("RSULTADO DA CONSULTA..."); 
+		st = con.createStatement(); 	
+		rs = st.executeQuery(busca); 
+
+		
+                String codProf = rs.getString("Codigo");
+                if(codProf == null){ 
+                    codProf = "p0001";
+                    st.close(); 
+                    con.close(); 
+                    return(codProf);
+                }else{
+                    String numero = codProf.substring(1);
+                    int n = Integer.parseInt(numero) + 1;
+                    st.close(); 
+                    con.close(); 
+                    return String.format("p%04d", n);
+                }    
+
+	}catch(Exception e){ 
+		System.out.println("Falha na consulta de alunos..."); 
+		System.out.println(e); 
+	} 
+        return(null);//se der erro
+    }
+    
     public void inserirTabela(Professor prof){
         
         try{
@@ -81,10 +117,26 @@ public class ProfessorCtrl {
             con = DriverManager.getConnection(url,user,senha);
             System.out.println("Inserindo PROFESSOR na Tabela...");
             
-            st = con.createStatement();
+            String insertProf = "INSERT INTO Professor VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            PreparedStatement ps = con.prepareStatement(insertProf);
+            
+            String cod = geraCodigo();
+            
+            ps.setString(1, cod);//codigo
+            ps.setString(2, prof.getCpf());//cpf
+            ps.setString(3, prof.getNome());//nome
+            ps.setString(4, prof.getCelular());//celular
+            ps.setInt(5, prof.getIdade());//idade
+            ps.setString(6, prof.getFormacao());//formacao
+            ps.setString(7, prof.getDisciplina());//disciplina
+            //ps.setString(8, prof.getHorario());//horario tem que ver como vai fazer isso ainda
+            ps.setString(9,prof.getEmail());
+            
+            ps.executeUpdate();
             System.out.println("Professor cadastrado com sucesso...");
             
-            st.close();
+            ps.close();
             con.close();
             
         }catch(Exception e){
