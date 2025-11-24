@@ -48,11 +48,11 @@ public class AlunoCtrl {
     
     public void criarTabela(){
         String tabela = "CREATE TABLE IF NOT EXISTS Aluno("
-                + "Codigo text primary key not null,"
-                + "Cpf text"
+                + "Codigo VARCHAR(20) primary key not null,"
+                + "Cpf text,"
                 + "Nome text,"
-                + "Celular text"
-                + "Idade int"
+                + "Celular text,"
+                + "Idade int,"
                 + "Desenvolvimento text,"
                 + "Escola text,"
                 + "Email text)";
@@ -76,38 +76,42 @@ public class AlunoCtrl {
     }
     
     public String geraCodigo(){ 
-	//Select na tabela de aluno e checa se tem algum aluno, se não tiver ele vira o a0001, se tiver ele vai adicionando 
-	String busca= "SELECT Codigo FROM Aluno ORDER BY Codigo DESC LIMIT 1"; 
-	try{ 
-		Class.forName(driver); //driver 
-		con = DriverManager.getConnection(url,user,senha); //abro conexão 
-		System.out.println("RSULTADO DA CONSULTA..."); 
-		st = con.createStatement(); 	
-		rs = st.executeQuery(busca); 
+        String busca = "SELECT Codigo FROM Aluno ORDER BY Codigo DESC LIMIT 1"; 
 
-		
-                String codAluno = rs.getString("Codigo");
-                if(codAluno == null){ 
-                    codAluno = "a0001";
-                    st.close(); 
-                    con.close(); 
-                    return(codAluno);
-                }else{
-                    String numero = codAluno.substring(1);
-                    int n = Integer.parseInt(numero) + 1;
-                    st.close(); 
-                    con.close(); 
-                    return String.format("a%04d", n);
-                }    
+        try { 
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            st = con.createStatement();
+            rs = st.executeQuery(busca);
 
-	}catch(Exception e){ 
-		System.out.println("Falha na consulta de alunos..."); 
-		System.out.println(e); 
-	} 
-        return(null);//se der erro
+            // 1) Verifica se há algum resultado
+            if (!rs.next()) {
+                return "a0001"; // Nenhum aluno existe
+            }
+
+            // 2) Recupera o código existente
+            String codAluno = rs.getString("Codigo");
+
+            // 3) Gera próximo código
+            String numero = codAluno.substring(1);  // remove 'a'
+            int n = Integer.parseInt(numero) + 1;
+
+            return String.format("a%04d", n);
+
+        } catch (Exception e) { 
+            e.printStackTrace();
+        } finally {
+            try { if (rs != null) rs.close(); } catch(Exception e){}
+            try { if (st != null) st.close(); } catch(Exception e){}
+            try { if (con != null) con.close(); } catch(Exception e){}
+        }
+
+        return null;
     }
     //alterado 21/11/25
     public void inserirTabela(Aluno aln){
+        
+        criarTabela();
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
