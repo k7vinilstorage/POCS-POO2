@@ -205,25 +205,25 @@ public class CadAluView extends javax.swing.JFrame {
         
         AlunoCtrl alnCtrl = AlunoCtrl.AlunoCtrlCreate();
         
-        //if(){
-        //    if(){
+        if(verifica.validarCpf(cpfTf.getText()) || verifica.verificarEmail(emailTf.getText())){
+            if(verifica.verificarCpfDuplicado(cpfTf.getText())){
                 alnCtrl.inserirTabela(aln);
-        //    }else{
-        //       JOptionPane.showMessageDialog(
-        //            null,
-        //            "CPF ja cadastrado",
-        //            "INFORMAÇÃO",
-        //            JOptionPane.INFORMATION_MESSAGE
-        //        ); 
-        //    }            
-        //}else{
-        //    JOptionPane.showMessageDialog(
-        //            null,
-        //            "Email ou CPF incorretos",
-        //            "INFORMAÇÃO",
-        //            JOptionPane.INFORMATION_MESSAGE
-        //    );
-        //}
+            }else{
+               JOptionPane.showMessageDialog(
+                    null,
+                    "CPF ja cadastrado",
+                    "INFORMAÇÃO",
+                    JOptionPane.INFORMATION_MESSAGE
+                ); 
+            }            
+        }else{
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Email ou CPF incorretos",
+                    "INFORMAÇÃO",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        }
     }
     
     private void limpaTf(){

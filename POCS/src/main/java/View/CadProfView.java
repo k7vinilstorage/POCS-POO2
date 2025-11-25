@@ -4,6 +4,8 @@
  */
 package View;
 
+import Utils.Utils;
+import javax.swing.JOptionPane;
 import Controller.ProfessorCtrl;
 import Model.Professor;
 
@@ -217,9 +219,8 @@ public class CadProfView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
-    
     private void getProfessor(){
-    
+        Utils verifica = Utils.createUtils();
         Professor prof = new Professor();
         prof.setNome(nomeTf.getText());//nome
         prof.setCpf(cpfTf.getText());//cpf
@@ -230,7 +231,25 @@ public class CadProfView extends javax.swing.JFrame {
     
         ProfessorCtrl profCtrl = ProfessorCtrl.ProfessorCtrlCreate();
         
-        profCtrl.inserirTabela(prof);
+        if(verifica.validarCpf(cpfTf.getText()) || verifica.verificarEmail(emailTf.getText())){
+          if(verifica.verificarCpfDuplicado(cpfTf.getText())){
+                profCtrl.inserirTabela(prof);
+            }else{
+               JOptionPane.showMessageDialog(
+                    null,
+                    "CPF ja cadastrado",
+                    "INFORMAÇÃO",
+                    JOptionPane.INFORMATION_MESSAGE
+                ); 
+            }            
+        }else{
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Email ou CPF incorretos",
+                    "INFORMAÇÃO",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        }
     
     }
     
