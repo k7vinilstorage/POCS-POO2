@@ -119,7 +119,7 @@ public class AgendaCtrl {
         }
     }
     
-    public boolean selectTabela(Professor p, int rowH, int colD) {
+    public boolean verificaHorarioExistente(Professor p, int rowH, int colD) {
         boolean result = false;
         
         try {

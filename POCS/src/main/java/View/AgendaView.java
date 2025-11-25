@@ -120,14 +120,17 @@ public class AgendaView extends javax.swing.JFrame {
         rowH = agendaTb.getSelectedRow();
         colD = agendaTb.getSelectedColumn() - 3;
         
-        if(AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.createLoginCtrl().getProfessorAtual(), rowH, colD)) {
+        if(AgendaCtrl.createAgendaCtrl().verificaHorarioExistente(LoginCtrl.createLoginCtrl().getProfessorAtual(), rowH, colD)) {
             if(DialogsView.createDialogs().infoOpDialog("Gostaria de adicionar o horário?", "Adicionar Horário") == 0) {
                 adicionarHor();
                 updateTable();
             }
         }
         else {
-            
+            if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
+                removerHor();
+                updateTable();
+            }
         }
         
         
@@ -169,6 +172,10 @@ public class AgendaView extends javax.swing.JFrame {
         else {
             DialogsView.createDialogs().errorDialog("Erro ao adicionar horário", "Erro");
         }
+    }
+    
+    public void removerHor() {
+        
     }
     
     public void updateTable() {
