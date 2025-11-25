@@ -8,6 +8,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver Agenda"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agendaMenuActionPerformed"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="aulasDadasMenu">
           <Properties>

@@ -128,6 +128,11 @@ public class ProfPageView extends javax.swing.JFrame {
         });
 
         agendaMenu.setText("Ver Agenda");
+        agendaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agendaMenuActionPerformed(evt);
+            }
+        });
         profMenuBar.add(agendaMenu);
 
         aulasDadasMenu.setText("Ver aulas dadas");
@@ -229,6 +234,10 @@ public class ProfPageView extends javax.swing.JFrame {
     private void userTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userTfActionPerformed
+
+    private void agendaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendaMenuActionPerformed
+        AgendaView.createAgendaView().setVisible(true);
+    }//GEN-LAST:event_agendaMenuActionPerformed
 
     private void preencherDados() {
         userTf.setText(login.getProfessorAtual().getpCod());
