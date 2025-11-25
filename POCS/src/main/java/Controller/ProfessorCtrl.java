@@ -14,7 +14,6 @@ public class ProfessorCtrl {
     static ProfessorCtrl professorUnic = null;
     String formacao;
     String disciplina;
-    Horario horario[];
     int pCod;
     
     static Connection con = null;
@@ -37,7 +36,6 @@ public class ProfessorCtrl {
     private ProfessorCtrl() {
         formacao = "";
         disciplina = "";
-        horario = null;
         pCod = 0;
     }
     
@@ -45,7 +43,6 @@ public class ProfessorCtrl {
     public ProfessorCtrl(String formacao, String disciplina, Horario horario[], int pCod) {
         this.formacao = formacao;
         this.disciplina = disciplina;
-        this.horario = horario;
         this.pCod = pCod;
     }
     
@@ -58,7 +55,6 @@ public class ProfessorCtrl {
                 + "Idade int,"
                 + "Formacao text,"
                 + "Disciplina text,"
-                + "Horario text,"
                 + "Email text)";
         
         try{
@@ -121,7 +117,7 @@ public class ProfessorCtrl {
             con = DriverManager.getConnection(url,user,senha);
             System.out.println("Inserindo PROFESSOR na Tabela...");
             
-            String insertProf = "INSERT INTO Professor VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertProf = "INSERT INTO Professor VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             
             PreparedStatement ps = con.prepareStatement(insertProf);
             
@@ -134,7 +130,6 @@ public class ProfessorCtrl {
             ps.setInt(5, prof.getIdade());//idade
             ps.setString(6, prof.getFormacao());//formacao
             ps.setString(7, prof.getDisciplina());//disciplina
-            ps.setString(8, "2M3");//horario tem que ver como vai fazer isso ainda
             ps.setString(9,prof.getEmail());
             
             ps.executeUpdate();
@@ -164,7 +159,6 @@ public class ProfessorCtrl {
                 System.out.println("CODIGO " + rs.getInt(1)); // 1 = primeira coluna
                 System.out.println("NOME: " + rs.getString(2));
                 System.out.println("DISCIPLINA: " + rs.getString(3));
-                System.out.println("HORARIO: " + rs.getString(4));
                 System.out.println("EMAIL: " + rs.getString(5));
                     
             }
@@ -230,7 +224,7 @@ public class ProfessorCtrl {
     //Sobrecargas
     // SOBRECARGA Inserir na Tabela
     public void inserirTabela(String nome, String disciplina, String horario, String email){
-        String aluno = "INSERT INTO Professor VALUES(4," + nome + "," + disciplina + "," + horario + "," + email + ")";
+        String aluno = "INSERT INTO Professor VALUES(4," + nome + "," + disciplina + "," + email + ")";
         
         try{
             Class.forName(driver);
