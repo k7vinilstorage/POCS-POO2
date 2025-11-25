@@ -145,15 +145,18 @@ public class Utils {
         switch(tipo){
             case 1: 
                 a1 = alunoCtrl.selectTabela("Codigo", id);
+                if(a1 == null){
+                    return 0;
+                }
                 break;
             case 2:
                 p1 = professorCtrl.selectTabela("Codigo", id);
+                if(p1 == null){
+                    return 0;
+                }
                 break;
         }
         
-        if(a1 == null){
-            return 0;
-        }
         
         return 1;
     }
@@ -165,17 +168,18 @@ public class Utils {
         switch(tipo){
             case 1: 
                 a1 = alunoCtrl.selectTabela("Codigo", id);
+                if(a1.getSenha().equals(senha)){
+                    return 1;
+                }
                 break;
             case 2:
                 p1 = professorCtrl.selectTabela("Codigo", id);
+                if(p1.getSenha().equals(senha)){
+                    return 1;
+                }
                 break;
         }
-        
-        if(a1.getSenha().equals(senha)){
-            return 1;
-        }
-        
-        
+                
         return 0;
     }
 }

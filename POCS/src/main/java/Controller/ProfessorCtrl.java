@@ -174,31 +174,40 @@ public class ProfessorCtrl {
     }
     
     public Professor selectTabela(String coluna, String condicao){
-        String busca= "SELECT * FROM Professor WHERE " + coluna + " = " + condicao;
-        Professor p1 = null;
+        Professor p1 = new Professor();
+        Professor profReturn = null;
+        try {
+                Class.forName(driver);
+                con = DriverManager.getConnection(url, user, senha);
+                String findCpf = "SELECT * FROM Professor WHERE " + coluna + " = ?";
+                PreparedStatement ps = con.prepareStatement(findCpf);
+                ps.setString(1, condicao);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()) {
+                    profReturn = p1;
+                
+                    p1.setpCod(rs.getString(1));
+                    p1.setCpf(rs.getString(2));
+                    p1.setSenha(rs.getString(3));
+                    p1.setNome(rs.getString(4));
+                    p1.setCelular(rs.getString(5));
+                    p1.setIdade(rs.getInt(6));
+                    p1.setFormacao(rs.getString(7));
+                    p1.setDisciplina(rs.getString(8));
+                    p1.setEmail(rs.getString(9));
+                }
+                
+                
+                rs.close();
+                ps.close();
+                con.close();
+            } 
+            catch (Exception e) {
+                System.out.println(e);
+            }
         
-        try{
-            Class.forName(driver); //driver
-            con = DriverManager.getConnection(url,user,senha); //abro conexão
-            System.out.println("RSULTADO DA CONSULTA...");
-            st = con.createStatement();
-            rs = st.executeQuery(busca);
-            
-           
-            p1.setpCod(rs.getString(1));// 1 = primeira coluna
-            p1.setNome(rs.getString(2));
-            p1.setDisciplina(rs.getString(3));
-            p1.setEmail(rs.getString(5));
-              
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na consulta de alunos...");
-            System.out.println(e);
-        }
-        
-        return p1;
+        return profReturn;
     }
     
     //Deletar da Tabela

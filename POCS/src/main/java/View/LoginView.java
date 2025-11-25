@@ -155,17 +155,20 @@ public class LoginView extends javax.swing.JFrame {
         
         if(existencia == 1){
             verificaSenha = funcoes.verificaSenha(tipo, userTf.getText(), senhaTf.getText());
+            if(verificaSenha == 0) {
+                aviso.errorDialog("Senha incorreta", "Aviso");
+            }
         }else{
-            aviso.errorDialog("Usuário não existe no Banco de Dados", "AvISO");
+            aviso.errorDialog("Usuário não existe no Banco de Dados", "Aviso");
         }
         
         if(verificaSenha == 1 && tipo == 1){
             LoginCtrl.setAlunoAtual(alunoCtrl.selectTabela("Codigo", userTf.getText()));
             AluPageView.geraAluPageView().setVisible(true);
             dispose();
+            
         }else if(verificaSenha == 1 && tipo == 2){
             LoginCtrl.setProfessorAtual(professorCtrl.selectTabela("Codigo", userTf.getText()));
-            
             ProfPageView.geraProfPageView().setVisible(true);
             dispose();
         }
