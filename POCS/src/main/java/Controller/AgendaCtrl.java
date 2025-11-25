@@ -107,11 +107,6 @@ public class AgendaCtrl {
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-//                System.out.println("Id: " + rs.getString(1));
-//                System.out.println("Pcod: " + rs.getString(2));
-//                System.out.println("DiaS: " + rs.getInt(3));
-//                System.out.println("DiaHorario: " + rs.getInt(4));
-//                System.out.println("Status: " + rs.getString(5));
                   AgendaView.createAgendaView().preencherTabela(rs.getInt(4), rs.getInt(3));
             }
             

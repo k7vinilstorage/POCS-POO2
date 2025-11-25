@@ -30,8 +30,7 @@ public class AgendaView extends javax.swing.JFrame {
     private AgendaView() {
         initComponents();
         carregaHor();
-        AgendaCtrl.createAgendaCtrl().criarTabela();
-        updateTable();
+        //AgendaCtrl.createAgendaCtrl().criarTabela();
     }
 
     public static AgendaView createAgendaView() {
@@ -59,7 +58,7 @@ public class AgendaView extends javax.swing.JFrame {
         desmarHoBt = new javax.swing.JButton();
         voltarBt = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         agendaTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,7 +188,7 @@ public class AgendaView extends javax.swing.JFrame {
         }
     }
     
-    public void updateTable() {
+    public static void updateTable() {
         AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.createLoginCtrl().getProfessorAtual());
     }
     
@@ -222,6 +221,7 @@ public class AgendaView extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new AgendaView().setVisible(true));
+        updateTable();
         
         
     }
