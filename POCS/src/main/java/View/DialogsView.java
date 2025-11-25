@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class DialogsView {
     
-        private static DialogsView dialogs;
+    private static DialogsView dialogs;
     
     public static DialogsView createDialogs() {
         if(dialogs == null) {
