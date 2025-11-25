@@ -21,14 +21,13 @@ public class ProfPageView extends javax.swing.JFrame {
     private ProfPageView() {
         initComponents();
         setLocationRelativeTo(null);
-        preencherDados();
     }
     
     public static ProfPageView geraProfPageView(){
         if(profPageViewUnic == null){
             profPageViewUnic = new ProfPageView();
         }
-        
+        profPageViewUnic.preencherDados();
         return profPageViewUnic;
     }
     
@@ -256,6 +255,8 @@ public class ProfPageView extends javax.swing.JFrame {
         celTf.setText(login.getProfessorAtual().getCelular());
         disciplinaTf.setText(login.getProfessorAtual().getDisciplina());
         formacaoTf.setText(login.getProfessorAtual().getFormacao());
+        
+        System.out.println(login.getProfessorAtual().getpCod());
     }
     
     /**

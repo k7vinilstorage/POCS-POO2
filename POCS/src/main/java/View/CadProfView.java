@@ -219,7 +219,9 @@ public class CadProfView extends javax.swing.JFrame {
     }//GEN-LAST:event_formacaoTfActionPerformed
 
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
-        getProfessor();
+        if(getProfessor()){
+            limpaTf();
+        }
     }//GEN-LAST:event_cadBtActionPerformed
 
     private void limpBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtActionPerformed
@@ -237,7 +239,7 @@ public class CadProfView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaTfActionPerformed
 
-    private void getProfessor(){
+    private boolean getProfessor(){
         Utils verifica = Utils.createUtils();
         Professor prof = new Professor();
         prof.setNome(nomeTf.getText());//nome
@@ -253,6 +255,8 @@ public class CadProfView extends javax.swing.JFrame {
         if(verifica.validarCpf(cpfTf.getText()) || verifica.verificarEmail(emailTf.getText())){
           if(verifica.verificarCpfDuplicado(cpfTf.getText())){
                 profCtrl.inserirTabela(prof);
+                DialogsView.createDialogs().infoDialog("Professor cadastrado com sucesso!", "CADASTRO");
+                return true;
             }else{
                JOptionPane.showMessageDialog(
                     null,
@@ -260,6 +264,7 @@ public class CadProfView extends javax.swing.JFrame {
                     "INFORMAÇÃO",
                     JOptionPane.INFORMATION_MESSAGE
                 ); 
+               return false;
             }            
         }else{
             JOptionPane.showMessageDialog(
@@ -268,12 +273,14 @@ public class CadProfView extends javax.swing.JFrame {
                     "INFORMAÇÃO",
                     JOptionPane.INFORMATION_MESSAGE
             );
+            return false;
         }
     
     }
     
     private void limpaTf(){
         nomeTf.setText("");
+        senhaTf.setText("");
         cpfTf.setText("");
         emailTf.setText("");
         celTf.setText("");

@@ -201,7 +201,9 @@ public class CadAluView extends javax.swing.JFrame {
     }//GEN-LAST:event_celTfActionPerformed
 
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
-        getAluno();
+        if(getAluno()){
+            limpaTf();     
+        }
     }//GEN-LAST:event_cadBtActionPerformed
 
     private void limpBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtActionPerformed
@@ -219,7 +221,7 @@ public class CadAluView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaTfActionPerformed
     
-    private void getAluno(){
+    private boolean getAluno(){
         Utils verifica = Utils.createUtils();
         Aluno aln = new Aluno();
         aln.setNome(nomeTf.getText());
@@ -236,6 +238,8 @@ public class CadAluView extends javax.swing.JFrame {
         if(verifica.validarCpf(cpfTf.getText()) || verifica.verificarEmail(emailTf.getText())){
             if(verifica.verificarCpfDuplicado(cpfTf.getText())){
                 alnCtrl.inserirTabela(aln);
+                DialogsView.createDialogs().infoDialog("Aluno cadastrado com sucesso", "CADASTRO");
+                return true;
             }else{
                JOptionPane.showMessageDialog(
                     null,
@@ -243,6 +247,7 @@ public class CadAluView extends javax.swing.JFrame {
                     "INFORMAÇÃO",
                     JOptionPane.INFORMATION_MESSAGE
                 ); 
+               return false;
             }            
         }else{
             JOptionPane.showMessageDialog(
@@ -251,11 +256,13 @@ public class CadAluView extends javax.swing.JFrame {
                     "INFORMAÇÃO",
                     JOptionPane.INFORMATION_MESSAGE
             );
+            return false;
         }
     }
     
     private void limpaTf(){
         nomeTf.setText("");
+        senhaTf.setText("");
         cpfTf.setText("");
         emailTf.setText("");
         celTf.setText("");

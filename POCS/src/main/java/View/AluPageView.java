@@ -23,14 +23,13 @@ public class AluPageView extends javax.swing.JFrame {
     private AluPageView() {
         initComponents();
         setLocationRelativeTo(null);
-        preencherDados();
     }
 
     public static AluPageView geraAluPageView(){
         if(aluPageViewUnic == null){
             aluPageViewUnic = new AluPageView();
         }
-        
+        aluPageViewUnic.preencherDados();
         return aluPageViewUnic;
     }
     /**
