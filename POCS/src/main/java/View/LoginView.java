@@ -75,6 +75,12 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
 
+        userTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTfActionPerformed(evt);
+            }
+        });
+
         tittleLb.setFont(new java.awt.Font("Monocraft", 0, 48)); // NOI18N
         tittleLb.setText("POCS");
 
@@ -148,7 +154,11 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_cadBtActionPerformed
 
     private void loginBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtActionPerformed
-
+        if(senhaTf.getText().equals("") || userTf.getText().equals("")) {
+            DialogsView.createDialogs().errorDialog("Usuário ou senha vazios", "ERRO");
+            return;
+        }
+        
         int verificaSenha = 0;
         int tipo = funcoes.tipoUsuario(userTf.getText());
         int existencia = funcoes.verificaBd(tipo, userTf.getText());
@@ -174,6 +184,10 @@ public class LoginView extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_loginBtActionPerformed
+
+    private void userTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTfActionPerformed
 
     private int verificaUsuario(){
         Object[] escolha = {"Aluno", "Professor"};
