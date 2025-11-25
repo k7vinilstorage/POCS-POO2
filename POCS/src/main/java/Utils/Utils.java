@@ -170,9 +170,10 @@ public class Utils {
                 p1 = professorCtrl.selectTabela("Codigo", id);
                 break;
         }
-        
-        if(a1.getSenha() == senha || p1.getSenha() == senha){
-            return 1;
+        if(a1 != null || p1 != null){
+            if((a1.getSenha() == null ? senha == null : a1.getSenha().equals(senha)) || p1.getSenha() == senha){
+                return 1;
+            }
         }
         
         return 0;
