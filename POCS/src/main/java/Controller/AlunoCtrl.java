@@ -176,6 +176,7 @@ public class AlunoCtrl {
     //sobrecarga LoginCtrl
     public Aluno selectTabela(String coluna, String condicao){
         String busca= "SELECT * FROM aluno WHERE " + coluna + " = " + condicao;
+        System.out.println(busca);
         Aluno a1 = null;
         
         try{
