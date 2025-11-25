@@ -29,4 +29,14 @@ public abstract class LoginCtrl {
                 return false;
             }
     }
+
+    public static Aluno getAlunoAtual() {
+        return alunoAtual;
+    }
+
+    public static Professor getProfessorAtual() {
+        return professorAtual;
+    }
+    
+    
 }
