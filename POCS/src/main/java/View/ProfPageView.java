@@ -4,11 +4,15 @@
  */
 package View;
 
+import Controller.LoginCtrl;
+
 /**
  *
  * @author joao
  */
 public class ProfPageView extends javax.swing.JFrame {
+    
+    LoginCtrl login = LoginCtrl.createLoginCtrl();
 
     private static ProfPageView profPageViewUnic;
     /**
@@ -17,6 +21,7 @@ public class ProfPageView extends javax.swing.JFrame {
     private ProfPageView() {
         initComponents();
         setLocationRelativeTo(null);
+        preencherDados();
     }
     
     public static ProfPageView geraProfPageView(){
@@ -81,18 +86,34 @@ public class ProfPageView extends javax.swing.JFrame {
         formacaoLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         formacaoLb.setText("Formação:");
 
+        userTf.setEditable(false);
+        userTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTfActionPerformed(evt);
+            }
+        });
+
+        nomeTf.setEditable(false);
         nomeTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeTfActionPerformed(evt);
             }
         });
 
+        cpfTf.setEditable(false);
+
+        emailTf.setEditable(false);
+
+        celTf.setEditable(false);
         celTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 celTfActionPerformed(evt);
             }
         });
 
+        disciplinaTf.setEditable(false);
+
+        formacaoTf.setEditable(false);
         formacaoTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 formacaoTfActionPerformed(evt);
@@ -205,6 +226,20 @@ public class ProfPageView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
+    private void userTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTfActionPerformed
+
+    private void preencherDados() {
+        userTf.setText(login.getProfessorAtual().getpCod());
+        nomeTf.setText(login.getProfessorAtual().getNome());
+        cpfTf.setText(login.getProfessorAtual().getCpf());
+        emailTf.setText(login.getProfessorAtual().getEmail());
+        celTf.setText(login.getProfessorAtual().getCelular());
+        disciplinaTf.setText(login.getProfessorAtual().getDisciplina());
+        formacaoTf.setText(login.getProfessorAtual().getFormacao());
+    }
+    
     /**
      * @param args the command line arguments
      */

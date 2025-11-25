@@ -6,7 +6,6 @@ package View;
 import javax.swing.JOptionPane;
 import Utils.*;
 import Controller.*;
-import Model.*;
 /**
  *
  * @author joao
@@ -18,6 +17,7 @@ public class LoginView extends javax.swing.JFrame {
     private AlunoCtrl alunoCtrl = AlunoCtrl.AlunoCtrlCreate();
     private ProfessorCtrl professorCtrl = ProfessorCtrl.ProfessorCtrlCreate();
     private DialogsView aviso = DialogsView.createDialogs();
+    private LoginCtrl login = LoginCtrl.createLoginCtrl();
     
     /**
      * Creates new form LoginView
@@ -163,12 +163,12 @@ public class LoginView extends javax.swing.JFrame {
         }
         
         if(verificaSenha == 1 && tipo == 1){
-            LoginCtrl.setAlunoAtual(alunoCtrl.selectTabela("Codigo", userTf.getText()));
+            login.setAlunoAtual(alunoCtrl.selectTabela("Codigo", userTf.getText()));
             AluPageView.geraAluPageView().setVisible(true);
             dispose();
             
         }else if(verificaSenha == 1 && tipo == 2){
-            LoginCtrl.setProfessorAtual(professorCtrl.selectTabela("Codigo", userTf.getText()));
+            login.setProfessorAtual(professorCtrl.selectTabela("Codigo", userTf.getText()));
             ProfPageView.geraProfPageView().setVisible(true);
             dispose();
         }

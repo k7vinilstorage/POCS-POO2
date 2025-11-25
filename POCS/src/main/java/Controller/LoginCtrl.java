@@ -4,45 +4,48 @@
  */
 package Controller;
 
-import View.*;
 import Model.*;
 
 /**
  *
  * @author gp51f
  */
-public abstract class LoginCtrl {
-    private static AlunoCtrl controleAluno = AlunoCtrl.AlunoCtrlCreate();
-    private static ProfessorCtrl controleProf = ProfessorCtrl.ProfessorCtrlCreate();
-    private static Aluno alunoAtual = null;
-    private static Professor professorAtual = null;
+public class LoginCtrl {
+    private static AlunoCtrl controleAluno;
+    private static ProfessorCtrl controleProf;
+    private static Aluno alunoAtual;
+    private static Professor professorAtual;
     
-    public static boolean login(String id, char[] senha){
-            if(id.charAt(0) == 'a'){
-                alunoAtual = controleAluno.selectTabela("Codigo", id);
-                return true;
-            }else{
-                if(id.charAt(0) == 'p'){
-                    professorAtual = controleProf.selectTabela("Codigo", id);
-                    return true;
-                }
-                return false;
-            }
+    private static LoginCtrl singleLoginCtrl;
+    
+    private LoginCtrl() {
+        controleAluno = AlunoCtrl.AlunoCtrlCreate();
+        controleProf = ProfessorCtrl.ProfessorCtrlCreate();
+        alunoAtual = null;
+        professorAtual = null;
     }
-
-    public static void setAlunoAtual(Aluno alunoAtual) {
+    
+    public static LoginCtrl createLoginCtrl() {
+        if(singleLoginCtrl == null) {
+            singleLoginCtrl = new LoginCtrl();
+        }
+        
+        return singleLoginCtrl;
+    }
+    
+    public void setAlunoAtual(Aluno alunoAtual) {
         LoginCtrl.alunoAtual = alunoAtual;
     }
 
-    public static void setProfessorAtual(Professor professorAtual) {
+    public void setProfessorAtual(Professor professorAtual) {
         LoginCtrl.professorAtual = professorAtual;
     }
 
-    public static Aluno getAlunoAtual() {
+    public Aluno getAlunoAtual() {
         return alunoAtual;
     }
 
-    public static Professor getProfessorAtual() {
+    public Professor getProfessorAtual() {
         return professorAtual;
     }
     

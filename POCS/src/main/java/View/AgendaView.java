@@ -174,7 +174,7 @@ public class AgendaView extends javax.swing.JFrame {
             return;
         }
         Horario h = new Horario(colD, rowH, false);
-        Professor p = LoginCtrl.getProfessorAtual();
+        Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
         if(AgendaCtrl.createAgendaCtrl().inserirTabela(h, p)) {
             DialogsView.createDialogs().infoDialog("Horário cadastrado com sucesso", "Sucesso");
         }
@@ -184,7 +184,7 @@ public class AgendaView extends javax.swing.JFrame {
     }
     
     public void updateTable() {
-        AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.getProfessorAtual());
+        AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.createLoginCtrl().getProfessorAtual());
     }
     
     public void preencherTabela(int rowH, int colD) {

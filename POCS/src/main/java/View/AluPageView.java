@@ -4,12 +4,16 @@
  */
 package View;
 
+import Controller.LoginCtrl;
+
 /**
  *
  * @author joao
  */
 public class AluPageView extends javax.swing.JFrame {
 
+    LoginCtrl login = LoginCtrl.createLoginCtrl();
+    
     private static AluPageView aluPageViewUnic;
     
     /**
@@ -19,6 +23,7 @@ public class AluPageView extends javax.swing.JFrame {
     private AluPageView() {
         initComponents();
         setLocationRelativeTo(null);
+        preencherDados();
     }
 
     public static AluPageView geraAluPageView(){
@@ -79,17 +84,27 @@ public class AluPageView extends javax.swing.JFrame {
         escolaLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         escolaLb.setText("Escola:");
 
+        userTf.setEditable(false);
+
+        nomeTf.setEditable(false);
         nomeTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeTfActionPerformed(evt);
             }
         });
 
+        cpfTf.setEditable(false);
+
+        emailTf.setEditable(false);
+
+        celTf.setEditable(false);
         celTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 celTfActionPerformed(evt);
             }
         });
+
+        escolaTf.setEditable(false);
 
         sairBt.setText("Sair");
         sairBt.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +220,15 @@ public class AluPageView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
+    private void preencherDados() {
+        userTf.setText(login.getAlunoAtual().getaCod());
+        nomeTf.setText(login.getAlunoAtual().getNome());
+        cpfTf.setText(login.getAlunoAtual().getCpf());
+        emailTf.setText(login.getAlunoAtual().getEmail());
+        celTf.setText(login.getAlunoAtual().getCelular());
+        escolaTf.setText(login.getAlunoAtual().getEscola());
+    }
+    
     /**
      * @param args the command line arguments
      */
