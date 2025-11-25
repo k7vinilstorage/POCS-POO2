@@ -52,10 +52,6 @@ public class AgendaView extends javax.swing.JFrame {
 
         agendaSp = new javax.swing.JScrollPane();
         agendaTb = new javax.swing.JTable();
-        addHoBt = new javax.swing.JButton();
-        remHoBt = new javax.swing.JButton();
-        reservHoBt = new javax.swing.JButton();
-        desmarHoBt = new javax.swing.JButton();
         voltarBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -91,16 +87,8 @@ public class AgendaView extends javax.swing.JFrame {
         });
         agendaSp.setViewportView(agendaTb);
 
-        addHoBt.setText("Adicionar Horário");
-        addHoBt.addActionListener(this::addHoBtActionPerformed);
-
-        remHoBt.setText("Retirar Horário");
-
-        reservHoBt.setText("Reservar Horário");
-
-        desmarHoBt.setText("Desmarcar Horário");
-
         voltarBt.setText("Voltar");
+        voltarBt.addActionListener(this::voltarBtActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,64 +98,48 @@ public class AgendaView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(agendaSp, javax.swing.GroupLayout.DEFAULT_SIZE, 1449, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(addHoBt)
-                .addGap(80, 80, 80)
-                .addComponent(remHoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(reservHoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(desmarHoBt)
-                .addGap(87, 87, 87)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(voltarBt, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(626, 626, 626))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addHoBt, remHoBt, reservHoBt, voltarBt});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(agendaSp, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addHoBt)
-                    .addComponent(remHoBt)
-                    .addComponent(reservHoBt)
-                    .addComponent(desmarHoBt)
-                    .addComponent(voltarBt, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(voltarBt, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addHoBt, desmarHoBt, remHoBt, reservHoBt, voltarBt});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addHoBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addHoBtActionPerformed
-        int op = DialogsView.createDialogs().errorOpDialog("Deseja continuar", "erro");
-        if(op == 1) { 
-            System.out.println("Nao");
-        }
-        else{
-            System.out.println("Sim");
-        }
-    }//GEN-LAST:event_addHoBtActionPerformed
-
     private void agendaTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agendaTbMouseClicked
         rowH = agendaTb.getSelectedRow();
         colD = agendaTb.getSelectedColumn() - 3;
-        if(DialogsView.createDialogs().infoOpDialog("Gostaria de adicionar o horário?", "Adicionar Horário") == 0) {
-            adicionarHor();
-            updateTable();
+        
+        if(AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.createLoginCtrl().getProfessorAtual(), rowH, colD)) {
+            if(DialogsView.createDialogs().infoOpDialog("Gostaria de adicionar o horário?", "Adicionar Horário") == 0) {
+                adicionarHor();
+                updateTable();
+            }
         }
+        else {
+            
+        }
+        
+        
     }//GEN-LAST:event_agendaTbMouseClicked
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         updateTable();
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
+        dispose();
+    }//GEN-LAST:event_voltarBtActionPerformed
 
     public void carregaHor() {
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
@@ -237,12 +209,8 @@ public class AgendaView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addHoBt;
     private javax.swing.JScrollPane agendaSp;
     private javax.swing.JTable agendaTb;
-    private javax.swing.JButton desmarHoBt;
-    private javax.swing.JButton remHoBt;
-    private javax.swing.JButton reservHoBt;
     private javax.swing.JButton voltarBt;
     // End of variables declaration//GEN-END:variables
 }

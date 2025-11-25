@@ -119,4 +119,30 @@ public class AgendaCtrl {
         }
     }
     
+    public boolean selectTabela(Professor p, int rowH, int colD) {
+        boolean result = false;
+        
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            String findCpf = "SELECT * FROM Agenda WHERE Pcod = ? AND DiaS = ? AND DIAH = ?";
+            PreparedStatement ps = con.prepareStatement(findCpf);
+            ps.setString(1, p.getpCod());
+            ps.setInt(2, colD);
+            ps.setInt(3, rowH);
+            ResultSet rs = ps.executeQuery();
+            
+            result = (!rs.next());
+            
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return result;
+    }
+    
 }

@@ -31,18 +31,10 @@
               <Component id="agendaSp" pref="1449" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-              <Component id="addHoBt" linkSize="1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-              <Component id="remHoBt" linkSize="1" min="-2" pref="103" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-              <Component id="reservHoBt" linkSize="1" min="-2" pref="103" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-              <Component id="desmarHoBt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-              <Component id="voltarBt" linkSize="1" min="-2" pref="193" max="-2" attributes="0"/>
-              <EmptySpace pref="88" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="voltarBt" min="-2" pref="193" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="626" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,13 +44,7 @@
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="agendaSp" min="-2" pref="592" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addHoBt" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="remHoBt" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="reservHoBt" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="desmarHoBt" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="voltarBt" linkSize="2" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-              </Group>
+              <Component id="voltarBt" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -141,33 +127,13 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="addHoBt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Adicionar Hor&#xe1;rio"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addHoBtActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="remHoBt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Retirar Hor&#xe1;rio"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="reservHoBt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reservar Hor&#xe1;rio"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="desmarHoBt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Desmarcar Hor&#xe1;rio"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="voltarBt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Voltar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarBtActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
