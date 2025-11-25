@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -10,13 +12,21 @@ package View;
  */
 public class LoginView extends javax.swing.JFrame {
 
+    private static LoginView loginUnic;
     /**
      * Creates new form LoginView
      */
-    public LoginView() {
+    private LoginView() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
+    public static LoginView geraLogin(){
+        if(loginUnic == null){
+            loginUnic = new LoginView();
+        }
+        return loginUnic;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,23 +81,25 @@ public class LoginView extends javax.swing.JFrame {
                 .addComponent(tittleLb)
                 .addGap(186, 186, 186))
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(senhaLb)
-                            .addComponent(userLb))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userTf, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(senhaTf)))
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(senhaLb)
+                                    .addComponent(userLb))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(userTf, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                    .addComponent(senhaTf)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(cadBt)
+                                .addGap(43, 43, 43)
+                                .addComponent(loginBt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(cadBt)
-                        .addGap(43, 43, 43)
-                        .addComponent(loginBt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(184, 184, 184)
                         .addComponent(sairBt)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -108,22 +120,42 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadBt)
                     .addComponent(loginBt))
-                .addGap(63, 63, 63)
+                .addGap(18, 18, 18)
                 .addComponent(sairBt)
-                .addGap(51, 51, 51))
+                .addGap(96, 96, 96))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
-        // TODO add your handling code here:
+        if(verificaUsuario() == 0){
+            CadAluView.geraCadAluno().setVisible(true);
+            dispose();
+        }else{
+            CadProfView.geraCadProfessor().setVisible(true);
+            dispose();
+        }
+        
     }//GEN-LAST:event_cadBtActionPerformed
 
     private void loginBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginBtActionPerformed
 
+    private int verificaUsuario(){
+        Object[] escolha = {"Aluno", "Professor"};
+        int captura = JOptionPane.showOptionDialog(null, 
+                "Você é: ", 
+                "ESCOLHA", 
+                JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.QUESTION_MESSAGE, 
+                null, 
+                escolha, 
+                escolha[0]);
+        
+        return captura;
+    }
     /**
      * @param args the command line arguments
      */

@@ -62,7 +62,6 @@ public class Utils {
             if(verify == cpf_int[10]) {
                 return true;
             }
-        
         }
         else {
             return false;
