@@ -51,6 +51,7 @@ public class AlunoCtrl {
         String tabela = "CREATE TABLE IF NOT EXISTS Aluno("
                 + "Codigo VARCHAR(20) primary key not null,"
                 + "Cpf text,"
+                + "Senha text,"
                 + "Nome text,"
                 + "Celular text,"
                 + "Idade int,"
@@ -118,7 +119,7 @@ public class AlunoCtrl {
             con = DriverManager.getConnection(url,user,senha);
             System.out.println("Inserindo na Tabela..."); //Vai continuar esses?
             
-            String insertAln = "INSERT INTO Aluno VALUES(?,?,?,?,?,?,?,?)";
+            String insertAln = "INSERT INTO Aluno VALUES(?,?,?,?,?,?,?,?,?)";
             
             PreparedStatement ps = con.prepareStatement(insertAln);
             
@@ -126,12 +127,13 @@ public class AlunoCtrl {
             
             ps.setString(1, cod);//codigo
             ps.setString(2, aln.getCpf());//cpf
-            ps.setString(3, aln.getNome());//nome
-            ps.setString(4, aln.getCelular());//celular
-            ps.setInt(5, aln.getIdade());//idade
-            ps.setString(6, aln.getDesenvolvimento());//desenvolvimento
-            ps.setString(7, aln.getEscola());//escola
-            ps.setString(8, aln.getEmail());//email
+            ps.setString(3, aln.getSenha());//senha
+            ps.setString(4, aln.getNome());//nome
+            ps.setString(5, aln.getCelular());//celular
+            ps.setInt(6, aln.getIdade());//idade
+            ps.setString(7, aln.getDesenvolvimento());//desenvolvimento
+            ps.setString(8, aln.getEscola());//escola
+            ps.setString(9, aln.getEmail());//email
             
             ps.executeUpdate();
             System.out.println("Alunos cadastrado com sucesso...");
