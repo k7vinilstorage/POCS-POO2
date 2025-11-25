@@ -1,23 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
 import Controller.AlunoCtrl;
 import Model.Aluno;
+import Utils.Utils;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author joao
- */
+
 public class CadAluView extends javax.swing.JFrame {
 
+    private static CadAluView CadUnic;
+    
     /**
      * Creates new form ProfPageView
      */
-    public CadAluView() {
+    
+    private CadAluView() {
         initComponents();
+        setLocationRelativeTo(null);
+    }
+    
+    public static CadAluView geraCadAluno(){
+        if(CadUnic == null){
+            CadUnic = new CadAluView();
+        }
+        return CadUnic;
     }
 
     /**
@@ -74,6 +80,11 @@ public class CadAluView extends javax.swing.JFrame {
         });
 
         sairBt.setText("Sair");
+        sairBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBtActionPerformed(evt);
+            }
+        });
 
         cadBt.setText("Cadastrar");
         cadBt.addActionListener(new java.awt.event.ActionListener() {
@@ -114,13 +125,13 @@ public class CadAluView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(sairBt))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(cadBt)
                         .addGap(76, 76, 76)
-                        .addComponent(limpBt)))
+                        .addComponent(limpBt))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addComponent(sairBt)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,9 +161,9 @@ public class CadAluView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadBt)
                     .addComponent(limpBt))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(sairBt)
-                .addGap(31, 31, 31))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -173,9 +184,16 @@ public class CadAluView extends javax.swing.JFrame {
     private void limpBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpBtActionPerformed
         limpaTf();
     }//GEN-LAST:event_limpBtActionPerformed
+
+    private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
+        limpaTf();
+        
+        LoginView.geraLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_sairBtActionPerformed
     
     private void getAluno(){
-    
+        Utils verifica = Utils.createUtils();
         Aluno aln = new Aluno();
         aln.setNome(nomeTf.getText());
         aln.setCpf(cpfTf.getText());
@@ -183,9 +201,29 @@ public class CadAluView extends javax.swing.JFrame {
         aln.setCelular(celTf.getText());
         aln.setEscola(escolaTf.getText());
         
+        
+        
         AlunoCtrl alnCtrl = AlunoCtrl.AlunoCtrlCreate();
         
-        alnCtrl.inserirTabela(aln);
+        //if(){
+        //    if(){
+                alnCtrl.inserirTabela(aln);
+        //    }else{
+        //       JOptionPane.showMessageDialog(
+        //            null,
+        //            "CPF ja cadastrado",
+        //            "INFORMAÇÃO",
+        //            JOptionPane.INFORMATION_MESSAGE
+        //        ); 
+        //    }            
+        //}else{
+        //    JOptionPane.showMessageDialog(
+        //            null,
+        //            "Email ou CPF incorretos",
+        //            "INFORMAÇÃO",
+        //            JOptionPane.INFORMATION_MESSAGE
+        //    );
+        //}
     }
     
     private void limpaTf(){
