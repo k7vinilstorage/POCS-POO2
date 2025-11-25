@@ -1,5 +1,8 @@
 package Utils;
 
+import View.*;
+import Model.*;
+import Controller.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +24,10 @@ public class Utils {
     static ResultSet rs = null;
     
     private static Utils singleUtils;
-
+    private DialogsView aviso = DialogsView.createDialogs();
+    private AlunoCtrl alunoCtrl = AlunoCtrl.AlunoCtrlCreate();
+    private ProfessorCtrl professorCtrl = ProfessorCtrl.ProfessorCtrlCreate();
+    
     public static Utils createUtils() {
         if(singleUtils == null) {
             singleUtils = new Utils();
@@ -116,5 +122,59 @@ public class Utils {
             System.out.println(e);
         }
         return result;
-    } 
+    }
+    
+    public int tipoUsuario(String id){
+        switch (id.charAt(0)) {
+            case 'a':
+                return 1;
+            case 'p':
+                return 2;
+            case 'c':
+                return 3;
+            default:
+                aviso.errorDialog("Id não é válido", "ERRO DE USUÁRIO");
+                return 0;
+        }
+    }
+    
+    public int verificaBd(int tipo, String id){
+        Aluno a1 = null;
+        Professor p1 = null;
+        
+        switch(tipo){
+            case 1: 
+                a1 = alunoCtrl.selectTabela("Codigo", id);
+                break;
+            case 2:
+                p1 = professorCtrl.selectTabela("Codigo", id);
+                break;
+        }
+        
+        if(a1 == null || p1  == null){
+            return 0;
+        }
+        
+        return 1;
+    }
+    
+    public int verificaSenha(int tipo, String id, String senha){
+        Aluno a1 = null;
+        Professor p1 = null;
+        
+        switch(tipo){
+            case 1: 
+                a1 = alunoCtrl.selectTabela("Codigo", id);
+                break;
+            case 2:
+                p1 = professorCtrl.selectTabela("Codigo", id);
+                break;
+        }
+        
+        if(a1.getSenha() == senha || p1.getSenha() == senha){
+            return 1;
+        }
+        
+        return 0;
+    }
 }

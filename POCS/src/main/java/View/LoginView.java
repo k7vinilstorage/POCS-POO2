@@ -4,8 +4,9 @@
  */
 package View;
 import javax.swing.JOptionPane;
-
-
+import Utils.*;
+import Controller.*;
+import Model.*;
 /**
  *
  * @author joao
@@ -13,6 +14,11 @@ import javax.swing.JOptionPane;
 public class LoginView extends javax.swing.JFrame {
 
     private static LoginView loginUnic;
+    private Utils funcoes = Utils.createUtils();
+    private AlunoCtrl alunoCtrl = AlunoCtrl.AlunoCtrlCreate();
+    private ProfessorCtrl professorCtrl = ProfessorCtrl.ProfessorCtrlCreate();
+    private DialogsView aviso = DialogsView.createDialogs();
+    
     /**
      * Creates new form LoginView
      */
@@ -140,7 +146,29 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_cadBtActionPerformed
 
     private void loginBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtActionPerformed
-        // TODO add your handling code here:
+
+        int verificaSenha = 0;
+        int tipo = funcoes.tipoUsuario(userTf.getText());
+        int existencia = funcoes.verificaBd(tipo, userTf.getText());
+        
+        if(existencia == 1){
+            verificaSenha = funcoes.verificaSenha(tipo, userTf.getText(), senhaTf.getText());
+        }else{
+            aviso.errorDialog("Usuário não existe no Banco de Dados", "AvISO");
+        }
+        
+        if(verificaSenha == 1 && tipo == 1){
+            LoginCtrl.setAlunoAtual(alunoCtrl.selectTabela("Codigo", userTf.getText()));
+            
+            AluPageView.geraAluPageView().setVisible(true);
+            dispose();
+        }else if(verificaSenha == 1 && tipo == 2){
+            LoginCtrl.setProfessorAtual(professorCtrl.selectTabela("Codigo", userTf.getText()));
+            
+            ProfPageView.geraProfPageView().setVisible(true);
+            dispose();
+        }
+        
     }//GEN-LAST:event_loginBtActionPerformed
 
     private int verificaUsuario(){
@@ -156,6 +184,7 @@ public class LoginView extends javax.swing.JFrame {
         
         return captura;
     }
+    
     /**
      * @param args the command line arguments
      */

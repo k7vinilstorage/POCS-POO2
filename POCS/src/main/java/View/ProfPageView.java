@@ -10,12 +10,23 @@ package View;
  */
 public class ProfPageView extends javax.swing.JFrame {
 
+    private static ProfPageView profPageViewUnic;
     /**
      * Creates new form ProfPageView
      */
-    public ProfPageView() {
+    private ProfPageView() {
         initComponents();
+        setLocationRelativeTo(null);
     }
+    
+    public static ProfPageView geraProfPageView(){
+        if(profPageViewUnic == null){
+            profPageViewUnic = new ProfPageView();
+        }
+        
+        return profPageViewUnic;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

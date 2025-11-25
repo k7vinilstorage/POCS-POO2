@@ -30,6 +30,14 @@ public abstract class LoginCtrl {
             }
     }
 
+    public static void setAlunoAtual(Aluno alunoAtual) {
+        LoginCtrl.alunoAtual = alunoAtual;
+    }
+
+    public static void setProfessorAtual(Professor professorAtual) {
+        LoginCtrl.professorAtual = professorAtual;
+    }
+
     public static Aluno getAlunoAtual() {
         return alunoAtual;
     }

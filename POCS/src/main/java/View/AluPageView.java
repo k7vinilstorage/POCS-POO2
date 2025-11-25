@@ -10,13 +10,24 @@ package View;
  */
 public class AluPageView extends javax.swing.JFrame {
 
+    private static AluPageView aluPageViewUnic;
+    
     /**
      * Creates new form ProfPageView
      */
-    public AluPageView() {
+    
+    private AluPageView() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
+    public static AluPageView geraAluPageView(){
+        if(aluPageViewUnic == null){
+            aluPageViewUnic = new AluPageView();
+        }
+        
+        return aluPageViewUnic;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
