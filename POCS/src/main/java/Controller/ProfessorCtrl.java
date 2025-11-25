@@ -50,6 +50,7 @@ public class ProfessorCtrl {
         String tabela = "CREATE TABLE IF NOT EXISTS Professor("
                 + "Codigo VARCHAR(20) primary key not null,"
                 + "Cpf text,"
+                + "Senha text,"
                 + "Nome text,"
                 + "Celular text,"
                 + "Idade int,"
@@ -117,7 +118,7 @@ public class ProfessorCtrl {
             con = DriverManager.getConnection(url,user,senha);
             System.out.println("Inserindo PROFESSOR na Tabela...");
             
-            String insertProf = "INSERT INTO Professor VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertProf = "INSERT INTO Professor VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
             PreparedStatement ps = con.prepareStatement(insertProf);
             
@@ -125,11 +126,12 @@ public class ProfessorCtrl {
             
             ps.setString(1, cod);//codigo
             ps.setString(2, prof.getCpf());//cpf
-            ps.setString(3, prof.getNome());//nome
-            ps.setString(4, prof.getCelular());//celular
-            ps.setInt(5, prof.getIdade());//idade
-            ps.setString(6, prof.getFormacao());//formacao
-            ps.setString(7, prof.getDisciplina());//disciplina
+            ps.setString(3, prof.getSenha());//senha
+            ps.setString(4, prof.getNome());//nome
+            ps.setString(5, prof.getCelular());//celular
+            ps.setInt(6, prof.getIdade());//idade
+            ps.setString(7, prof.getFormacao());//formacao
+            ps.setString(8, prof.getDisciplina());//disciplina
             ps.setString(9,prof.getEmail());
             
             ps.executeUpdate();

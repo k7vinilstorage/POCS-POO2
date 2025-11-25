@@ -4,6 +4,10 @@
  */
 package View;
 
+import Controller.AgendaCtrl;
+import Controller.LoginCtrl;
+import Model.Horario;
+import Model.Professor;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -11,6 +15,9 @@ import javax.swing.table.DefaultTableModel;
  * @author joao
  */
 public class AgendaView extends javax.swing.JFrame {
+    
+    int rowH = 0;
+    int colD = 0;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AgendaView.class.getName());
 
@@ -131,11 +138,8 @@ public class AgendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_addHoBtActionPerformed
 
     private void agendaTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agendaTbMouseClicked
-        int row = agendaTb.getSelectedRow();
-        int col = agendaTb.getSelectedColumn() - 3;
-        
-        System.out.println(row);
-        System.out.println(col);
+        rowH = agendaTb.getSelectedRow();
+        colD = agendaTb.getSelectedColumn() - 3;
     }//GEN-LAST:event_agendaTbMouseClicked
 
     public void carregaHor() {
@@ -152,6 +156,20 @@ public class AgendaView extends javax.swing.JFrame {
         model.insertRow(9, new Object[] {"T4", "15h", "16h"});
         model.insertRow(10, new Object[] {"T5", "16h", "17h"});
         model.insertRow(11, new Object[] {"T6", "17h", "18h"});
+    }
+    
+    public void adicionarHor() {
+        if(colD < 0) { 
+            return;
+        }
+        Horario h = new Horario(colD, rowH, false);
+        Professor p = LoginCtrl.getProfessorAtual();
+        if(AgendaCtrl.createAgendaCtrl().inserirTabela(h, p)) {
+            DialogsView.createDialogs().infoDialog("Horário cadastrado com sucesso", "Sucesso");
+        }
+        else {
+            DialogsView.createDialogs().errorDialog("Erro ao adicionar horário", "Erro");
+        }
     }
     
     

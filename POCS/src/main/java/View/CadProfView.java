@@ -55,6 +55,8 @@ public class CadProfView extends javax.swing.JFrame {
         sairBt = new javax.swing.JButton();
         cadBt = new javax.swing.JButton();
         limpBt = new javax.swing.JButton();
+        senhaTf = new javax.swing.JTextField();
+        senhaLb = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de professor");
@@ -116,31 +118,19 @@ public class CadProfView extends javax.swing.JFrame {
             }
         });
 
+        senhaTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaTfActionPerformed(evt);
+            }
+        });
+
+        senhaLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
+        senhaLb.setText("Senha:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(disciplinaLb)
-                    .addComponent(formacaoLb)
-                    .addComponent(nomeLb)
-                    .addComponent(cpfLb)
-                    .addComponent(emailLb)
-                    .addComponent(celLb))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(disciplinaTf)
-                        .addComponent(formacaoTf))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomeTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(celTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(80, 80, 80))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -152,15 +142,39 @@ public class CadProfView extends javax.swing.JFrame {
                         .addGap(201, 201, 201)
                         .addComponent(sairBt)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(disciplinaLb)
+                    .addComponent(formacaoLb)
+                    .addComponent(nomeLb)
+                    .addComponent(cpfLb)
+                    .addComponent(emailLb)
+                    .addComponent(celLb)
+                    .addComponent(senhaLb))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(senhaTf)
+                    .addComponent(disciplinaTf)
+                    .addComponent(formacaoTf)
+                    .addComponent(nomeTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(cpfTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(emailTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(celTf, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeLb)
                     .addComponent(nomeTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(senhaLb)
+                    .addComponent(senhaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpfTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfLb))
@@ -180,7 +194,7 @@ public class CadProfView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(formacaoLb)
                     .addComponent(formacaoTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadBt)
                     .addComponent(limpBt))
@@ -219,10 +233,15 @@ public class CadProfView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
+    private void senhaTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaTfActionPerformed
+
     private void getProfessor(){
         Utils verifica = Utils.createUtils();
         Professor prof = new Professor();
         prof.setNome(nomeTf.getText());//nome
+        prof.setSenha(senhaTf.getText());//senha
         prof.setCpf(cpfTf.getText());//cpf
         prof.setEmail(emailTf.getText());//email
         prof.setCelular(celTf.getText());//celular
@@ -315,5 +334,7 @@ public class CadProfView extends javax.swing.JFrame {
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;
     private javax.swing.JButton sairBt;
+    private javax.swing.JLabel senhaLb;
+    private javax.swing.JTextField senhaTf;
     // End of variables declaration//GEN-END:variables
 }

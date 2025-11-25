@@ -14,8 +14,8 @@ public class Professor extends Pessoa{
     }
     
     //Construtor - Sobrecarga
-    public Professor(String cpf, String nome, String celular, String email, int idade, String formacao, String disciplina, String pCod) {
-        super(cpf, nome, celular, email, idade);
+    public Professor(String cpf, String nome, String celular, String email, String senha, int idade, String formacao, String disciplina, String pCod) {
+        super(cpf, nome, celular, email, senha, idade);
         this.formacao = formacao;
         this.disciplina = disciplina;
         this.pCod = pCod;
