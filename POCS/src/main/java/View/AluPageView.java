@@ -201,7 +201,8 @@ public class AluPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_verAgendaMenuIActionPerformed
 
     private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
-        // TODO add your handling code here:
+        LoginView.geraLogin().setVisible(true);
+        dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
     /**

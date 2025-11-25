@@ -100,6 +100,11 @@ public class ProfPageView extends javax.swing.JFrame {
         });
 
         sairBt.setText("Sair");
+        sairBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBtActionPerformed(evt);
+            }
+        });
 
         agendaMenu.setText("Ver Agenda");
         profMenuBar.add(agendaMenu);
@@ -194,6 +199,11 @@ public class ProfPageView extends javax.swing.JFrame {
     private void formacaoTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formacaoTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_formacaoTfActionPerformed
+
+    private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
+        LoginView.geraLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_sairBtActionPerformed
 
     /**
      * @param args the command line arguments

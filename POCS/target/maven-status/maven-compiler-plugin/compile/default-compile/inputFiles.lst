@@ -1,7 +1,9 @@
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/AgendaCtrl.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/AlunoCtrl.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/AulaCtrl.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/CoordenadorCtrl.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/HorarioCtrl.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/LoginCtrl.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/PessoaCtrl.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Controller/ProfessorCtrl.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Model/Aluno.java
