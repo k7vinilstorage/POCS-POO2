@@ -59,6 +59,13 @@ public class AgendaView extends javax.swing.JFrame {
         voltarBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         agendaTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,6 +165,10 @@ public class AgendaView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agendaTbMouseClicked
 
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        updateTable();
+    }//GEN-LAST:event_formWindowGainedFocus
+
     public void carregaHor() {
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
         model.insertRow(0, new Object[] {"M1", "6h", "7h"});
@@ -188,7 +199,7 @@ public class AgendaView extends javax.swing.JFrame {
         }
     }
     
-    public static void updateTable() {
+    public void updateTable() {
         AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.createLoginCtrl().getProfessorAtual());
     }
     
@@ -221,7 +232,6 @@ public class AgendaView extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new AgendaView().setVisible(true));
-        updateTable();
         
         
     }
