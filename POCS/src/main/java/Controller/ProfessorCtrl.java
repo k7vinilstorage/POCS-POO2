@@ -177,6 +177,34 @@ public class ProfessorCtrl {
         }
     }
     
+    public Professor selectTabela(String coluna, String condicao){
+        String busca= "SELECT * FROM Professor WHERE " + coluna + " = " + condicao;
+        Professor p1 = null;
+        
+        try{
+            Class.forName(driver); //driver
+            con = DriverManager.getConnection(url,user,senha); //abro conexão
+            System.out.println("RSULTADO DA CONSULTA...");
+            st = con.createStatement();
+            rs = st.executeQuery(busca);
+            
+           
+            p1.setpCod(rs.getString(1));// 1 = primeira coluna
+            p1.setNome(rs.getString(2));
+            p1.setDisciplina(rs.getString(3));
+            p1.setEmail(rs.getString(5));
+              
+            st.close();
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println("Falha na consulta de alunos...");
+            System.out.println(e);
+        }
+        
+        return p1;
+    }
+    
     //Deletar da Tabela
     public void deleteTabela(String condicao){
         String delete = "DELETE FROM Professor WHERE Codigo = 1";
@@ -222,30 +250,4 @@ public class ProfessorCtrl {
         }
     }
     
-    // SOBRECARGA Consulta
-    public void selectTabela(String coluna, String condicao){
-        String busca= "SELECT * FROM Professor WHERE" + coluna + "=" + condicao; // ex: id = 1
-        
-        try{
-            Class.forName(driver); //driver
-            con = DriverManager.getConnection(url,user,senha); //abro conexão
-            System.out.println("RSULTADO DA CONSULTA...");
-            st = con.createStatement();
-            rs = st.executeQuery(busca);
-            
-            while(rs.next()){
-                System.out.println("CODIGO: " + rs.getInt(1)); // 1 = primeira coluna
-                System.out.println("NOME: " + rs.getString(2));
-                System.out.println("DISCIPLINA: " + rs.getString(3));
-                System.out.println("HORAIRO: " + rs.getString(4));
-                System.out.println("EMAIL: " + rs.getString(5));    
-            }
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na consulta de aluno...");
-            System.out.println(e);
-        }
-    }
 }

@@ -171,7 +171,35 @@ public class AlunoCtrl {
             System.out.println(e);
         }
     }
-    
+    //sobrecarga LoginCtrl
+    public Aluno selectTabela(String coluna, String condicao){
+        String busca= "SELECT * FROM aluno WHERE " + coluna + " = " + condicao;
+        Aluno a1 = null;
+        
+        try{
+            Class.forName(driver); //driver
+            con = DriverManager.getConnection(url,user,senha); //abro conexão
+            System.out.println("RSULTADO DA CONSULTA...");
+            st = con.createStatement();
+            rs = st.executeQuery(busca);
+            
+           
+            a1.setaCod(rs.getString(1));// 1 = primeira coluna
+            a1.setNome(rs.getString(2));
+            a1.setDesenvolvimento(rs.getString(3));
+            a1.setEmail(rs.getString(4));
+              
+            st.close();
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println("Falha na consulta de alunos...");
+            System.out.println(e);
+        }
+        
+        return a1;
+    }
+        
     //delete (falta testar)
     public void deleteTabela(String condicao){
         String delete = "DELETE FROM aluno WHERE Codigo = 1";
