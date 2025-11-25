@@ -83,24 +83,36 @@ public class Utils {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-
             String findCpf = "SELECT * FROM Professor WHERE Cpf = ?";
-
             PreparedStatement ps = con.prepareStatement(findCpf);
-            
             ps.setString(1, cpf);
-
             ResultSet rs = ps.executeQuery();
-
             result = (!rs.next());
-
             rs.close();
             ps.close();
             con.close();
-
         } 
         catch (Exception e) {
-            System.out.println("Erro ao consultar professor...");
+            System.out.println(e);
+        }
+        
+        if(!result) {
+            return result;
+        }
+        
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            String findCpf = "SELECT * FROM Aluno WHERE Cpf = ?";
+            PreparedStatement ps = con.prepareStatement(findCpf);
+            ps.setString(1, cpf);
+            ResultSet rs = ps.executeQuery();
+            result = (!rs.next());
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        catch (Exception e) {
             System.out.println(e);
         }
         return result;
