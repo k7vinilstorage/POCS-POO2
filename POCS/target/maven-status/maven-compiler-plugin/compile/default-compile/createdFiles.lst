@@ -4,12 +4,14 @@ View/ProfPageView$4.class
 View/LoginView$2.class
 View/AgendaView.class
 View/AluPageView$1.class
+View/CadProfView$7.class
 Utils/Utils.class
 View/LoginView.class
+View/CadAluView$6.class
 View/CadProfView$6.class
 View/LoginView$1.class
-Utils/NewMain.class
 View/ProfPageView$2.class
+View/AgendaView$1.class
 View/HistAulaView$2.class
 View/AluPageView$2.class
 View/AluPageView.class
@@ -19,3 +21,4 @@ View/HistAulaView$1.class
 View/AluPageView$3.class
 View/ProfPageView$3.class
 View/DialogsView.class
+View/AgendaView$2.class

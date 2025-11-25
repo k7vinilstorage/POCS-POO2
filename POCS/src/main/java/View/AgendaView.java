@@ -4,6 +4,8 @@
  */
 package View;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author joao
@@ -17,6 +19,7 @@ public class AgendaView extends javax.swing.JFrame {
      */
     public AgendaView() {
         initComponents();
+        carregaHor();
     }
 
     /**
@@ -40,15 +43,26 @@ public class AgendaView extends javax.swing.JFrame {
 
         agendaTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Cod", "Início", "Term.", "Segunda [2]", "Terça [3]", "Quarta [4]", "Quinta [5]", "Sexta [6]"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        agendaTb.setRowHeight(43);
+        agendaTb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agendaTbMouseClicked(evt);
+            }
+        });
         agendaSp.setViewportView(agendaTb);
 
         addHoBt.setText("Adicionar Horário");
@@ -116,6 +130,31 @@ public class AgendaView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addHoBtActionPerformed
 
+    private void agendaTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agendaTbMouseClicked
+        int row = agendaTb.getSelectedRow();
+        int col = agendaTb.getSelectedColumn() - 3;
+        
+        System.out.println(row);
+        System.out.println(col);
+    }//GEN-LAST:event_agendaTbMouseClicked
+
+    public void carregaHor() {
+        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+        model.insertRow(0, new Object[] {"M1", "6h", "7h"});
+        model.insertRow(1, new Object[] {"M2", "7h", "8h"});
+        model.insertRow(2, new Object[] {"M3", "8h", "9h"});
+        model.insertRow(3, new Object[] {"M4", "9h", "10h"});
+        model.insertRow(4, new Object[] {"M5", "10h", "11h"});
+        model.insertRow(5, new Object[] {"M6", "11h", "12h"});
+        model.insertRow(6, new Object[] {"T1", "12h", "13h"});
+        model.insertRow(7, new Object[] {"T2", "13h", "14h"});
+        model.insertRow(8, new Object[] {"T3", "14h", "15h"});
+        model.insertRow(9, new Object[] {"T4", "15h", "16h"});
+        model.insertRow(10, new Object[] {"T5", "16h", "17h"});
+        model.insertRow(11, new Object[] {"T6", "17h", "18h"});
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -139,6 +178,8 @@ public class AgendaView extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new AgendaView().setVisible(true));
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
