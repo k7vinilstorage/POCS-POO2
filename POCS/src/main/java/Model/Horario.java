@@ -1,8 +1,8 @@
 package Model;
 
 public class Horario {
-    char diaSemana;
-    char diaHorario;
+    int diaSemana;
+    int diaHorario;
     boolean status;
 
     //Construtor
@@ -13,18 +13,18 @@ public class Horario {
     }
     
     //Construtor - Sobrecarga
-    public Horario(char diaSemana, char diaHorario, boolean status) {
+    public Horario(int diaSemana, int diaHorario, boolean status) {
         this.diaSemana = diaSemana;
         this.diaHorario = diaHorario;
         this.status = status;
     }
 
     //getter
-    public char getDiaSemana() {
+    public int getDiaSemana() {
         return diaSemana;
     }
     
-    public char getDiaHorario() {
+    public int getDiaHorario() {
         return diaHorario;
     }
     
@@ -33,11 +33,11 @@ public class Horario {
     }
     
     //setter
-    public void setDiaSemana(char diaSemana) {
+    public void setDiaSemana(int diaSemana) {
         this.diaSemana = diaSemana;
     }
 
-    public void setDiaHorario(char diaHorario) {
+    public void setDiaHorario(int diaHorario) {
         this.diaHorario = diaHorario;
     }
     

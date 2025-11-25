@@ -44,8 +44,8 @@ public class AgendaCtrl {
         String tabela = "CREATE TABLE IF NOT EXISTS Agenda("
                 + "Id INT auto_increment primary key not null,"
                 + "Pcod text,"
-                + "DiaS text,"
-                + "DiaH text,"
+                + "DiaS int,"
+                + "DiaH int,"
                 + "Status text)";
         
         try{
@@ -66,7 +66,7 @@ public class AgendaCtrl {
         }
     }
     
-    public void inserirTabela(Horario h, Professor p){
+    public boolean inserirTabela(Horario h, Professor p){
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
@@ -77,8 +77,8 @@ public class AgendaCtrl {
             PreparedStatement ps = con.prepareStatement(insertAln);
             
             ps.setString(2, p.getpCod());
-            ps.setString(3, String.valueOf(h.getDiaSemana()));
-            ps.setString(4, String.valueOf(h.getDiaHorario()));
+            ps.setInt(3, h.getDiaSemana());
+            ps.setInt(4, h.getDiaHorario());
             ps.setBoolean(5, h.getStatus());
 
             ps.executeUpdate();
@@ -90,7 +90,10 @@ public class AgendaCtrl {
         }catch(Exception e){
             System.out.println("Falha na inserção de alunos...");
             System.out.println(e);
+            return false;
         }
+        
+        return true;
     }
     
     public void selectTabela(Professor p) {
@@ -105,8 +108,8 @@ public class AgendaCtrl {
             while(rs.next()){
                 System.out.println("Id: " + rs.getString(1));
                 System.out.println("Pcod: " + rs.getString(2));
-                System.out.println("DiaS: " + rs.getString(3));
-                System.out.println("DiaHorario: " + rs.getString(4));
+                System.out.println("DiaS: " + rs.getInt(3));
+                System.out.println("DiaHorario: " + rs.getInt(4));
                 System.out.println("Status: " + rs.getString(5));
             }
             
