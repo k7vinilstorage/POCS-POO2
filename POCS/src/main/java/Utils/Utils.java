@@ -71,6 +71,9 @@ public class Utils {
         return false;
     }
     
+    public boolean verificarEmail(String email) {
+        return email.contains(String.valueOf("@"));  
+    }
 //    public boolean verificarCpfDuplicado() {
 //        
 //    }
