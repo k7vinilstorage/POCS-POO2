@@ -128,6 +128,11 @@ public class ProfPageView extends javax.swing.JFrame {
         });
 
         agendaMenu.setText("Ver Agenda");
+        agendaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agendaMenuMouseClicked(evt);
+            }
+        });
         agendaMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agendaMenuActionPerformed(evt);
@@ -236,8 +241,12 @@ public class ProfPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_userTfActionPerformed
 
     private void agendaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendaMenuActionPerformed
-        AgendaView.createAgendaView().setVisible(true);
+        
     }//GEN-LAST:event_agendaMenuActionPerformed
+
+    private void agendaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agendaMenuMouseClicked
+        AgendaView.createAgendaView().setVisible(true);
+    }//GEN-LAST:event_agendaMenuMouseClicked
 
     private void preencherDados() {
         userTf.setText(login.getProfessorAtual().getpCod());
