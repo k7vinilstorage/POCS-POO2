@@ -73,14 +73,14 @@ public class AgendaCtrl {
             con = DriverManager.getConnection(url,user,senha);
             System.out.println("Inserindo na Tabela..."); 
             
-            String insertAln = "INSERT INTO Agenda VALUES(?,?,?,?,?)";
+            String insertAln = "INSERT INTO Agenda (professorCod, diaSemana, diaHorario, status) VALUES (?,?,?,?)";
             
             PreparedStatement ps = con.prepareStatement(insertAln);
             
-            ps.setString(2, p.getpCod());
-            ps.setInt(3, h.getDiaSemana());
-            ps.setInt(4, h.getDiaHorario());
-            ps.setBoolean(5, h.getStatus());
+            ps.setString(1, p.getpCod());
+            ps.setInt(2, h.getDiaSemana());
+            ps.setInt(3, h.getDiaHorario());
+            ps.setBoolean(4, h.getStatus());
 
             ps.executeUpdate();
             System.out.println("Agenda cadastrado com sucesso...");
