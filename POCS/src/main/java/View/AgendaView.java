@@ -24,11 +24,22 @@ public class AgendaView extends javax.swing.JFrame {
     /**
      * Creates new form AgendaView
      */
-    public AgendaView() {
+    
+    private static AgendaView singleAgendaView;
+    
+    private AgendaView() {
         initComponents();
         carregaHor();
     }
 
+    public static AgendaView createAgendaView() {
+        if(singleAgendaView == null) {
+            singleAgendaView = new AgendaView();
+        }
+        
+        return singleAgendaView;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -172,6 +183,15 @@ public class AgendaView extends javax.swing.JFrame {
         }
     }
     
+    public void updateTable() {
+        AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.getProfessorAtual());
+    }
+    
+    public void preencherTabela(int rowH, int colD) {
+        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+        
+        model.setValueAt("'Disponível", rowH, colD);
+    }
     
     /**
      * @param args the command line arguments
