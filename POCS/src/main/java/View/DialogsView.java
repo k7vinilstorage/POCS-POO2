@@ -48,4 +48,14 @@ public class DialogsView {
         );
         return op;
     }  
+    
+    public int infoOpDialog(String info, String title) {
+        int op = JOptionPane.showConfirmDialog(
+                        null,
+                        info,
+                        title,
+                        JOptionPane.INFORMATION_MESSAGE
+        );
+        return op;
+    } 
 }

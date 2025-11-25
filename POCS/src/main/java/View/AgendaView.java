@@ -152,8 +152,10 @@ public class AgendaView extends javax.swing.JFrame {
     private void agendaTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agendaTbMouseClicked
         rowH = agendaTb.getSelectedRow();
         colD = agendaTb.getSelectedColumn() - 3;
-        adicionarHor();
-        updateTable(); 
+        if(DialogsView.createDialogs().infoOpDialog("Gostaria de adicionar o horário?", "Adicionar Horário") == 0) {
+            adicionarHor();
+            updateTable();
+        }
     }//GEN-LAST:event_agendaTbMouseClicked
 
     public void carregaHor() {
