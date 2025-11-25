@@ -180,7 +180,7 @@ public class AlunoCtrl {
         try {
                 Class.forName(driver);
                 con = DriverManager.getConnection(url, user, senha);
-                String findCpf = "SELECT * FROM Aluno WHERE Codigo = ?";
+                String findCpf = "SELECT * FROM Aluno WHERE " + coluna + " = ?";
                 PreparedStatement ps = con.prepareStatement(findCpf);
                 ps.setString(1, condicao);
                 ResultSet rs = ps.executeQuery();
@@ -210,48 +210,6 @@ public class AlunoCtrl {
         
         return alunoReturn;
     }
-    
-    //sobrecarga LoginCtrl
-//    public Aluno selectTabela(String coluna, String condicao){
-//        Aluno a1 = new Aluno();
-//        try{
-//            Class.forName(driver); //driver
-//            con = DriverManager.getConnection(url,user,senha); //abro conexão
-//            //String busca = "SELECT * FROM Aluno WHERE ? = ?";
-//            String busca2 = "SELECT * FROM Aluno WHERE" + coluna + " =  " + "'" + condicao + "'";
-//            System.out.println(busca2);
-//            //PreparedStatement ps = con.prepareStatement(busca);;
-//            System.out.println("RESULTADO DA CONSULTA...");
-//            st = con.createStatement();
-//            rs = st.executeQuery(busca2);
-//           
-//            
-//   
-//            ps.setString(1, coluna);
-//            ps.setString(2, condicao);
-//            
-//            
-//            a1.setaCod(rs.getString(1));// 1 = primeira coluna
-//            a1.setNome(rs.getString(2));
-//            a1.setDesenvolvimento(rs.getString(3));
-//            a1.setEmail(rs.getString(4));
-//            
-//            ps.executeUpdate();
-//            
-//            ps.close();
-//            
-//            return(a1);
-//            
-//        }catch(Exception e){
-//            System.out.println("Falha na consulta de alunos...");
-//            System.out.println(e);
-//        }finally {
-//            try { if (rs != null) rs.close(); } catch(Exception e){}
-//            try { if (st != null) st.close(); } catch(Exception e){}
-//            try { if (con != null) con.close(); } catch(Exception e){}
-//        }
-//        return null;
-//    }
 //        
 //    //delete (falta testar)
 //    public void deleteTabela(String condicao){
