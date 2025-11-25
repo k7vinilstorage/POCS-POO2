@@ -173,57 +173,107 @@ public class AlunoCtrl {
             System.out.println(e);
         }
     }
-    //sobrecarga LoginCtrl
+    
     public Aluno selectTabela(String coluna, String condicao){
-        String busca= "SELECT * FROM aluno WHERE " + coluna + " = " + condicao;
-        System.out.println(busca);
-        Aluno a1 = null;
+        Aluno a1 = new Aluno();
+        Aluno alunoReturn = null;
+        try {
+                Class.forName(driver);
+                con = DriverManager.getConnection(url, user, senha);
+                String findCpf = "SELECT * FROM Aluno WHERE Codigo = ?";
+                PreparedStatement ps = con.prepareStatement(findCpf);
+                ps.setString(1, condicao);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()) {
+                    alunoReturn = a1;
+                
+                    a1.setaCod(rs.getString(1));// 1 = primeira coluna
+                    a1.setCpf(rs.getString(2));
+                    a1.setSenha(rs.getString(3));
+                    a1.setNome(rs.getString(4));
+                    a1.setCelular(rs.getString(5));
+                    a1.setIdade(rs.getInt(6));
+                    a1.setDesenvolvimento(rs.getString(7));
+                    a1.setEscola(rs.getString(8));
+                    a1.setEmail(rs.getString(9));
+                }
+                
+                
+                rs.close();
+                ps.close();
+                con.close();
+            } 
+            catch (Exception e) {
+                System.out.println(e);
+            }
         
-        try{
-            Class.forName(driver); //driver
-            con = DriverManager.getConnection(url,user,senha); //abro conexão
-            System.out.println("RSULTADO DA CONSULTA...");
-            st = con.createStatement();
-            rs = st.executeQuery(busca);
-            
-           
-            a1.setaCod(rs.getString(1));// 1 = primeira coluna
-            a1.setNome(rs.getString(2));
-            a1.setDesenvolvimento(rs.getString(3));
-            a1.setEmail(rs.getString(4));
-              
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na consulta de alunos...");
-            System.out.println(e);
-        }
-        
-        return a1;
+        return alunoReturn;
     }
-        
-    //delete (falta testar)
-    public void deleteTabela(String condicao){
-        String delete = "DELETE FROM aluno WHERE Codigo = 1";
-        
-        try{
-            Class.forName(driver);
-            con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Excluindo um aluno...");
-            
-            st = con.createStatement();
-            st.executeUpdate(delete);
-            System.out.println("Aluno excluido com sucesso...");
-            
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha ao excluir aluno...");
-            System.out.println(e);
-        }
-    }
+    
+    //sobrecarga LoginCtrl
+//    public Aluno selectTabela(String coluna, String condicao){
+//        Aluno a1 = new Aluno();
+//        try{
+//            Class.forName(driver); //driver
+//            con = DriverManager.getConnection(url,user,senha); //abro conexão
+//            //String busca = "SELECT * FROM Aluno WHERE ? = ?";
+//            String busca2 = "SELECT * FROM Aluno WHERE" + coluna + " =  " + "'" + condicao + "'";
+//            System.out.println(busca2);
+//            //PreparedStatement ps = con.prepareStatement(busca);;
+//            System.out.println("RESULTADO DA CONSULTA...");
+//            st = con.createStatement();
+//            rs = st.executeQuery(busca2);
+//           
+//            
+//   
+//            ps.setString(1, coluna);
+//            ps.setString(2, condicao);
+//            
+//            
+//            a1.setaCod(rs.getString(1));// 1 = primeira coluna
+//            a1.setNome(rs.getString(2));
+//            a1.setDesenvolvimento(rs.getString(3));
+//            a1.setEmail(rs.getString(4));
+//            
+//            ps.executeUpdate();
+//            
+//            ps.close();
+//            
+//            return(a1);
+//            
+//        }catch(Exception e){
+//            System.out.println("Falha na consulta de alunos...");
+//            System.out.println(e);
+//        }finally {
+//            try { if (rs != null) rs.close(); } catch(Exception e){}
+//            try { if (st != null) st.close(); } catch(Exception e){}
+//            try { if (con != null) con.close(); } catch(Exception e){}
+//        }
+//        return null;
+//    }
+//        
+//    //delete (falta testar)
+//    public void deleteTabela(String condicao){
+//        String delete = "DELETE FROM aluno WHERE Codigo = 1";
+//        
+//        try{
+//            Class.forName(driver);
+//            con = DriverManager.getConnection(url,user,senha);
+//            System.out.println("Excluindo um aluno...");
+//            
+//            st = con.createStatement();
+//            st.executeUpdate(delete);
+//            System.out.println("Aluno excluido com sucesso...");
+//            
+//            st.close();
+//            con.close();
+//            
+//        }catch(Exception e){
+//            System.out.println("Falha ao excluir aluno...");
+//            System.out.println(e);
+//        }
+//    }
     
     //Sobrecargas
     //Sobrecarga Inserir

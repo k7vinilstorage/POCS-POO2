@@ -15,7 +15,7 @@ public class Teste_CRUD {
         //aluno.inserirTabela("'Lusia'","'Extraordinário'","'lusia@gmail.com'");
         aluno.selectTabela();
         //aluno.selectTabela("Nome","'Gabriel'"); // funciona (tem que colocar texto entre '' dentro das "")
-        aluno.deleteTabela("Nome");
+        //aluno.deleteTabela("Nome");
         
         professor.criarTabela(); //funciona
         //professor.inserirTabela(); //funciona

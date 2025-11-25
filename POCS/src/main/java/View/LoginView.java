@@ -25,6 +25,8 @@ public class LoginView extends javax.swing.JFrame {
     private LoginView() {
         initComponents();
         setLocationRelativeTo(null);
+        alunoCtrl.criarTabela();
+        professorCtrl.criarTabela();
     }
 
     public static LoginView geraLogin(){
@@ -159,7 +161,6 @@ public class LoginView extends javax.swing.JFrame {
         
         if(verificaSenha == 1 && tipo == 1){
             LoginCtrl.setAlunoAtual(alunoCtrl.selectTabela("Codigo", userTf.getText()));
-            
             AluPageView.geraAluPageView().setVisible(true);
             dispose();
         }else if(verificaSenha == 1 && tipo == 2){
