@@ -134,7 +134,7 @@ public class AgendaCtrl {
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-                  AgendaView.createAgendaView().preencherTabela(rs.getInt(4), rs.getInt(3), true);
+                  AgendaView.createAgendaView().preencherTabela(rs.getInt("DiaH"), rs.getInt("DiaS"), true);
             }
             
             rs.close();
