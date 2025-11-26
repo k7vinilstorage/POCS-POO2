@@ -51,7 +51,7 @@ public class AgendaCtrl {
                 + "Pcod text,"
                 + "DiaS int,"
                 + "DiaH int,"
-                + "Status text)";
+                + "Reserved bool)";
         
         try{
             Class.forName(driver);
@@ -77,7 +77,7 @@ public class AgendaCtrl {
             con = DriverManager.getConnection(url,user,senha);
             System.out.println("Inserindo na Tabela..."); 
             
-            String insertAln = "INSERT INTO Agenda (Pcod, DiaS, DiaH, Status) VALUES (?,?,?,?)";
+            String insertAln = "INSERT INTO Agenda (Pcod, DiaS, DiaH, Reserved) VALUES (?,?,?,?)";
             
             PreparedStatement ps = con.prepareStatement(insertAln);
             
@@ -155,7 +155,7 @@ public class AgendaCtrl {
             String joinProf = "SELECT Professor.Nome,"
                     + " Professor.Disciplina,"
                     + " Agenda.DiaS, "
-                    + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Nome LIKE ?";
+                    + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Nome LIKE ? AND Agenda.Reserved = 0";
             
             PreparedStatement ps = con.prepareStatement(joinProf);
             ps.setString(1, p);
@@ -186,7 +186,7 @@ public class AgendaCtrl {
             String joinProf = "SELECT Professor.Nome,"
                     + " Professor.Disciplina,"
                     + " Agenda.DiaS, "
-                    + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Disciplina LIKE ?";
+                    + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Disciplina LIKE ? AND Agenda.Reserved = 0";
             
             PreparedStatement ps = con.prepareStatement(joinProf);
             ps.setString(1, m);
@@ -209,6 +209,35 @@ public class AgendaCtrl {
             System.out.println(e);
         }
     }
+        
+    public boolean changeReserved(Horario h, boolean reserved, String pCod) {
+    try {
+        Class.forName(driver);
+        con = DriverManager.getConnection(url, user, senha);
+
+        String change = "UPDATE Agenda SET Reserved = ? "
+                      + "WHERE Pcod = ? AND DiaS = ? AND DiaH = ?";
+
+        PreparedStatement ps = con.prepareStatement(change);
+
+        ps.setBoolean(1, reserved);
+        ps.setString(2, pCod);
+        ps.setInt(3, h.getDiaSemana());
+        ps.setInt(4, h.getDiaHorario());
+
+        int rowsUpdated = ps.executeUpdate();
+
+        ps.close();
+        con.close();
+
+        return rowsUpdated > 0;
+    }
+    catch (Exception e) {
+        System.out.println(e);
+        return false;
+    }
+}
+
     
     public boolean verificaHorarioExistente(Professor p, int rowH, int colD) {
         boolean result = false;
