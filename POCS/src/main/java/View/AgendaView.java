@@ -260,7 +260,6 @@ public class AgendaView extends javax.swing.JFrame {
 
         String pcod = AulaCtrl.createAulaCtrl().selectPcodAula(alu, colD, rowH);
         
-        System.out.println(pcod);
         
         if(AulaCtrl.createAulaCtrl().deleteTabela(alu.getaCod(), colD, rowH)){
             Horario h = new Horario(colD, rowH, false);

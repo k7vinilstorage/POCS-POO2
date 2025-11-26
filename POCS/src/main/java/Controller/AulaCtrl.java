@@ -41,11 +41,9 @@ public class AulaCtrl {
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Criando tabela");
             
             st = con.createStatement();
             st.executeUpdate(tabela);
-            System.out.println("Tabela criada com sucesso");
             
             st.close();
             con.close();
@@ -62,7 +60,6 @@ public class AulaCtrl {
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Inserindo na Tabela..."); 
             
             String insertAln = "INSERT INTO Aula (pCod, aCod, DiaS, DiaH) VALUES (?,?,?,?)";
             
@@ -74,7 +71,6 @@ public class AulaCtrl {
             ps.setInt(4, h.getDiaHorario());
 
             ps.executeUpdate();
-            System.out.println("Aula cadastrado com sucesso...");
             
             ps.close();
             con.close();
@@ -105,7 +101,6 @@ public class AulaCtrl {
             
             while(rs.next()){
                 pCod = rs.getString("pCod");
-                System.out.println(pCod);
             }
             
             rs.close();

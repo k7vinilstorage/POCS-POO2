@@ -56,11 +56,9 @@ public class AgendaCtrl {
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Criando a Tabela...");
             
             st = con.createStatement();
             st.executeUpdate(tabela);
-            System.out.println("Tabela criada com sucesso...");
             
             st.close();
             con.close();
@@ -74,8 +72,7 @@ public class AgendaCtrl {
     public boolean inserirTabela(Horario h, Professor p){
         try{
             Class.forName(driver);
-            con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Inserindo na Tabela..."); 
+            con = DriverManager.getConnection(url,user,senha);; 
             
             String insertAln = "INSERT INTO Agenda (Pcod, DiaS, DiaH, Reserved) VALUES (?,?,?,?)";
             
@@ -87,7 +84,6 @@ public class AgendaCtrl {
             ps.setBoolean(4, h.getStatus());
 
             ps.executeUpdate();
-            System.out.println("Agenda cadastrado com sucesso...");
             
             ps.close();
             con.close();

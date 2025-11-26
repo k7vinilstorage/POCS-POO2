@@ -61,11 +61,9 @@ public class ProfessorCtrl {
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Criando a Tabela Professor...");
             
             st = con.createStatement();
             st.executeUpdate(tabela);
-            System.out.println("Tabela PROFESSOR criada com sucesso...");
             
             st.close();
             con.close();
@@ -116,7 +114,6 @@ public class ProfessorCtrl {
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Inserindo PROFESSOR na Tabela...");
             
             String insertProf = "INSERT INTO Professor VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
@@ -135,40 +132,12 @@ public class ProfessorCtrl {
             ps.setString(9,prof.getEmail());
             
             ps.executeUpdate();
-            System.out.println("Professor cadastrado com sucesso...");
             
             ps.close();
             con.close();
             
         }catch(Exception e){
             System.out.println("Falha na inserção de professor...");
-            System.out.println(e);
-        }
-    }
-    
-    //Buscar na Tabela
-    public void selectTabela(){
-        String busca= "SELECT * FROM Professor";
-        
-        try{
-            Class.forName(driver); //driver
-            con = DriverManager.getConnection(url,user,senha); //abro conexão
-            System.out.println("RSULTADO DA CONSULTA...");
-            st = con.createStatement();
-            rs = st.executeQuery(busca);
-            
-            while(rs.next()){
-                System.out.println("CODIGO " + rs.getInt(1)); // 1 = primeira coluna
-                System.out.println("NOME: " + rs.getString(2));
-                System.out.println("DISCIPLINA: " + rs.getString(3));
-                System.out.println("EMAIL: " + rs.getString(5));
-                    
-            }
-            st.close();
-            con.close();
-            
-        }catch(Exception e){
-            System.out.println("Falha na consulta de PROFESSOR...");
             System.out.println(e);
         }
     }
@@ -244,7 +213,6 @@ public class ProfessorCtrl {
                 ps.close();
                 con.close();
 
-                System.out.println("PROFESSOR excluido com sucesso...");
             }
             catch (Exception e) {
                 System.out.println("Erro ao deletar professor");
@@ -266,11 +234,9 @@ public class ProfessorCtrl {
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Inserindo na Tabela PROFESSOR...");
             
             st = con.createStatement();
             st.executeUpdate(aluno);
-            System.out.println("PROFESSOR cadastrado com sucesso...");
             
             st.close();
             con.close();

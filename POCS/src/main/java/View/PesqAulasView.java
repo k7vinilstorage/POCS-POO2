@@ -165,7 +165,6 @@ public class PesqAulasView extends javax.swing.JFrame {
         model.setRowCount(0);
         
         String pesqProf = buscaAulaProfTf.getText();
-        System.out.println("Estamos no botao"+ pesqProf);
         AgendaCtrl.createAgendaCtrl().selectPesqProfTb(pesqProf); 
     }//GEN-LAST:event_buscaAulaProfBtActionPerformed
 
@@ -178,7 +177,6 @@ public class PesqAulasView extends javax.swing.JFrame {
         model.setRowCount(0);
         
         String pesqMat = buscaAulaMatTf.getText();
-        System.out.println("Estamos no botão"+ pesqMat);
         AgendaCtrl.createAgendaCtrl().selectPesqMatTb(pesqMat);
     }//GEN-LAST:event_buscaAulaMatBtActionPerformed
 

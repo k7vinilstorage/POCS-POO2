@@ -33,7 +33,7 @@ public class CoordenadorCtrl {
     }
     
     private CoordenadorCtrl(){
-        System.out.println("criado o coordenadorCtrl");
+
     }
     
     public Coordenador selectTabela(String coluna, String condicao){
