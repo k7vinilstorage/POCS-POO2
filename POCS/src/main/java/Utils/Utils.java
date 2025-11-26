@@ -142,6 +142,7 @@ public class Utils {
     public int verificaBd(int tipo, String id){
         Aluno a1 = null;
         Professor p1 = null;
+        Coordenador c1 = null;
         
         switch(tipo){
             case 1: 
@@ -156,6 +157,11 @@ public class Utils {
                     return 0;
                 }
                 break;
+            case 3:
+                //c1 = coordenadorCtrl.selectTabela("Codigo", id);
+                if(c1 == null){
+                    return 0;
+                }
         }
         
         
