@@ -183,12 +183,17 @@ public class AgendaView extends javax.swing.JFrame {
             return;
         }
         
+        if(model.getValueAt(rowH, colD) == "Reservado") {
+            DialogsView.createDialogs().errorDialog("Erro ao remover horário \n Horário reservado", "Erro");
+            return;
+        }
+        
         Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
         
         if(AgendaCtrl.createAgendaCtrl().deleteTabela(p.getpCod(), colD, rowH)){
             DialogsView.createDialogs().infoDialog("Horario removido com sucesso","Sucesso");
         }else{
-            DialogsView.createDialogs().errorDialog("Erro ao adicionar horário", "Erro");
+            DialogsView.createDialogs().errorDialog("Erro ao Remover horário", "Erro");
         }
         
         model.setValueAt("", rowH, colD + 3);
