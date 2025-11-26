@@ -47,6 +47,13 @@ public class AgendaView extends javax.swing.JFrame {
         return singleAgendaView;
     }
     
+    public static void destroyAgendaView() {
+        if (singleAgendaView != null) {
+            singleAgendaView.dispose();
+            singleAgendaView = null;  
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -189,9 +196,7 @@ public class AgendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentShown
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
-        model.setRowCount(0);
-        carregaHor();
+
         if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
             prof = LoginCtrl.createLoginCtrl().getProfessorAtual();
         }
@@ -235,8 +240,6 @@ public class AgendaView extends javax.swing.JFrame {
         if(colD < 0){
             return;
         }
-        
-        
         if(AgendaCtrl.createAgendaCtrl().deleteTabela(prof.getpCod(), colD, rowH)){
             DialogsView.createDialogs().infoDialog("Horario removido com sucesso","Sucesso");
         }else{
@@ -254,10 +257,14 @@ public class AgendaView extends javax.swing.JFrame {
             return;
         }
 
+        String pcod = AulaCtrl.createAulaCtrl().selectPcodAula(alu, colD, rowH);
+        
+        System.out.println(pcod);
+        
         if(AulaCtrl.createAulaCtrl().deleteTabela(alu.getaCod(), colD, rowH)){
             Horario h = new Horario(colD, rowH, false);
             
-            AgendaCtrl.createAgendaCtrl().changeReserved(h, false, AulaCtrl.createAulaCtrl().selectPcodAula(alu, colD, rowH));
+            AgendaCtrl.createAgendaCtrl().changeReserved(h, false, pcod);
             
             DialogsView.createDialogs().infoDialog("Reserva removida com sucesso","Sucesso");
         }
@@ -267,6 +274,7 @@ public class AgendaView extends javax.swing.JFrame {
         
         model.setValueAt(null, rowH, colD + 3);
     }
+    
     
     public void updateTable() {
         if(prof != null) {

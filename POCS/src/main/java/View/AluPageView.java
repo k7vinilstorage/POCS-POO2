@@ -221,6 +221,7 @@ public class AluPageView extends javax.swing.JFrame {
     private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
         LoginView.geraLogin().setVisible(true);
         LoginCtrl.createLoginCtrl().setAlunoAtual(null);
+        System.gc();
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
@@ -229,6 +230,7 @@ public class AluPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_aulasBuscaMenuMouseClicked
 
     private void aulasCadasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasCadasMenuMouseClicked
+        AgendaView.destroyAgendaView();
         AgendaView.createAgendaView().setVisible(true);
     }//GEN-LAST:event_aulasCadasMenuMouseClicked
 
