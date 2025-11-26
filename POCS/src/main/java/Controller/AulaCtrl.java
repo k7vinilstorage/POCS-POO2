@@ -31,10 +31,10 @@ public class AulaCtrl {
     
     public void criarTabela(){
         String tabela = "CREATE TABLE IF NOT EXISTS Aula("
-                + "Id INT auto_increment primary key not null"
-                + "pCod VARCHAR(20)"
-                + "aCod VARCHAR(20)"
-                + "DiaS int"
+                + "Id INT auto_increment primary key not null,"
+                + "pCod VARCHAR(20),"
+                + "aCod VARCHAR(20),"
+                + "DiaS int,"
                 + "DiaH int)";
         
         try{
