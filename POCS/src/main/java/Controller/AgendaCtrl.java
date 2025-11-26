@@ -163,8 +163,8 @@ public class AgendaCtrl {
                 Object[] linha = {
                     rs.getString("Nome"),
                     rs.getString("Disciplina"),
-                    converteDia(rs.getInt("DiaS")),
-                    converteHorario(rs.getInt("DiaH"))
+                    Utils.Utils.createUtils().converteDia(rs.getInt("DiaS")),
+                    Utils.Utils.createUtils().converteHorario(rs.getInt("DiaH"))
                 };
                 PesqAulasView.geraPesqAulasView().preencherTabela(linha);
             }
@@ -182,7 +182,8 @@ public class AgendaCtrl {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-            String joinProf = "SELECT Professor.Nome,"
+            String joinProf = "SELECT Professor.Codigo,"
+                    + " Professor.Nome,"
                     + " Professor.Disciplina,"
                     + " Agenda.DiaS, "
                     + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Disciplina LIKE ?";
@@ -194,8 +195,10 @@ public class AgendaCtrl {
                 Object[] linha = {
                     rs.getString("Nome"),
                     rs.getString("Disciplina"),
-                    converteDia(rs.getInt("DiaS")),
-                    converteHorario(rs.getInt("DiaH"))
+                    Utils.Utils.createUtils().converteDia(rs.getInt("DiaS")),
+                    Utils.Utils.createUtils().converteHorario(rs.getInt("DiaH")),
+                    rs.getString("Codigo")
+                    
                 };
                 PesqAulasView.geraPesqAulasView().preencherTabela(linha);
             }
@@ -234,58 +237,7 @@ public class AgendaCtrl {
         
         return result;
     }    
-    
-    public String converteDia(int dia){
-        switch(dia){
-            case 0:
-                return "Segunda";
-            case 1:
-                return "Terça";
-            case 2:
-                return "Quarta";
-            case 3:
-                return "Quinta";
-            case 4:
-                return "Sexta";
-            default:
-                return null;
-        }
-    }
-    
-    public String converteHorario(int horario){
-        switch(horario){
-            case 0:
-                return "06:00-07:00";
-            case 1:
-                return "07:00-08:00";
-            case 2:
-                return "08:00-09:00";
-            case 3:
-                return "09:00-10:00";
-            case 4:
-                return "10:00-11:00";
-            case 5:
-                return "11:00-12:00";
-            case 6:
-                return "12:00-13:00";
-            case 7:
-                return "13:00-14:00";
-            case 8:
-                return "14:00-15:00";
-            case 9:
-                return "15:00-16:00";
-            case 10:
-                return "16:00-17:00";
-            case 11:
-                return "17:00-18:00";
-            default:
-                return null;
-        }
-    }
 
-    private void preencherTabela(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 
     

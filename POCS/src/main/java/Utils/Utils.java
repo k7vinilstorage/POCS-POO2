@@ -182,4 +182,100 @@ public class Utils {
                 
         return 0;
     }
+    
+    public String converteDia(int dia){
+        switch(dia){
+            case 0:
+                return "Segunda";
+            case 1:
+                return "Terça";
+            case 2:
+                return "Quarta";
+            case 3:
+                return "Quinta";
+            case 4:
+                return "Sexta";
+            default:
+                return null;
+        }
+    }
+    
+    public String converteHorario(int horario){
+        switch(horario){
+            case 0:
+                return "06:00-07:00";
+            case 1:
+                return "07:00-08:00";
+            case 2:
+                return "08:00-09:00";
+            case 3:
+                return "09:00-10:00";
+            case 4:
+                return "10:00-11:00";
+            case 5:
+                return "11:00-12:00";
+            case 6:
+                return "12:00-13:00";
+            case 7:
+                return "13:00-14:00";
+            case 8:
+                return "14:00-15:00";
+            case 9:
+                return "15:00-16:00";
+            case 10:
+                return "16:00-17:00";
+            case 11:
+                return "17:00-18:00";
+            default:
+                return null;
+        }
+    }
+    
+    public int desConverteDia(String dia){
+        switch(dia){
+            case "Segunda":
+                return 0;
+            case "Terça":
+                return 1;
+            case "Quarta":
+                return 2;
+            case "Quinta":
+                return 3;
+            case "Sexta":
+                return 4;
+            default:
+                return -1;
+        }
+    }
+    
+    public int desConverteHorario(String horario){
+        switch(horario){
+            case "06:00-07:00":
+                return 0;
+            case "07:00-08:00":
+                return 1;
+            case "08:00-09:00":
+                return 2;
+            case "09:00-10:00":
+                return 3;
+            case "10:00-11:00":
+                return 4;
+            case "11:00-12:00":
+                return 5;
+            case "12:00-13:00":
+                return 6;
+            case "13:00-14:00":
+                return 7;
+            case "14:00-15:00":
+                return 8;
+            case "15:00-16:00":
+                return 9;
+            case "16:00-17:00":
+                return 10;
+            case "17:00-18:00":
+                return 11;
+            default:
+                return -1;
+        }
+    }
 }

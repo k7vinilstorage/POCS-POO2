@@ -5,6 +5,7 @@
 package View;
 
 import Controller.AgendaCtrl;
+import Utils.Utils;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -178,11 +179,11 @@ public class PesqAulasView extends javax.swing.JFrame {
     }
     
     private void aulasTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasTbMouseClicked
+        DefaultTableModel model = (DefaultTableModel) aulasTb.getModel();
         rowH = aulasTb.getSelectedRow();
         
-        for(int i = 0; i < 4; i++) {
-            
-        }
+        Utils.createUtils().desConverteDia(model.getValueAt(rowH, 2).toString());
+        Utils.createUtils().desConverteHorario(model.getValueAt(rowH, 3).toString());
         
     }//GEN-LAST:event_aulasTbMouseClicked
 
