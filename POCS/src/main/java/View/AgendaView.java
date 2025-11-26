@@ -254,10 +254,14 @@ public class AgendaView extends javax.swing.JFrame {
             return;
         }
 
+        String pcod = AulaCtrl.createAulaCtrl().selectPcodAula(alu, colD, rowH);
+        
+        System.out.println(pcod);
+        
         if(AulaCtrl.createAulaCtrl().deleteTabela(alu.getaCod(), colD, rowH)){
             Horario h = new Horario(colD, rowH, false);
             
-            AgendaCtrl.createAgendaCtrl().changeReserved(h, false, AulaCtrl.createAulaCtrl().selectPcodAula(alu, colD, rowH));
+            AgendaCtrl.createAgendaCtrl().changeReserved(h, false, pcod);
             
             DialogsView.createDialogs().infoDialog("Reserva removida com sucesso","Sucesso");
         }
