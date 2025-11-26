@@ -10,7 +10,6 @@ import Controller.ProfessorCtrl;
 import Model.Horario;
 import Model.Professor;
 import Utils.Utils;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 /**
  *
