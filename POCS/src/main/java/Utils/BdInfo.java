@@ -17,7 +17,7 @@ public class BdInfo {
     private static BdInfo singleBdInfo;
 
     private BdInfo() {
-        url = "jdbc:mysql://localhost:3306/teste2";
+        url = "jdbc:mysql://localhost:3306/pocs";
         senha = "Gabriel123/";
         user = "root";
         driver = "com.mysql.cj.jdbc.Driver";
