@@ -149,7 +149,7 @@ public class PesqAulasView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscaAulaMatTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaMatTfActionPerformed
-
+        //Não usar;
     }//GEN-LAST:event_buscaAulaMatTfActionPerformed
 
     private void buscaAulaProfBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaProfBtActionPerformed
