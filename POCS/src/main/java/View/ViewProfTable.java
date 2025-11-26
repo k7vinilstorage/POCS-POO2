@@ -11,13 +11,24 @@ package View;
 public class ViewProfTable extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewProfTable.class.getName());
-
+    
+    private static ViewProfTable viewProfTableUnic;
+    
+    private ViewProfTable(){
+        initComponents();
+        setLocationRelativeTo(null);
+    }
+    
+    public static ViewProfTable geraViewProfTable(){
+        if(viewProfTableUnic == null){
+            viewProfTableUnic = new ViewProfTable();
+        }
+        return viewProfTableUnic;
+    }
+    
     /**
      * Creates new form ViewProfTable
      */
-    public ViewProfTable() {
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
