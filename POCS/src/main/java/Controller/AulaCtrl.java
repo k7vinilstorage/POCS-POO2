@@ -1,5 +1,8 @@
 package Controller;
 
+import Model.Aluno;
+import Model.Horario;
+import Model.Professor;
 import java.sql.*;
 
 public class AulaCtrl {
@@ -32,8 +35,7 @@ public class AulaCtrl {
                 + "pCod VARCHAR(20)"
                 + "aCod VARCHAR(20)"
                 + "DiaS int"
-                + "DiaH int"
-                + "Status text)";
+                + "DiaH int)";
         
         try{
             Class.forName(driver);
@@ -49,15 +51,40 @@ public class AulaCtrl {
         
         }catch(Exception e){
             System.out.println("Falha na criação da tabela...");
-            e.printStackTrace();
         }
     }    
         
-    public void inserirTabela(){
+    public boolean inserirTabela(Horario h, Professor p){
+        
+        Aluno a = LoginCtrl.createLoginCtrl().getAlunoAtual();
+        
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,user,senha);
+            System.out.println("Inserindo na Tabela..."); 
+            
+            String insertAln = "INSERT INTO Agenda (Pcod, Acod, DiaS, DiaH) VALUES (?,?,?,?)";
+            
+            PreparedStatement ps = con.prepareStatement(insertAln);
+            
+            ps.setString(1, p.getpCod());
+            ps.setString(2, a.getaCod());
+            ps.setInt(3, h.getDiaSemana());
+            ps.setInt(4, h.getDiaHorario());
 
-
-
-
+            ps.executeUpdate();
+            System.out.println("Aula cadastrado com sucesso...");
+            
+            ps.close();
+            con.close();
+            
+        }catch(Exception e){
+            System.out.println("Falha na inserção de aula");
+            System.out.println(e);
+            return false;
+        }
+        
+        return true;
     }
     
     
