@@ -172,13 +172,9 @@ public class PesqAulasView extends javax.swing.JFrame {
         AgendaCtrl.createAgendaCtrl().selectPesqMatTb(pesqMat);
     }//GEN-LAST:event_buscaAulaMatBtActionPerformed
 
-    public void preencherTabela(int id, String nome, String disciplina, int DiaS, int DiaH) {
+    public void preencherTabela (Object linha[]) {
         DefaultTableModel model = (DefaultTableModel) aulasTb.getModel();
-        
-        model.setValueAt(nome, id, 0);
-        model.setValueAt(disciplina, id, 1);
-        model.setValueAt(DiaS, id, 2);
-        model.setValueAt(DiaH, id, 3);
+        model.addRow(linha);
     }
     
     private void aulasTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasTbMouseClicked

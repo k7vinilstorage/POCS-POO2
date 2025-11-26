@@ -151,8 +151,7 @@ public class AgendaCtrl {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-            String joinProf = "SELECT Professor.Id,"
-                    + " Professor.Nome,"
+            String joinProf = "SELECT Professor.Nome,"
                     + " Professor.Disciplina,"
                     + " Agenda.DiaS, "
                     + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Nome LIKE ?";
@@ -161,13 +160,13 @@ public class AgendaCtrl {
             ps.setString(1, p);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-//                Object[] linha = {
-//                    rs.getString("Nome"),
-//                    rs.getString("Disciplina"),
-//                    converteDia(rs.getInt("DiaS")),
-//                    converteHorario(rs.getInt("DiaH"))
-//                };
-                PesqAulasView.geraPesqAulasView().preencherTabela(rs.getInt("Id"), rs.getString("Nome"), rs.getString("Disciplina"), rs.getInt("DiaS"), rs.getInt("DiaH"));
+                Object[] linha = {
+                    rs.getString("Nome"),
+                    rs.getString("Disciplina"),
+                    converteDia(rs.getInt("DiaS")),
+                    converteHorario(rs.getInt("DiaH"))
+                };
+                PesqAulasView.geraPesqAulasView().preencherTabela(linha);
             }
             
             rs.close();
