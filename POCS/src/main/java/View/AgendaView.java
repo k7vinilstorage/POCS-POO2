@@ -179,10 +179,10 @@ public class AgendaView extends javax.swing.JFrame {
             return;
         }
         
-        //Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
-        //if(AgendaCtrl.createAgendaCtrl()){
+        Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
         
-        //}
+        AgendaCtrl.createAgendaCtrl().deleteTabela(p.getpCod(), colD, rowH);
+        
     }
     
     public void updateTable() {
