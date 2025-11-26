@@ -64,6 +64,11 @@ public class AtualizaAluView extends javax.swing.JFrame {
         });
 
         btAtualizaEmail.setText("Atualizar");
+        btAtualizaEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAtualizaEmailActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,12 @@ public class AtualizaAluView extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btAtualizaCelularActionPerformed
+
+    private void btAtualizaEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaEmailActionPerformed
+        if(AlunoCtrl.AlunoCtrlCreate().atualizaEmailAluno(cxEmail.getText(), loginCtrl.getAlunoAtual().getaCod())){
+            atualizarPagina();
+        }
+    }//GEN-LAST:event_btAtualizaEmailActionPerformed
 
     private void atualizarPagina(){
         cxCelular.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getCelular());
