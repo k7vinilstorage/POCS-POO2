@@ -211,27 +211,50 @@ public class ProfessorCtrl {
     }
     
     public boolean deleteTabela(String pCod){
+        boolean result = false;
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-
-            String sql = "DELETE FROM Professor WHERE Codigo = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-
+            String findCpf = "SELECT * FROM Agenda WHERE pCod = ?";
+            PreparedStatement ps = con.prepareStatement(findCpf);
             ps.setString(1, pCod);
-
-            ps.executeUpdate();
-            
-            
+            ResultSet rs = ps.executeQuery();
+            result = (!rs.next());
+            rs.close();
             ps.close();
             con.close();
-            
-            System.out.println("PROFESSOR excluido com sucesso...");
-        }
+        } 
         catch (Exception e) {
-            System.out.println("Erro ao deletar professor");
+            System.out.println(e);
+        }
+        
+        if(result) {
+            try {
+                Class.forName(driver);
+                con = DriverManager.getConnection(url, user, senha);
+
+                String sql = "DELETE FROM Professor WHERE Codigo = ?";
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                ps.setString(1, pCod);
+
+                ps.executeUpdate();
+
+
+                ps.close();
+                con.close();
+
+                System.out.println("PROFESSOR excluido com sucesso...");
+            }
+            catch (Exception e) {
+                System.out.println("Erro ao deletar professor");
+                return false;
+            }
+        }
+        else {
             return false;
         }
+        
         return true;
     }
     
