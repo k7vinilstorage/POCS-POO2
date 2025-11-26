@@ -16,7 +16,7 @@ public class ViewAlunoTable extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewAlunoTable.class.getName());
     
-     int rowH = 0;
+    private int rowH = 0;
     
     private static ViewAlunoTable viewAlunoTableUnic;
     

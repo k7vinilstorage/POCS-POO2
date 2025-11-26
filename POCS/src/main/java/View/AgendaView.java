@@ -18,11 +18,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AgendaView extends javax.swing.JFrame {
     
-    int rowH = 0;
-    int colD = 0;
+    private int rowH = 0;
+    private int colD = 0;
     
-    Aluno alu = null;
-    Professor prof = null;
+    private Aluno alu = null;
+    private Professor prof = null;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AgendaView.class.getName());
 

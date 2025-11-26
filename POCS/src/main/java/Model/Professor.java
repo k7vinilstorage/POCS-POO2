@@ -1,9 +1,9 @@
 package Model;
 
 public class Professor extends Pessoa{
-    String formacao;
-    String disciplina;
-    String pCod;
+    private String formacao;
+    private String disciplina;
+    private String pCod;
 
     //Construtor
     public Professor() {

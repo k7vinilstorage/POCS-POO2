@@ -1,7 +1,7 @@
 package Model;
 
 public class Coordenador extends Pessoa{
-    String cCod;
+    private String cCod;
 
     public Coordenador() {
         cCod = "";

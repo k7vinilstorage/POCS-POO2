@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PesqAulasView extends javax.swing.JFrame {
     
-    int rowH = 0;
+    private int rowH = 0;
 
     private static PesqAulasView pesqAulasViewUnic;
     /**

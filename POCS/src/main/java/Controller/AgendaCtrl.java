@@ -24,13 +24,13 @@ import java.sql.Statement;
  */
 public class AgendaCtrl {
     
-    static Connection con = null;
-    static String url = BdInfo.createBdInfo().getUrl();
-    static String senha = BdInfo.createBdInfo().getSenha();
-    static String user = BdInfo.createBdInfo().getUser();
-    static String driver = BdInfo.createBdInfo().getDriver();
-    static Statement st = null;
-    static ResultSet rs = null;
+    private static Connection con = null;
+    private static String url = BdInfo.createBdInfo().getUrl();
+    private static String senha = BdInfo.createBdInfo().getSenha();
+    private static String user = BdInfo.createBdInfo().getUser();
+    private static String driver = BdInfo.createBdInfo().getDriver();
+    private static Statement st = null;
+    private static ResultSet rs = null;
     
     private static AgendaCtrl singleAgendaCtrl;
     

@@ -13,7 +13,7 @@ import Controller.LoginCtrl;
 public class CoordPageView extends javax.swing.JFrame {
     
     private static CoordPageView coordPageViewUnic;
-    LoginCtrl login = LoginCtrl.createLoginCtrl();
+    private LoginCtrl login = LoginCtrl.createLoginCtrl();
     /**
      * Creates new form ProfPageView
      */

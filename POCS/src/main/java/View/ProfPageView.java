@@ -12,7 +12,7 @@ import Controller.LoginCtrl;
  */
 public class ProfPageView extends javax.swing.JFrame {
     
-    LoginCtrl login = LoginCtrl.createLoginCtrl();
+    private LoginCtrl login = LoginCtrl.createLoginCtrl();
 
     private static ProfPageView profPageViewUnic;
     /**

@@ -1,9 +1,9 @@
 package Model;
 
 public class Horario {
-    int diaSemana;
-    int diaHorario;
-    boolean status;
+    private int diaSemana;
+    private int diaHorario;
+    private boolean status;
 
     //Construtor
     public Horario() {

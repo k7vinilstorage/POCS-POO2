@@ -2,12 +2,12 @@ package Model;
 
 public abstract class Pessoa {
     
-    String cpf;
-    String nome;
-    String celular;
-    String email;
-    String senha;
-    int idade;
+    private String cpf;
+    private String nome;
+    private String celular;
+    private String email;
+    private String senha;
+    private int idade;
     
     //Construtor
     public Pessoa() {

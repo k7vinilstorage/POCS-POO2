@@ -18,7 +18,7 @@ public class ViewProfTable extends javax.swing.JFrame {
     
     private static ViewProfTable viewProfTableUnic;
     
-    int rowH = 0;
+    private int rowH = 0;
     
     private ViewProfTable(){
         initComponents();
