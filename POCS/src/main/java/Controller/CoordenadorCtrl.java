@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import Utils.Utils;
 import View.ViewAlunoTable;
+import View.ViewAulaTable;
 import View.ViewProfTable;
 
 public class CoordenadorCtrl {
@@ -123,6 +124,33 @@ public class CoordenadorCtrl {
                     rs.getString("Email")
                 };
                 ViewAlunoTable.geraViewAlunoTable().preencherTabela(linha);
+            }
+            rs.close();
+            st.close();
+            con.close();
+        }catch(Exception e){
+            System.out.println("Erro na busca");
+            e.printStackTrace();
+        }
+    }
+    
+    public void selectFillAula(){
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            String fillAluno = "SELECT pCod, aCod, DiaS, DiaH FROM Aula";
+            
+            st = con.createStatement();
+            rs = st.executeQuery(fillAluno);
+            
+            while(rs.next()){
+                Object[] linha ={
+                    rs.getString("pCod"),
+                    rs.getString("aCod"),
+                    Utils.createUtils().converteDia(rs.getInt("DiaS")),
+                    Utils.createUtils().converteHorario(rs.getInt("DiaH"))
+                };
+                ViewAulaTable.geraViewAulaTable().preencherTabela(linha);
             }
             rs.close();
             st.close();
