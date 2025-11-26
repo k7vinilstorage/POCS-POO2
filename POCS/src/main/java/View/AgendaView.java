@@ -35,6 +35,12 @@ public class AgendaView extends javax.swing.JFrame {
     private AgendaView() {
         initComponents();
         carregaHor();
+        if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
+            prof = LoginCtrl.createLoginCtrl().getProfessorAtual();
+        }
+        else {
+            alu = LoginCtrl.createLoginCtrl().getAlunoAtual();
+        }
         AgendaCtrl.createAgendaCtrl().criarTabela();
         AulaCtrl.createAulaCtrl().criarTabela();
     }
