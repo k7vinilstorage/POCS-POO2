@@ -175,6 +175,8 @@ public class AgendaView extends javax.swing.JFrame {
     }
     
     public void removerHor() {
+        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+        
         if(colD < 0){
             return;
         }
@@ -182,6 +184,8 @@ public class AgendaView extends javax.swing.JFrame {
         Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
         
         AgendaCtrl.createAgendaCtrl().deleteTabela(p.getpCod(), colD, rowH);
+        
+        model.setValueAt("", rowH, colD + 3);
         
     }
     
@@ -192,7 +196,7 @@ public class AgendaView extends javax.swing.JFrame {
     public void preencherTabela(int rowH, int colD) {
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
         
-        model.setValueAt("'Disponível", rowH, colD + 3);
+        model.setValueAt("Disponível", rowH, colD + 3);
     }
     
     /**
