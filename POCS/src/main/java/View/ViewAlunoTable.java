@@ -41,6 +41,7 @@ public class ViewAlunoTable extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         alunoTab = new javax.swing.JTable();
         voltarBt = new javax.swing.JButton();
+        novoAlu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addFocusListener(new java.awt.event.FocusAdapter() {
@@ -90,6 +91,9 @@ public class ViewAlunoTable extends javax.swing.JFrame {
         voltarBt.setText("Voltar");
         voltarBt.addActionListener(this::voltarBtActionPerformed);
 
+        novoAlu.setText("Novo Aluno");
+        novoAlu.addActionListener(this::novoAluActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,8 +102,11 @@ public class ViewAlunoTable extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(alunoLb)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(alunoLb)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(novoAlu))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -109,9 +116,15 @@ public class ViewAlunoTable extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(alunoLb)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(alunoLb)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(novoAlu)
+                        .addGap(17, 17, 17)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(voltarBt)
@@ -151,6 +164,10 @@ public class ViewAlunoTable extends javax.swing.JFrame {
             }
         }        
     }//GEN-LAST:event_alunoTabMouseClicked
+
+    private void novoAluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoAluActionPerformed
+        CadAluView.geraCadAluno().setVisible(true);
+    }//GEN-LAST:event_novoAluActionPerformed
     
     public void preencherTabela(Object[] linha){
         DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
@@ -187,6 +204,7 @@ public class ViewAlunoTable extends javax.swing.JFrame {
     private javax.swing.JLabel alunoLb;
     private javax.swing.JTable alunoTab;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton novoAlu;
     private javax.swing.JButton voltarBt;
     // End of variables declaration//GEN-END:variables
 }

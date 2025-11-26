@@ -40,6 +40,7 @@ public class ViewProfTable extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         profTab = new javax.swing.JTable();
         voltarBt = new javax.swing.JButton();
+        novoProf = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,6 +85,9 @@ public class ViewProfTable extends javax.swing.JFrame {
         voltarBt.setText("Voltar");
         voltarBt.addActionListener(this::voltarBtActionPerformed);
 
+        novoProf.setText("Novo Professor");
+        novoProf.addActionListener(this::novoProfActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,8 +96,11 @@ public class ViewProfTable extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(alunoLb)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(alunoLb)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(novoProf))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -104,7 +111,9 @@ public class ViewProfTable extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(alunoLb, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alunoLb, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(novoProf))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -142,6 +151,10 @@ public class ViewProfTable extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_profTabMouseClicked
 
+    private void novoProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoProfActionPerformed
+        CadProfView.geraCadProfessor().setVisible(true);
+    }//GEN-LAST:event_novoProfActionPerformed
+
     public void preencherTabela(Object[] linha){
         DefaultTableModel modelo = (DefaultTableModel) profTab.getModel();
         modelo.addRow(linha);
@@ -172,6 +185,7 @@ public class ViewProfTable extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel alunoLb;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton novoProf;
     private javax.swing.JTable profTab;
     private javax.swing.JButton voltarBt;
     // End of variables declaration//GEN-END:variables
