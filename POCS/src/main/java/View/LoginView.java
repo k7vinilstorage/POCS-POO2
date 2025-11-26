@@ -179,7 +179,6 @@ public class LoginView extends javax.swing.JFrame {
             
         }else if(verificaSenha == 1 && tipo == 2){
             login.setProfessorAtual(professorCtrl.selectTabela("Codigo", userTf.getText()));
-            System.out.println(login.getProfessorAtual().getpCod());
             ProfPageView.geraProfPageView().setVisible(true);
             limpar();
             dispose();
