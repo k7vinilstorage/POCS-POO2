@@ -5,6 +5,7 @@
 package View;
 
 import Controller.CoordenadorCtrl;
+import Controller.ProfessorCtrl;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,6 +17,8 @@ public class ViewProfTable extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewProfTable.class.getName());
     
     private static ViewProfTable viewProfTableUnic;
+    
+    int rowH = 0;
     
     private ViewProfTable(){
         initComponents();
@@ -71,6 +74,11 @@ public class ViewProfTable extends javax.swing.JFrame {
                 profTabFocusGained(evt);
             }
         });
+        profTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profTabMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(profTab);
 
         voltarBt.setText("Voltar");
@@ -117,6 +125,22 @@ public class ViewProfTable extends javax.swing.JFrame {
     private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
         dispose();
     }//GEN-LAST:event_voltarBtActionPerformed
+
+    private void profTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profTabMouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) profTab.getModel();
+        rowH = profTab.getSelectedRow();
+        
+        String pCod = modelo.getValueAt(rowH, 0).toString();
+        
+        if(DialogsView.createDialogs().infoOpDialog("Deseja exlcuir o preofessor?", "Exlcuir") == 0) {
+            if(ProfessorCtrl.ProfessorCtrlCreate().deleteTabela(pCod)) {
+                DialogsView.createDialogs().infoDialog("Professor excluido com sucesso", "Excluir");
+            }
+            else {
+                DialogsView.createDialogs().errorDialog("Erro ao Excluir Professor", "Erro");
+            }
+        }
+    }//GEN-LAST:event_profTabMouseClicked
 
     public void preencherTabela(Object[] linha){
         DefaultTableModel modelo = (DefaultTableModel) profTab.getModel();
