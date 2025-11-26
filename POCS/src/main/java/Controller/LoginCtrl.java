@@ -15,6 +15,7 @@ public class LoginCtrl {
     private static ProfessorCtrl controleProf;
     private static Aluno alunoAtual;
     private static Professor professorAtual;
+    private static Coordenador coordenadorAtual;
     
     private static LoginCtrl singleLoginCtrl;
     
@@ -23,6 +24,7 @@ public class LoginCtrl {
         controleProf = ProfessorCtrl.ProfessorCtrlCreate();
         alunoAtual = null;
         professorAtual = null;
+        coordenadorAtual = null;
     }
     
     public static LoginCtrl createLoginCtrl() {
@@ -31,6 +33,14 @@ public class LoginCtrl {
         }
         
         return singleLoginCtrl;
+    }
+    
+    public static Coordenador getCoordenadorAtual() {
+        return coordenadorAtual;
+    }
+
+    public static void setCoordenadorAtual(Coordenador coordenadorAtual) {
+        LoginCtrl.coordenadorAtual = coordenadorAtual;
     }
     
     public void setAlunoAtual(Aluno alunoAtual) {
