@@ -204,7 +204,7 @@ public class AgendaView extends javax.swing.JFrame {
             AgendaCtrl.createAgendaCtrl().selectTabelaProf(LoginCtrl.createLoginCtrl().getProfessorAtual());
         }
         else {
-            
+            AgendaCtrl.createAgendaCtrl().selectTabelaAlu(LoginCtrl.createLoginCtrl().getAlunoAtual());
         }
        
     }
