@@ -212,8 +212,6 @@ public class CadAluView extends javax.swing.JFrame {
 
     private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
         limpaTf();
-        
-        LoginView.geraLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 

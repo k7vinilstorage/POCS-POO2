@@ -54,7 +54,7 @@ public class CoordPageView extends javax.swing.JFrame {
         verAluMenu = new javax.swing.JMenu();
         verAulasMenu = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Professor");
 
         userLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
@@ -72,12 +72,20 @@ public class CoordPageView extends javax.swing.JFrame {
         celLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         celLb.setText("Celular:");
 
+        userTf.setEditable(false);
+
+        nomeTf.setEditable(false);
         nomeTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeTfActionPerformed(evt);
             }
         });
 
+        cpfTf.setEditable(false);
+
+        emailTf.setEditable(false);
+
+        celTf.setEditable(false);
         celTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 celTfActionPerformed(evt);

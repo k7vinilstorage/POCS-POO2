@@ -45,7 +45,7 @@ public class AtualizaAluView extends javax.swing.JFrame {
         btAtualizaEmail = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lbAtualizacao.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbAtualizacao.setText("ATUALIZAÇÃO");

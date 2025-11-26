@@ -16,6 +16,7 @@
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/Utils/Utils.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/AgendaView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/AluPageView.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/AtualizaAluView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/CadAluView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/CadProfView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/CoordPageView.java
@@ -24,5 +25,8 @@
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/LoginView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/PesqAulasView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/ProfPageView.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/ViewAlunoTable.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/ViewAulaTable.java
+/home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/ViewProfTable.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/View/VisualizarView.java
 /home/joao/NetBeansProjects/POCS-POO2/POCS/src/main/java/oop/pocs/POCS.java

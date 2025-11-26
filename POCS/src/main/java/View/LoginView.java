@@ -114,7 +114,7 @@ public class LoginView extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(loginBt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
+                        .addGap(196, 196, 196)
                         .addComponent(sairBt)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -146,10 +146,8 @@ public class LoginView extends javax.swing.JFrame {
     private void cadBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadBtActionPerformed
         if(verificaUsuario() == 0){
             CadAluView.geraCadAluno().setVisible(true);
-            dispose();
         }else if(verificaUsuario() == 1){
             CadProfView.geraCadProfessor().setVisible(true);
-            dispose();
         }
         
     }//GEN-LAST:event_cadBtActionPerformed

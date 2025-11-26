@@ -36,7 +36,7 @@ public class VisualizarView extends javax.swing.JFrame {
         voltarBt = new javax.swing.JButton();
         excluirBt = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Visualizar");
 
         pesquisaLb.setText("Pesquisar:");

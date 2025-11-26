@@ -49,6 +49,13 @@ public class ViewAlunoTable extends javax.swing.JFrame {
                 formFocusGained(evt);
             }
         });
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         alunoLb.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         alunoLb.setText("Alunos");
@@ -92,6 +99,11 @@ public class ViewAlunoTable extends javax.swing.JFrame {
         voltarBt.addActionListener(this::voltarBtActionPerformed);
 
         novoAlu.setText("Novo Aluno");
+        novoAlu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                novoAluFocusGained(evt);
+            }
+        });
         novoAlu.addActionListener(this::novoAluActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,30 +111,31 @@ public class ViewAlunoTable extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(alunoLb)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(alunoLb)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(novoAlu))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(voltarBt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(novoAlu)))
+                        .addComponent(voltarBt)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(alunoLb)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alunoLb)
+                    .addComponent(novoAlu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(voltarBt)
-                    .addComponent(novoAlu))
+                .addComponent(voltarBt)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -138,10 +151,7 @@ public class ViewAlunoTable extends javax.swing.JFrame {
     }//GEN-LAST:event_formFocusGained
 
     private void alunoTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_alunoTabFocusGained
-        DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
-        modelo.setRowCount(0);
         
-        CoordenadorCtrl.CoordenadorCtrlCreate().selectFillAluno();
     }//GEN-LAST:event_alunoTabFocusGained
 
     private void alunoTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alunoTabMouseClicked
@@ -163,6 +173,17 @@ public class ViewAlunoTable extends javax.swing.JFrame {
     private void novoAluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoAluActionPerformed
         CadAluView.geraCadAluno().setVisible(true);
     }//GEN-LAST:event_novoAluActionPerformed
+
+    private void novoAluFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_novoAluFocusGained
+        
+    }//GEN-LAST:event_novoAluFocusGained
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
+        modelo.setRowCount(0);
+        
+        CoordenadorCtrl.CoordenadorCtrlCreate().selectFillAluno();
+    }//GEN-LAST:event_formWindowGainedFocus
     
     public void preencherTabela(Object[] linha){
         DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();

@@ -30,7 +30,7 @@ public class HistAulaView extends javax.swing.JFrame {
         histAulaTb = new javax.swing.JTable();
         voltarBt = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Histórico de aulas");
         setMaximumSize(new java.awt.Dimension(500, 500));
 
