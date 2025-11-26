@@ -158,7 +158,7 @@ public class Utils {
                 }
                 break;
             case 3:
-                //c1 = coordenadorCtrl.selectTabela("Codigo", id);
+                c1 = coordenadorCtrl.selectTabela("Codigo", id);
                 if(c1 == null){
                     return 0;
                 }
@@ -187,12 +187,10 @@ public class Utils {
                 }
                 break;
             case 3: 
-                //c1 = coordenadorCtrl.selectTabela("Codigo", id);
+                c1 = coordenadorCtrl.selectTabela("Codigo", id);
                 if(c1.getSenha().equals(senha)){
                     return 1;
                 }
-            default:
-                return 0;
         }
                 
         return 0;

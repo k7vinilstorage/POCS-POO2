@@ -11,15 +11,22 @@ import Controller.LoginCtrl;
  * @author joao
  */
 public class CoordPageView extends javax.swing.JFrame {
-
+    
+    private static CoordPageView coordPageViewUnic;
     LoginCtrl login = LoginCtrl.createLoginCtrl();
     /**
      * Creates new form ProfPageView
      */
-    public CoordPageView() {
+    private CoordPageView() {
         initComponents();
     }
 
+    public static CoordPageView geraCoordPageView(){
+        if(coordPageViewUnic == null){
+            coordPageViewUnic = new CoordPageView();
+        }
+        return coordPageViewUnic;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
