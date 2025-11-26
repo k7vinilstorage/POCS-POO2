@@ -19,12 +19,14 @@ public class CoordPageView extends javax.swing.JFrame {
      */
     private CoordPageView() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     public static CoordPageView geraCoordPageView(){
         if(coordPageViewUnic == null){
             coordPageViewUnic = new CoordPageView();
         }
+        coordPageViewUnic.preencherDados();
         return coordPageViewUnic;
     }
     /**
@@ -163,22 +165,25 @@ public class CoordPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeTfActionPerformed
 
     private void celTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celTfActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_celTfActionPerformed
 
     private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
-        // TODO add your handling code here:
+        sair();
     }//GEN-LAST:event_sairBtActionPerformed
 
     private void preencherDados(){
-//        userTf.setText(login.getCoordAtual().getcCod());
-//        nomeTf.setText(login.getCoordAtual().getNome());
-//        cpfTf.setText(login.getCoordAtual().getCpf());
-//        emailTf.setText(login.getCoordAtual().getEmail());
-//        celTf.setText(login.getCoordAtual().getCelular());
+        userTf.setText(login.getCoordenadorAtual().getcCod());
+        nomeTf.setText(login.getCoordenadorAtual().getNome());
+        cpfTf.setText(login.getCoordenadorAtual().getCpf());
+        emailTf.setText(login.getCoordenadorAtual().getEmail());
+        celTf.setText(login.getCoordenadorAtual().getCelular());
     }
                
-            
+    private void sair(){
+        LoginView.geraLogin().setVisible(true);
+        dispose();
+    }
             
     /**
      * @param args the command line arguments
