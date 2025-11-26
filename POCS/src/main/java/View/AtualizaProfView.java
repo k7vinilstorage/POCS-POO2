@@ -8,21 +8,21 @@ import Controller.*;
  *
  * @author gp51f
  */
-public class AtualizaAluView extends javax.swing.JFrame {
+public class AtualizaProfView extends javax.swing.JFrame {
 
-    private static AtualizaAluView atualizaUnic;
+    private static AtualizaProfView atualizaUnic;
     private LoginCtrl loginCtrl;
     
-    private AtualizaAluView() {
+    private AtualizaProfView() {
         initComponents();
         setLocationRelativeTo(null);
         loginCtrl = LoginCtrl.createLoginCtrl();
         atualizarPagina();
     }
     
-    public static AtualizaAluView geraAtualizaAluView(){
+    public static AtualizaProfView geraAtualizaProfView(){
         if(atualizaUnic == null){
-            atualizaUnic = new AtualizaAluView();
+            atualizaUnic = new AtualizaProfView();
         }
         return atualizaUnic;
     }
@@ -82,32 +82,33 @@ public class AtualizaAluView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btVoltar)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(123, Short.MAX_VALUE)
+                        .addComponent(lbAtualizacao))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbCelular)
                             .addComponent(lbEmail))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cxCelular)
-                            .addComponent(cxEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cxEmail)
+                            .addComponent(cxCelular))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btVoltar))
                     .addComponent(btAtualizaCelular)
                     .addComponent(btAtualizaEmail))
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbAtualizacao)
-                .addGap(111, 111, 111))
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(20, 20, 20)
                 .addComponent(lbAtualizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -121,33 +122,33 @@ public class AtualizaAluView extends javax.swing.JFrame {
                     .addComponent(btAtualizaEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btVoltar)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        AluPageView.geraAluPageView().setVisible(true);
+        ProfPageView.geraProfPageView().setVisible(true);
         dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btAtualizaCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaCelularActionPerformed
-        if(AlunoCtrl.AlunoCtrlCreate().atualizaCelularAluno(cxCelular.getText(), loginCtrl.getAlunoAtual().getaCod())){
+        if(ProfessorCtrl.ProfessorCtrlCreate().atualizaCelularProfessor(cxCelular.getText(), loginCtrl.getProfessorAtual().getpCod())){
             atualizarPagina();
         }
         
     }//GEN-LAST:event_btAtualizaCelularActionPerformed
 
     private void btAtualizaEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaEmailActionPerformed
-        if(AlunoCtrl.AlunoCtrlCreate().atualizaEmailAluno(cxEmail.getText(), loginCtrl.getAlunoAtual().getaCod())){
+        if(ProfessorCtrl.ProfessorCtrlCreate().atualizaEmailProfessor(cxCelular.getText(), loginCtrl.getProfessorAtual().getpCod())){
             atualizarPagina();
         }
     }//GEN-LAST:event_btAtualizaEmailActionPerformed
 
     private void atualizarPagina(){
-        cxCelular.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getCelular());
-        cxEmail.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getEmail());
+        cxCelular.setText(LoginCtrl.createLoginCtrl().getProfessorAtual().getCelular());
+        cxEmail.setText(LoginCtrl.createLoginCtrl().getProfessorAtual().getEmail());
     }
     /**
      * @param args the command line arguments
@@ -166,20 +167,21 @@ public class AtualizaAluView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AtualizaAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtualizaProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AtualizaAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtualizaProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AtualizaAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtualizaProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AtualizaAluView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtualizaProfView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AtualizaAluView().setVisible(true);
+                new AtualizaProfView().setVisible(true);
             }
         });
     }

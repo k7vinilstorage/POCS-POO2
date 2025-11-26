@@ -88,6 +88,11 @@ public class LoginView extends javax.swing.JFrame {
         tittleLb.setText("POCS");
 
         sairBt.setText("Sair");
+        sairBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,6 +201,10 @@ public class LoginView extends javax.swing.JFrame {
     private void userTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userTfActionPerformed
+
+    private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sairBtActionPerformed
 
     private int verificaUsuario(){
         Object[] escolha = {"Aluno", "Professor"};

@@ -58,6 +58,7 @@ public class ProfPageView extends javax.swing.JFrame {
         sairBt = new javax.swing.JButton();
         profMenuBar = new javax.swing.JMenuBar();
         agendaMenu = new javax.swing.JMenu();
+        aulasAtualizaEmailManu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Professor");
@@ -136,6 +137,14 @@ public class ProfPageView extends javax.swing.JFrame {
             }
         });
         profMenuBar.add(agendaMenu);
+
+        aulasAtualizaEmailManu.setText("Atualizar");
+        aulasAtualizaEmailManu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aulasAtualizaEmailManuMouseClicked(evt);
+            }
+        });
+        profMenuBar.add(aulasAtualizaEmailManu);
 
         setJMenuBar(profMenuBar);
 
@@ -242,6 +251,11 @@ public class ProfPageView extends javax.swing.JFrame {
         AgendaView.createAgendaView().setVisible(true);
     }//GEN-LAST:event_agendaMenuMouseClicked
 
+    private void aulasAtualizaEmailManuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasAtualizaEmailManuMouseClicked
+        AtualizaProfView.geraAtualizaProfView().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_aulasAtualizaEmailManuMouseClicked
+
     private void preencherDados() {
         userTf.setText(login.getProfessorAtual().getpCod());
         nomeTf.setText(login.getProfessorAtual().getNome());
@@ -289,6 +303,7 @@ public class ProfPageView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu agendaMenu;
+    private javax.swing.JMenu aulasAtualizaEmailManu;
     private javax.swing.JLabel celLb;
     private javax.swing.JTextField celTf;
     private javax.swing.JLabel cpfLb;

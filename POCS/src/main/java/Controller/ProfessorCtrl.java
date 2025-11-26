@@ -2,6 +2,7 @@ package Controller;
 import Model.Horario;
 import Model.Professor;
 import Utils.BdInfo;
+import View.DialogsView;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -245,4 +246,58 @@ public class ProfessorCtrl {
         }
     }
     
+    public boolean atualizaEmailProfessor(String email, String id){
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,user,senha);
+            
+            String mudanca = "UPDATE Professor SET Email = ?"
+                    + "WHERE Codigo = ?";
+            
+            PreparedStatement ps = con.prepareStatement(mudanca);
+            
+            ps.setString(1,email);
+            ps.setString(2, id);
+            
+            ps.executeUpdate();
+            
+            ps.close();
+            con.close();
+            
+            Professor profTeste = selectTabela("Codigo",id);
+            LoginCtrl.createLoginCtrl().setProfessorAtual(profTeste);
+            DialogsView.createDialogs().infoDialog("Atualizacao realizada com sucesso", "Atualização");
+            return true;
+        }catch(Exception e){
+            DialogsView.createDialogs().errorDialog("Não foi possível atualizar professor", "Erro");
+            return false;
+        }
+    }
+    
+    public boolean atualizaCelularProfessor(String celular, String id){
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,user,senha);
+            
+            String mudanca = "UPDATE Professor SET Celular = ?"
+                    + "WHERE Codigo = ?";
+            
+            PreparedStatement ps = con.prepareStatement(mudanca);
+            
+            ps.setString(1,celular);
+            ps.setString(2, id);
+            
+            ps.executeUpdate();
+            
+            ps.close();
+            con.close();
+            Professor profTeste = selectTabela("Codigo",id);
+            LoginCtrl.createLoginCtrl().setProfessorAtual(profTeste);
+            DialogsView.createDialogs().infoDialog("Atualizacao realizada com sucesso", "Atualização");
+            return true;
+        }catch(Exception e){
+            DialogsView.createDialogs().errorDialog("Não foi possível atualizar aluno", "Erro");
+            return false;
+        }
+    }
 }
