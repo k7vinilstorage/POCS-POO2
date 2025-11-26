@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import Utils.Utils;
+import View.ViewProfTable;
 
 public class CoordenadorCtrl {
     
     private static CoordenadorCtrl coordenadorCtrlUnic;
-    int cCod;
     
     static Connection con = null;
     static String url = "jdbc:mysql://localhost:3306/teste2";
@@ -31,7 +31,7 @@ public class CoordenadorCtrl {
     }
     
     private CoordenadorCtrl(){
-        cCod = 0;
+        System.out.println("criado o coordenadorCtrl");
     }
     
     public Coordenador selectTabela(String coluna, String condicao){
@@ -68,5 +68,37 @@ public class CoordenadorCtrl {
 	}
 
 	return coordReturn;
-    }           
+    }
+    
+    public void selectFillProf(){
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            String fillProf = "SELECT Codigo, Nome, Cpf, Celular, Idade, Disciplina, Formacao, Email FROM Professor";
+            
+            st = con.createStatement();
+            rs = st.executeQuery(fillProf);
+            
+            while(rs.next()){
+                Object[] linha ={
+                    rs.getString("Codigo"),
+                    rs.getString("Nome"),
+                    rs.getString("Cpf"),
+                    rs.getString("Celular"),
+                    rs.getInt("Idade"),
+                    rs.getString("Disciplina"),
+                    rs.getString("Formacao"),
+                    rs.getString("Email")
+                };
+                ViewProfTable.geraViewProfTable().preencherTabela(linha);
+            }
+            rs.close();
+            st.close();
+            con.close();
+        }catch(Exception e){
+            System.out.println("Erro na busca");
+            e.printStackTrace();
+        }
+    }
+    
 }

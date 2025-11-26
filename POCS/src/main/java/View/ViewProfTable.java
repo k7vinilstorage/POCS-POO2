@@ -4,6 +4,9 @@
  */
 package View;
 
+import Controller.CoordenadorCtrl;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author arthu
@@ -25,6 +28,8 @@ public class ViewProfTable extends javax.swing.JFrame {
         }
         return viewProfTableUnic;
     }
+    
+    
     
     /**
      * Creates new form ViewProfTable
@@ -71,6 +76,11 @@ public class ViewProfTable extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        profTab.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                profTabFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(profTab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -97,6 +107,19 @@ public class ViewProfTable extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void profTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_profTabFocusGained
+        DefaultTableModel modelo = (DefaultTableModel) profTab.getModel();
+        modelo.setRowCount(0);
+        
+        CoordenadorCtrl.CoordenadorCtrlCreate().selectFillProf();
+    }//GEN-LAST:event_profTabFocusGained
+
+    public void preencherTabela(Object[] linha){
+        DefaultTableModel modelo = (DefaultTableModel) profTab.getModel();
+        modelo.addRow(linha);
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
