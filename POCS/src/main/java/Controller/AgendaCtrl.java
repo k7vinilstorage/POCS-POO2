@@ -122,6 +122,29 @@ public class AgendaCtrl {
         }
     }
     
+    public void deleteTabela(String codigo, int diaS, int diaH){
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+
+            String sql = "DELETE FROM Agenda WHERE Pcod = ? AND DiaS = ? AND DiaH = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, codigo);
+            ps.setInt(2, diaS);
+            ps.setInt(3, diaH);
+
+            ps.executeUpdate(); // executa DELETE
+
+            ps.close();
+            con.close();
+        }
+        catch (Exception e) {
+            System.out.println("Erro ao deletar");
+        }
+    }
+
+    
     public void selectPesqProfTb(String p, DefaultTableModel modelo){
         try {
             Class.forName(driver);
@@ -192,7 +215,7 @@ public class AgendaCtrl {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-            String findCpf = "SELECT * FROM Agenda WHERE Pcod = ? AND DiaS = ? AND DIAH = ?";
+            String findCpf = "SELECT * FROM Agenda WHERE Pcod = ? AND DiaS = ? AND DiaH = ?";
             PreparedStatement ps = con.prepareStatement(findCpf);
             ps.setString(1, p.getpCod());
             ps.setInt(2, colD);
