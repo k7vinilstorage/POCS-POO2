@@ -254,7 +254,8 @@ public class AlunoCtrl {
             
             ps.close();
             con.close();
-            
+            Aluno aluTeste = selectTabela("Codigo",id);
+            LoginCtrl.createLoginCtrl().setAlunoAtual(aluTeste);
             DialogsView.createDialogs().infoDialog("Atualizacao realizada com sucesso", "Atualização");
             return true;
         }catch(Exception e){
