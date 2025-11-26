@@ -84,6 +84,11 @@ public class PesqAulasView extends javax.swing.JFrame {
         });
 
         buscaAulaMatBt.setText("Buscar");
+        buscaAulaMatBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscaAulaMatBtActionPerformed(evt);
+            }
+        });
 
         voltarBt.setText("Voltar");
         voltarBt.addActionListener(new java.awt.event.ActionListener() {
@@ -144,9 +149,7 @@ public class PesqAulasView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscaAulaMatTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaMatTfActionPerformed
-        String pesqMat = buscaAulaMatTf.getText();
-        System.out.println("Estamos no botão"+ pesqMat);
-        matPesqTb(pesqMat);
+
     }//GEN-LAST:event_buscaAulaMatTfActionPerformed
 
     private void buscaAulaProfBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaProfBtActionPerformed
@@ -158,6 +161,12 @@ public class PesqAulasView extends javax.swing.JFrame {
     private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
         voltar();
     }//GEN-LAST:event_voltarBtActionPerformed
+
+    private void buscaAulaMatBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaMatBtActionPerformed
+        String pesqMat = buscaAulaMatTf.getText();
+        System.out.println("Estamos no botão"+ pesqMat);
+        matPesqTb(pesqMat);
+    }//GEN-LAST:event_buscaAulaMatBtActionPerformed
 
     public void profPesqTb(String p){
         DefaultTableModel modelo = (DefaultTableModel) aulasTb.getModel();
