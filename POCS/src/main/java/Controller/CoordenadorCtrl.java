@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -32,4 +33,40 @@ public class CoordenadorCtrl {
     private CoordenadorCtrl(){
         cCod = 0;
     }
+    
+    public Coordenador selectTabela(String coluna, String condicao){
+        Coordenador c1 = new Coordenador();
+        Coordenador coordReturn = null;
+        
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,user,senha);
+            String findCoord = "SELECT * FROM Coordenador WHERE " + coluna + " = ? ";
+		PreparedStatement ps = con.prepareStatement(findCoord);
+		ps.setString(1, condicao);
+		ResultSet rs = ps.executeQuery();
+		
+		if(rs.next()){
+			coordReturn = c1;
+			
+			c1.setcCod(rs.getString(1));
+			c1.setNome(rs.getString(2));
+			c1.setCpf(rs.getString(3));
+			c1.setSenha(rs.getString(4));
+			c1.setCelular(rs.getString(5));
+			c1.setIdade(rs.getInt(6));
+			c1.setEmail(rs.getString(7));
+
+		}
+		
+		rs.close();
+		ps.close();
+		con.close();
+	}catch(Exception e){
+		System.out.println("Falha na consulta de coord");
+		e.printStackTrace();
+	}
+
+	return coordReturn;
+    }           
 }

@@ -1,21 +1,21 @@
 package Model;
 
 public class Coordenador extends Pessoa{
-    int cCod;
+    String cCod;
 
     public Coordenador() {
-        cCod = 0;
+        cCod = "";
     }
     
-    public Coordenador(int cCod) {
+    public Coordenador(String cCod) {
         this.cCod = cCod;
     }
 
-    public int getcCod() {
+    public String getcCod() {
         return cCod;
     }
 // teste netBeans
-    public void setcCod(int cCod) {
+    public void setcCod(String cCod) {
         this.cCod = cCod;
     }
 }
