@@ -147,6 +147,9 @@ public class AgendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
+        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+        model.setRowCount(0);
+        carregaHor();
         dispose();
     }//GEN-LAST:event_voltarBtActionPerformed
 
