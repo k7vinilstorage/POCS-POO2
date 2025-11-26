@@ -60,6 +60,7 @@ public class AluPageView extends javax.swing.JFrame {
         aulasCadasMenu = new javax.swing.JMenu();
         verAgendaMenuI = new javax.swing.JMenuItem();
         aulasBuscaMenu = new javax.swing.JMenu();
+        aulasAtualizaEmailManu = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -140,6 +141,14 @@ public class AluPageView extends javax.swing.JFrame {
             }
         });
         aluMenuBar.add(aulasBuscaMenu);
+
+        aulasAtualizaEmailManu.setText("Atualizar E-mail");
+        aulasAtualizaEmailManu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aulasAtualizaEmailManuMouseClicked(evt);
+            }
+        });
+        aluMenuBar.add(aulasAtualizaEmailManu);
 
         setJMenuBar(aluMenuBar);
 
@@ -234,6 +243,10 @@ public class AluPageView extends javax.swing.JFrame {
         AgendaView.createAgendaView().setVisible(true);
     }//GEN-LAST:event_aulasCadasMenuMouseClicked
 
+    private void aulasAtualizaEmailManuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasAtualizaEmailManuMouseClicked
+        
+    }//GEN-LAST:event_aulasAtualizaEmailManuMouseClicked
+
     private void preencherDados() {
         userTf.setText(login.getAlunoAtual().getaCod());
         nomeTf.setText(login.getAlunoAtual().getNome());
@@ -281,6 +294,7 @@ public class AluPageView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar aluMenuBar;
+    private javax.swing.JMenu aulasAtualizaEmailManu;
     private javax.swing.JMenu aulasBuscaMenu;
     private javax.swing.JMenu aulasCadasMenu;
     private javax.swing.JMenu aulasVistasMenu;
