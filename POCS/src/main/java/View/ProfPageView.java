@@ -233,6 +233,7 @@ public class ProfPageView extends javax.swing.JFrame {
     private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
         LoginView.geraLogin().setVisible(true);
         LoginCtrl.createLoginCtrl().setProfessorAtual(null);
+        System.gc();
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
