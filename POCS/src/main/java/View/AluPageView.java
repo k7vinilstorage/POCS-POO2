@@ -56,9 +56,7 @@ public class AluPageView extends javax.swing.JFrame {
         escolaTf = new javax.swing.JTextField();
         sairBt = new javax.swing.JButton();
         aluMenuBar = new javax.swing.JMenuBar();
-        aulasVistasMenu = new javax.swing.JMenu();
         aulasCadasMenu = new javax.swing.JMenu();
-        verAgendaMenuI = new javax.swing.JMenuItem();
         aulasBuscaMenu = new javax.swing.JMenu();
         aulasAtualizaEmailManu = new javax.swing.JMenu();
 
@@ -114,24 +112,12 @@ public class AluPageView extends javax.swing.JFrame {
             }
         });
 
-        aulasVistasMenu.setText("Ver aulas vistas");
-        aluMenuBar.add(aulasVistasMenu);
-
         aulasCadasMenu.setText("Aulas reservadas");
         aulasCadasMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 aulasCadasMenuMouseClicked(evt);
             }
         });
-
-        verAgendaMenuI.setText("Ver agenda");
-        verAgendaMenuI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verAgendaMenuIActionPerformed(evt);
-            }
-        });
-        aulasCadasMenu.add(verAgendaMenuI);
-
         aluMenuBar.add(aulasCadasMenu);
 
         aulasBuscaMenu.setText("Buscar Aulas");
@@ -223,10 +209,6 @@ public class AluPageView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_celTfActionPerformed
 
-    private void verAgendaMenuIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verAgendaMenuIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verAgendaMenuIActionPerformed
-
     private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
         LoginView.geraLogin().setVisible(true);
         LoginCtrl.createLoginCtrl().setAlunoAtual(null);
@@ -298,7 +280,6 @@ public class AluPageView extends javax.swing.JFrame {
     private javax.swing.JMenu aulasAtualizaEmailManu;
     private javax.swing.JMenu aulasBuscaMenu;
     private javax.swing.JMenu aulasCadasMenu;
-    private javax.swing.JMenu aulasVistasMenu;
     private javax.swing.JLabel celLb;
     private javax.swing.JTextField celTf;
     private javax.swing.JLabel cpfLb;
@@ -313,6 +294,5 @@ public class AluPageView extends javax.swing.JFrame {
     private javax.swing.JButton sairBt;
     private javax.swing.JLabel userLb;
     private javax.swing.JTextField userTf;
-    private javax.swing.JMenuItem verAgendaMenuI;
     // End of variables declaration//GEN-END:variables
 }

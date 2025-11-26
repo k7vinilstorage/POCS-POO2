@@ -58,8 +58,6 @@ public class ProfPageView extends javax.swing.JFrame {
         sairBt = new javax.swing.JButton();
         profMenuBar = new javax.swing.JMenuBar();
         agendaMenu = new javax.swing.JMenu();
-        aulasDadasMenu = new javax.swing.JMenu();
-        aulasResMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Professor");
@@ -138,12 +136,6 @@ public class ProfPageView extends javax.swing.JFrame {
             }
         });
         profMenuBar.add(agendaMenu);
-
-        aulasDadasMenu.setText("Ver aulas dadas");
-        profMenuBar.add(aulasDadasMenu);
-
-        aulasResMenu.setText("Ver aulas reservadas");
-        profMenuBar.add(aulasResMenu);
 
         setJMenuBar(profMenuBar);
 
@@ -299,8 +291,6 @@ public class ProfPageView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu agendaMenu;
-    private javax.swing.JMenu aulasDadasMenu;
-    private javax.swing.JMenu aulasResMenu;
     private javax.swing.JLabel celLb;
     private javax.swing.JTextField celTf;
     private javax.swing.JLabel cpfLb;

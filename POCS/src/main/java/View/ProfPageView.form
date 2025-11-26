@@ -13,16 +13,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agendaMenuActionPerformed"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="aulasDadasMenu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ver aulas dadas"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="aulasResMenu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ver aulas reservadas"/>
-          </Properties>
-        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>

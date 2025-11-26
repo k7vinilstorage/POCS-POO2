@@ -9,11 +9,6 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="aluMenuBar">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="aulasVistasMenu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ver aulas vistas"/>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="aulasCadasMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aulas reservadas"/>
@@ -21,16 +16,6 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aulasCadasMenuMouseClicked"/>
           </Events>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="verAgendaMenuI">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ver agenda"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verAgendaMenuIActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="aulasBuscaMenu">
           <Properties>
