@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import Utils.Utils;
+import View.DialogsView;
 
 public class AlunoCtrl {
     private static AlunoCtrl alunoCtrlUnic;
@@ -209,6 +210,22 @@ public class AlunoCtrl {
             }
         
         return alunoReturn;
+    }
+    
+    public boolean atualizaAluno(){
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,user,senha);
+            
+            String mudanca = "UPDATE Aluno SET Email = ?"
+                    + "WHERE Codigo = ?";
+            
+            PreparedStatement ps = con.prepareStatement(mudanca);
+            return true;
+        }catch(Exception e){
+            DialogsView.createDialogs().errorDialog("Não foi possível atualizar aluno", "Erro");
+            return false;
+        }
     }
 //        
 //    //delete (falta testar)
