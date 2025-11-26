@@ -16,6 +16,7 @@ public class LoginView extends javax.swing.JFrame {
     private Utils funcoes = Utils.createUtils();
     private AlunoCtrl alunoCtrl = AlunoCtrl.AlunoCtrlCreate();
     private ProfessorCtrl professorCtrl = ProfessorCtrl.ProfessorCtrlCreate();
+    private CoordenadorCtrl coordenadorCtrl = CoordenadorCtrl.CoordenadorCtrlCreate();
     private DialogsView aviso = DialogsView.createDialogs();
     private LoginCtrl login = LoginCtrl.createLoginCtrl();
     
@@ -175,16 +176,20 @@ public class LoginView extends javax.swing.JFrame {
         if(verificaSenha == 1 && tipo == 1){
             login.setAlunoAtual(alunoCtrl.selectTabela("Codigo", userTf.getText()));
             AluPageView.geraAluPageView().setVisible(true);
+            limpar();
             dispose();
             
         }else if(verificaSenha == 1 && tipo == 2){
             login.setProfessorAtual(professorCtrl.selectTabela("Codigo", userTf.getText()));
             System.out.println(login.getProfessorAtual().getpCod());
             ProfPageView.geraProfPageView().setVisible(true);
+            limpar();
             dispose();
         }else if(verificaSenha == 1 && tipo == 3){
-            //login.setCoordenadorAtual(coordenadorCtrl.select("Codigo", userTf.getText()));
-            
+            login.setCoordenadorAtual(coordenadorCtrl.selectTabela("Codigo", userTf.getText()));
+            CoordPageView.geraCoordPageView().setVisible(true);
+            limpar();
+            dispose();
         }
         
     }//GEN-LAST:event_loginBtActionPerformed
@@ -205,6 +210,11 @@ public class LoginView extends javax.swing.JFrame {
                 escolha[0]);
         
         return captura;
+    }
+    
+    private void limpar(){
+        userTf.setText("");
+        senhaTf.setText("");
     }
     
     /**

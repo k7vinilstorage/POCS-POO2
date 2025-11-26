@@ -35,11 +35,11 @@ public class LoginCtrl {
         return singleLoginCtrl;
     }
     
-    public static Coordenador getCoordenadorAtual() {
+    public Coordenador getCoordenadorAtual() {
         return coordenadorAtual;
     }
 
-    public static void setCoordenadorAtual(Coordenador coordenadorAtual) {
+    public void setCoordenadorAtual(Coordenador coordenadorAtual) {
         LoginCtrl.coordenadorAtual = coordenadorAtual;
     }
     
