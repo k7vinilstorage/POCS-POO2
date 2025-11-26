@@ -180,11 +180,12 @@ public class PesqAulasView extends javax.swing.JFrame {
     
     private void aulasTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasTbMouseClicked
         DefaultTableModel model = (DefaultTableModel) aulasTb.getModel();
+        
         rowH = aulasTb.getSelectedRow();
         
         Utils.createUtils().desConverteDia(model.getValueAt(rowH, 2).toString());
         Utils.createUtils().desConverteHorario(model.getValueAt(rowH, 3).toString());
-        
+        System.out.println(model.getValueAt(rowH, 4));
     }//GEN-LAST:event_aulasTbMouseClicked
 
     
