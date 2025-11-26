@@ -236,28 +236,31 @@ public class AlunoCtrl {
             return false;
         }
     }
-//        
-//    //delete (falta testar)
-//    public void deleteTabela(String condicao){
-//        String delete = "DELETE FROM aluno WHERE Codigo = 1";
-//        
-//        try{
-//            Class.forName(driver);
-//            con = DriverManager.getConnection(url,user,senha);
-//            System.out.println("Excluindo um aluno...");
-//            
-//            st = con.createStatement();
-//            st.executeUpdate(delete);
-//            System.out.println("Aluno excluido com sucesso...");
-//            
-//            st.close();
-//            con.close();
-//            
-//        }catch(Exception e){
-//            System.out.println("Falha ao excluir aluno...");
-//            System.out.println(e);
-//        }
-//    }
+
+    public boolean deleteTabela(String aCod){
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+
+            String sql = "DELETE FROM Aluno WHERE Codigo = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, aCod);
+
+            ps.executeUpdate();
+            
+            
+            ps.close();
+            con.close();
+            
+            System.out.println("PROFESSOR excluido com sucesso...");
+        }
+        catch (Exception e) {
+            System.out.println("Erro ao deletar professor");
+            return false;
+        }
+        return true;
+    }
     
     //Sobrecargas
     //Sobrecarga Inserir
