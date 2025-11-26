@@ -142,7 +142,7 @@ public class AluPageView extends javax.swing.JFrame {
         });
         aluMenuBar.add(aulasBuscaMenu);
 
-        aulasAtualizaEmailManu.setText("Atualizar E-mail");
+        aulasAtualizaEmailManu.setText("Atualizar");
         aulasAtualizaEmailManu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 aulasAtualizaEmailManuMouseClicked(evt);
@@ -244,7 +244,8 @@ public class AluPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_aulasCadasMenuMouseClicked
 
     private void aulasAtualizaEmailManuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasAtualizaEmailManuMouseClicked
-        
+        AtualizaAluView.geraAtualizaAluView().setVisible(true);
+        dispose();
     }//GEN-LAST:event_aulasAtualizaEmailManuMouseClicked
 
     private void preencherDados() {

@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.CoordenadorCtrl;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -115,9 +116,15 @@ public class ViewAlunoTable extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
         modelo.setRowCount(0);
         
-        System.out.println("");
+        CoordenadorCtrl.CoordenadorCtrlCreate().selectFillAluno();
     }//GEN-LAST:event_formFocusGained
-
+    
+    public void preencherTabela(Object[] linha){
+        DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
+        modelo.addRow(linha);
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
