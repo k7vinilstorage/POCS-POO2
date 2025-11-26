@@ -26,7 +26,6 @@ public class PesqAulasView extends javax.swing.JFrame {
         if(pesqAulasViewUnic == null){
             pesqAulasViewUnic = new PesqAulasView();
         }
-        
         return pesqAulasViewUnic;
     }
 
@@ -47,6 +46,7 @@ public class PesqAulasView extends javax.swing.JFrame {
         aulasTb = new javax.swing.JTable();
         buscaAulaProfBt = new javax.swing.JButton();
         buscaAulaMatBt = new javax.swing.JButton();
+        voltarBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Professor");
@@ -85,27 +85,36 @@ public class PesqAulasView extends javax.swing.JFrame {
 
         buscaAulaMatBt.setText("Buscar");
 
+        voltarBt.setText("Voltar");
+        voltarBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarBtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(aulasSp, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buscaAulaProfLb)
-                            .addComponent(buscaAulaMatLb))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buscaAulaProfTf, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                            .addComponent(buscaAulaMatTf))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buscaAulaProfBt)
-                            .addComponent(buscaAulaMatBt))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(voltarBt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(aulasSp, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buscaAulaProfLb)
+                                .addComponent(buscaAulaMatLb))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(buscaAulaProfTf, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                                .addComponent(buscaAulaMatTf))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buscaAulaProfBt)
+                                .addComponent(buscaAulaMatBt)))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,8 +134,10 @@ public class PesqAulasView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buscaAulaMatLb)))
                 .addGap(18, 18, 18)
-                .addComponent(aulasSp, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(aulasSp, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(voltarBt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,11 +153,18 @@ public class PesqAulasView extends javax.swing.JFrame {
         pesquisaPesqTb(pesqProf);
     }//GEN-LAST:event_buscaAulaProfBtActionPerformed
 
+    private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
+        voltar();
+    }//GEN-LAST:event_voltarBtActionPerformed
+
     public void pesquisaPesqTb(String p){
         DefaultTableModel modelo = (DefaultTableModel) aulasTb.getModel();
-        AgendaCtrl.createAgendaCtrl().selectPesqTb(p, modelo); 
+        AgendaCtrl.createAgendaCtrl().selectPesqProfTb(p, modelo); 
     }
     
+    public void voltar(){
+        dispose();
+    }
     /**
      * @param args the command line arguments
      */
@@ -192,5 +210,6 @@ public class PesqAulasView extends javax.swing.JFrame {
     private javax.swing.JButton buscaAulaProfBt;
     private javax.swing.JLabel buscaAulaProfLb;
     private javax.swing.JTextField buscaAulaProfTf;
+    private javax.swing.JButton voltarBt;
     // End of variables declaration//GEN-END:variables
 }

@@ -122,7 +122,7 @@ public class AgendaCtrl {
         }
     }
     
-    public void selectPesqTb(String p, DefaultTableModel modelo){
+    public void selectPesqProfTb(String p, DefaultTableModel modelo){
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
@@ -226,6 +226,39 @@ public class AgendaCtrl {
                 return "17:00-18:00";
             default:
                 return null;
+        }
+    }
+    
+    public void selectPesqMatTb(String p, DefaultTableModel modelo){
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            String joinProf = "SELECT Professor.Nome,"
+                    + " Professor.Disciplina,"
+                    + " Agenda.DiaS, "
+                    + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Nome LIKE ?";
+            
+            PreparedStatement ps = con.prepareStatement(joinProf);
+            ps.setString(1, p);
+            ResultSet rs = ps.executeQuery();
+            modelo.setRowCount(0);
+            while(rs.next()){
+                Object[] linha = {
+                    rs.getString("Nome"),
+                    rs.getString("Disciplina"),
+                    converteDia(rs.getInt("DiaS")),
+                    converteHorario(rs.getInt("DiaH"))
+                };
+                System.out.println("Estamos no while");
+                modelo.addRow(linha);
+            }
+            
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        catch (Exception e) {
+            System.out.println(e);
         }
     }
     
