@@ -191,12 +191,13 @@ public class AgendaCtrl {
             ps.setString(1, m);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-//                Object[] linha = {
-//                    rs.getString("Nome"),
-//                    rs.getString("Disciplina"),
-//                    converteDia(rs.getInt("DiaS")),
-//                    converteHorario(rs.getInt("DiaH"))
-//                };
+                Object[] linha = {
+                    rs.getString("Nome"),
+                    rs.getString("Disciplina"),
+                    converteDia(rs.getInt("DiaS")),
+                    converteHorario(rs.getInt("DiaH"))
+                };
+                PesqAulasView.geraPesqAulasView().preencherTabela(linha);
             }
             
             rs.close();
