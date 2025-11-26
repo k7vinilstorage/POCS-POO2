@@ -241,8 +241,12 @@ public class AgendaView extends javax.swing.JFrame {
         if(colD < 0){
             return;
         }
-        
+
         if(AulaCtrl.createAulaCtrl().deleteTabela(alu.getaCod(), colD, rowH)){
+            Horario h = new Horario(colD, rowH, false);
+            
+            AgendaCtrl.createAgendaCtrl().changeReserved(h, false, AulaCtrl.createAulaCtrl().selectPcodAula(alu, colD, rowH));
+            
             DialogsView.createDialogs().infoDialog("Reserva removida com sucesso","Sucesso");
         }else{
             DialogsView.createDialogs().errorDialog("Erro ao Remover reserva", "Erro");

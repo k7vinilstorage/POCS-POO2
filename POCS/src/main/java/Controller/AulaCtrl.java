@@ -89,6 +89,32 @@ public class AulaCtrl {
         return true;
     }
     
+    public String selectPcodAula(Aluno a, int diaS, int diaH) {
+        String pCod = new String();
+        
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            String findCpf = "SELECT * FROM Aula WHERE aCod = ? AND DiaS = ? AND DiaH = ?";
+            PreparedStatement ps = con.prepareStatement(findCpf);
+            ps.setString(1, a.getaCod());
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                pCod = rs.getString("pCod");
+            }
+            
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return pCod;
+    }
+    
     public boolean deleteTabela(String codigo, int diaS, int diaH){
         try {
             Class.forName(driver);
