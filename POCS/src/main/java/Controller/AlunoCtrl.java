@@ -238,27 +238,50 @@ public class AlunoCtrl {
     }
 
     public boolean deleteTabela(String aCod){
+        boolean result = false;
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-
-            String sql = "DELETE FROM Aluno WHERE Codigo = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-
+            String findAcod = "SELECT * FROM Aula WHERE aCod = ?";
+            PreparedStatement ps = con.prepareStatement(findAcod);
             ps.setString(1, aCod);
-
-            ps.executeUpdate();
-            
-            
+            ResultSet rs = ps.executeQuery();
+            result = (!rs.next());
+            rs.close();
             ps.close();
             con.close();
-            
-            System.out.println("PROFESSOR excluido com sucesso...");
-        }
+        } 
         catch (Exception e) {
-            System.out.println("Erro ao deletar professor");
+            System.out.println(e);
+        }
+        
+        if(result) {
+            try {
+                Class.forName(driver);
+                con = DriverManager.getConnection(url, user, senha);
+
+                String sql = "DELETE FROM Aluno WHERE Codigo = ?";
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                ps.setString(1, aCod);
+
+                ps.executeUpdate();
+
+
+                ps.close();
+                con.close();
+
+                System.out.println("Aluno excluido com sucesso...");
+            }
+            catch (Exception e) {
+                System.out.println("Erro ao deletar Aluno");
+                return false;
+            }
+        }
+        else {
             return false;
         }
+        
         return true;
     }
     
