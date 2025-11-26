@@ -210,26 +210,29 @@ public class ProfessorCtrl {
         return profReturn;
     }
     
-    //Deletar da Tabela
-    public void deleteTabela(String condicao){
-        String delete = "DELETE FROM Professor WHERE Codigo = 1";
-        
-        try{
+    public boolean deleteTabela(String pCod){
+        try {
             Class.forName(driver);
-            con = DriverManager.getConnection(url,user,senha);
-            System.out.println("Excluindo um PROFESSOR...");
+            con = DriverManager.getConnection(url, user, senha);
+
+            String sql = "DELETE FROM Professor WHERE Codigo = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, pCod);
+
+            ps.executeUpdate();
             
-            st = con.createStatement();
-            st.executeUpdate(delete);
-            System.out.println("PROFESSOR excluido com sucesso...");
             
-            st.close();
+            ps.close();
             con.close();
             
-        }catch(Exception e){
-            System.out.println("Falha ao excluir PROFESSOR...");
-            System.out.println(e);
+            System.out.println("PROFESSOR excluido com sucesso...");
         }
+        catch (Exception e) {
+            System.out.println("Erro ao deletar professor");
+            return false;
+        }
+        return true;
     }
     
     //Sobrecargas
