@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 
 public class ProfessorCtrl {
     // Código SQL para conexão com o banco
-    static ProfessorCtrl professorUnic = null;
+    private static ProfessorCtrl professorUnic = null;
     String formacao;
     String disciplina;
     int pCod;

@@ -16,7 +16,7 @@ public class AulaCtrl {
     static Statement st = null;
     static ResultSet rs = null;
     
-    public static AulaCtrl singleAulaCtrl;
+    private static AulaCtrl singleAulaCtrl;
     
     private AulaCtrl(){
     

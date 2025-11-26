@@ -32,7 +32,7 @@ public class AgendaCtrl {
     static Statement st = null;
     static ResultSet rs = null;
     
-    public static AgendaCtrl singleAgendaCtrl;
+    private static AgendaCtrl singleAgendaCtrl;
     
     private AgendaCtrl(){
         
