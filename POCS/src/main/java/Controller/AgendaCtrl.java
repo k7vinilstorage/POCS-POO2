@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Model.Aluno;
 import Utils.Utils;
 import View.PesqAulasView;
 import Model.Horario;
@@ -101,7 +102,7 @@ public class AgendaCtrl {
         return true;
     }
     
-    public void selectTabela(Professor p) {
+    public void selectTabelaProf(Professor p) {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
@@ -112,6 +113,28 @@ public class AgendaCtrl {
             
             while(rs.next()){
                   AgendaView.createAgendaView().preencherTabela(rs.getInt(4), rs.getInt(3), rs.getBoolean(5));
+            }
+            
+            rs.close();
+            ps.close();
+            con.close();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void selectTabelaAlu(Aluno a) {
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            String findCpf = "SELECT * FROM Aula WHERE aCod = ?";
+            PreparedStatement ps = con.prepareStatement(findCpf);
+            ps.setString(1, a.getaCod());
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                  AgendaView.createAgendaView().preencherTabela(rs.getInt(4), rs.getInt(3), true);
             }
             
             rs.close();

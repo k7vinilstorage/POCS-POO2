@@ -200,7 +200,13 @@ public class AgendaView extends javax.swing.JFrame {
     }
     
     public void updateTable() {
-        AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.createLoginCtrl().getProfessorAtual());
+        if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
+            AgendaCtrl.createAgendaCtrl().selectTabelaProf(LoginCtrl.createLoginCtrl().getProfessorAtual());
+        }
+        else {
+            
+        }
+       
     }
     
     public void preencherTabela(int rowH, int colD, boolean reserved) {
