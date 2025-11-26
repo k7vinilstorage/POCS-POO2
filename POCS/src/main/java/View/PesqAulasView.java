@@ -191,7 +191,9 @@ public class PesqAulasView extends javax.swing.JFrame {
         Horario h = new Horario(Utils.createUtils().desConverteDia(model.getValueAt(rowH, 2).toString()), Utils.createUtils().desConverteHorario(model.getValueAt(rowH, 3).toString()), false);
         
         if(DialogsView.createDialogs().infoOpDialog("Deseja reservar horário?", "Reservar horário") == 0) {
-            AulaCtrl.createAulaCtrl().inserirTabela(h, p);
+            if(AulaCtrl.createAulaCtrl().inserirTabela(h, p)) {
+                DialogsView.createDialogs().infoDialog("Aula criada com sucesso", "Sucesso");
+            }
         }
     }//GEN-LAST:event_aulasTbMouseClicked
 
