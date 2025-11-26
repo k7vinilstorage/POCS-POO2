@@ -3,18 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import Controller.*;
 /**
  *
  * @author gp51f
  */
 public class AtualizaAluView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AtualizaAluView
-     */
-    public AtualizaAluView() {
+    private static AtualizaAluView atualizaUnic;
+    
+    private AtualizaAluView() {
         initComponents();
+        cxCelular.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getCelular());
+        cxEmail.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getEmail());
+    }
+    
+    public static AtualizaAluView geraAtualizaAluView(){
+        if(atualizaUnic == null){
+            atualizaUnic = new AtualizaAluView();
+        }
+        return atualizaUnic;
     }
 
     /**
