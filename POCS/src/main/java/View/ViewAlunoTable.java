@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.AlunoCtrl;
 import Controller.CoordenadorCtrl;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 public class ViewAlunoTable extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewAlunoTable.class.getName());
+    
+     int rowH = 0;
     
     private static ViewAlunoTable viewAlunoTableUnic;
     
@@ -77,6 +80,11 @@ public class ViewAlunoTable extends javax.swing.JFrame {
                 alunoTabFocusGained(evt);
             }
         });
+        alunoTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                alunoTabMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(alunoTab);
 
         voltarBt.setText("Voltar");
@@ -127,6 +135,22 @@ public class ViewAlunoTable extends javax.swing.JFrame {
         
         CoordenadorCtrl.CoordenadorCtrlCreate().selectFillAluno();
     }//GEN-LAST:event_alunoTabFocusGained
+
+    private void alunoTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alunoTabMouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
+        rowH = alunoTab.getSelectedRow();
+
+        String aCod = modelo.getValueAt(rowH, 0).toString();
+
+        if(DialogsView.createDialogs().infoOpDialog("Deseja exlcuir o aluno?", "Exlcuir") == 0) {
+            if(AlunoCtrl.AlunoCtrlCreate().deleteTabela(aCod)) {
+                DialogsView.createDialogs().infoDialog("Aluno excluido com sucesso", "Excluir");
+            }
+            else {
+                DialogsView.createDialogs().errorDialog("Erro ao Excluir Aluno \n O Aluno possui aulas cadastrados na agenda", "Erro");
+            }
+        }        
+    }//GEN-LAST:event_alunoTabMouseClicked
     
     public void preencherTabela(Object[] linha){
         DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
