@@ -50,6 +50,10 @@ public class CadAluView extends javax.swing.JFrame {
         limpBt = new javax.swing.JButton();
         senhaLb = new javax.swing.JLabel();
         senhaTf = new javax.swing.JTextField();
+        anoEscolarLb = new javax.swing.JLabel();
+        idadeTf = new javax.swing.JTextField();
+        anoEscolarTf = new javax.swing.JTextField();
+        idadeLb = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de aluno");
@@ -111,47 +115,63 @@ public class CadAluView extends javax.swing.JFrame {
             }
         });
 
+        anoEscolarLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
+        anoEscolarLb.setText("Ano Escolar:");
+
+        idadeTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idadeTfActionPerformed(evt);
+            }
+        });
+
+        idadeLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
+        idadeLb.setText("Idade");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(anoEscolarLb)
+                    .addComponent(escolaLb)
+                    .addComponent(cpfLb)
+                    .addComponent(emailLb)
+                    .addComponent(celLb)
+                    .addComponent(idadeLb)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(nomeLb)
+                        .addComponent(senhaLb)))
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
+                        .addComponent(anoEscolarTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(escolaTf)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cpfTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(celTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(idadeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nomeTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(senhaTf, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(cadBt)
                         .addGap(76, 76, 76)
                         .addComponent(limpBt))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
+                        .addGap(77, 77, 77)
                         .addComponent(sairBt)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(escolaLb)
-                            .addComponent(cpfLb)
-                            .addComponent(emailLb)
-                            .addComponent(celLb))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(escolaTf)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cpfTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(celTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nomeLb)
-                            .addComponent(senhaLb))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomeTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(senhaTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(80, 80, 80))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,13 +200,21 @@ public class CadAluView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(escolaLb)
                     .addComponent(escolaTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idadeTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idadeLb))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(anoEscolarLb)
+                    .addComponent(anoEscolarTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadBt)
                     .addComponent(limpBt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(sairBt)
-                .addGap(50, 50, 50))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,6 +246,10 @@ public class CadAluView extends javax.swing.JFrame {
     private void senhaTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaTfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaTfActionPerformed
+
+    private void idadeTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idadeTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idadeTfActionPerformed
     
     private boolean getAluno(){
         Utils verifica = Utils.createUtils();
@@ -228,6 +260,15 @@ public class CadAluView extends javax.swing.JFrame {
         aln.setEmail(emailTf.getText());
         aln.setCelular(celTf.getText());
         aln.setEscola(escolaTf.getText());
+        try {
+            aln.setIdade(Integer.parseInt(idadeTf.getText()));
+        }
+        catch (NumberFormatException e){
+            DialogsView.createDialogs().errorDialog("A idade deve ser um número", "Erro");
+            return false;
+        }
+        
+        aln.setDesenvolvimento(anoEscolarTf.getText());
         
         
         
@@ -310,6 +351,8 @@ public class CadAluView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel anoEscolarLb;
+    private javax.swing.JTextField anoEscolarTf;
     private javax.swing.JButton cadBt;
     private javax.swing.JLabel celLb;
     private javax.swing.JTextField celTf;
@@ -319,6 +362,8 @@ public class CadAluView extends javax.swing.JFrame {
     private javax.swing.JTextField emailTf;
     private javax.swing.JLabel escolaLb;
     private javax.swing.JTextField escolaTf;
+    private javax.swing.JLabel idadeLb;
+    private javax.swing.JTextField idadeTf;
     private javax.swing.JButton limpBt;
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;

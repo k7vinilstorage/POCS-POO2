@@ -24,56 +24,60 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="anoEscolarLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="escolaLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="cpfLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="celLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="idadeLb" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="nomeLb" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="senhaLb" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      <Component id="anoEscolarTf" min="-2" pref="230" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="escolaTf" max="32767" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                      <Component id="cpfTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="emailTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="celTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="idadeTf" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="nomeTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                          <Component id="senhaTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="cadBt" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       <Component id="limpBt" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                       <Component id="sairBt" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="escolaLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cpfLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="celLb" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="escolaTf" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Component id="cpfTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                                  <Component id="emailTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="celTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="nomeLb" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="senhaLb" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nomeTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="senhaTf" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -110,14 +114,24 @@
                   <Component id="escolaLb" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="escolaTf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="idadeTf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idadeLb" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="anoEscolarLb" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="anoEscolarTf" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cadBt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="limpBt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="sairBt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -215,6 +229,29 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaTfActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="anoEscolarLb">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Monocraft" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ano Escolar:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="idadeTf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idadeTfActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="anoEscolarTf">
+    </Component>
+    <Component class="javax.swing.JLabel" name="idadeLb">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Monocraft" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Idade"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
