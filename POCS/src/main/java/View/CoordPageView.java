@@ -55,7 +55,7 @@ public class CoordPageView extends javax.swing.JFrame {
         verAulasMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Página do Professor");
+        setTitle("Página do Coordenador");
 
         userLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         userLb.setText("Usuário:");
