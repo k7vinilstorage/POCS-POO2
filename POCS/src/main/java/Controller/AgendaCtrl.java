@@ -147,7 +147,7 @@ public class AgendaCtrl {
     }
 
     
-    public void selectPesqProfTb(String p, DefaultTableModel modelo){
+    public void selectPesqProfTb(String p){
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
@@ -159,15 +159,14 @@ public class AgendaCtrl {
             PreparedStatement ps = con.prepareStatement(joinProf);
             ps.setString(1, p);
             ResultSet rs = ps.executeQuery();
-            modelo.setRowCount(0);
             while(rs.next()){
-                Object[] linha = {
-                    rs.getString("Nome"),
-                    rs.getString("Disciplina"),
-                    converteDia(rs.getInt("DiaS")),
-                    converteHorario(rs.getInt("DiaH"))
-                };
-                modelo.addRow(linha);
+//                Object[] linha = {
+//                    rs.getString("Nome"),
+//                    rs.getString("Disciplina"),
+//                    converteDia(rs.getInt("DiaS")),
+//                    converteHorario(rs.getInt("DiaH"))
+//                };
+                PesqAulasView.geraPesqAulasView().preencherTabela(rs.getInt("Id"), rs.getString("Nome"), rs.getString("Disciplina"), rs.getInt("DiaS"), rs.getInt("DiaH"));
             }
             
             rs.close();
@@ -179,7 +178,7 @@ public class AgendaCtrl {
         }
     }
     
-        public void selectPesqMatTb(String m, DefaultTableModel modelo){
+        public void selectPesqMatTb(String m){
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
@@ -191,15 +190,13 @@ public class AgendaCtrl {
             PreparedStatement ps = con.prepareStatement(joinProf);
             ps.setString(1, m);
             ResultSet rs = ps.executeQuery();
-            modelo.setRowCount(0);
             while(rs.next()){
-                Object[] linha = {
-                    rs.getString("Nome"),
-                    rs.getString("Disciplina"),
-                    converteDia(rs.getInt("DiaS")),
-                    converteHorario(rs.getInt("DiaH"))
-                };
-                modelo.addRow(linha);
+//                Object[] linha = {
+//                    rs.getString("Nome"),
+//                    rs.getString("Disciplina"),
+//                    converteDia(rs.getInt("DiaS")),
+//                    converteHorario(rs.getInt("DiaH"))
+//                };
             }
             
             rs.close();
@@ -283,6 +280,10 @@ public class AgendaCtrl {
             default:
                 return null;
         }
+    }
+
+    private void preencherTabela(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 

@@ -12,6 +12,8 @@ import javax.swing.table.DefaultTableModel;
  * @author joao
  */
 public class PesqAulasView extends javax.swing.JFrame {
+    
+    int rowH = 0;
 
     private static PesqAulasView pesqAulasViewUnic;
     /**
@@ -65,15 +67,17 @@ public class PesqAulasView extends javax.swing.JFrame {
 
         aulasTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Nome", "Matéria", "Aulas dadas", "Horários"
+                "Nome", "Matéria", "Dia", "Horários"
             }
         ));
+        aulasTb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aulasTbMouseClicked(evt);
+            }
+        });
         aulasSp.setViewportView(aulasTb);
 
         buscaAulaProfBt.setText("Buscar");
@@ -106,7 +110,7 @@ public class PesqAulasView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(voltarBt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(aulasSp, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+                        .addComponent(aulasSp, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(buscaAulaProfLb)
@@ -142,7 +146,7 @@ public class PesqAulasView extends javax.swing.JFrame {
                 .addComponent(aulasSp, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(voltarBt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,7 +159,7 @@ public class PesqAulasView extends javax.swing.JFrame {
     private void buscaAulaProfBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaProfBtActionPerformed
         String pesqProf = buscaAulaProfTf.getText();
         System.out.println("Estamos no botao"+ pesqProf);
-        profPesqTb(pesqProf);
+        AgendaCtrl.createAgendaCtrl().selectPesqProfTb(pesqProf); 
     }//GEN-LAST:event_buscaAulaProfBtActionPerformed
 
     private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
@@ -165,18 +169,27 @@ public class PesqAulasView extends javax.swing.JFrame {
     private void buscaAulaMatBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaMatBtActionPerformed
         String pesqMat = buscaAulaMatTf.getText();
         System.out.println("Estamos no botão"+ pesqMat);
-        matPesqTb(pesqMat);
+        AgendaCtrl.createAgendaCtrl().selectPesqMatTb(pesqMat);
     }//GEN-LAST:event_buscaAulaMatBtActionPerformed
 
-    public void profPesqTb(String p){
-        DefaultTableModel modelo = (DefaultTableModel) aulasTb.getModel();
-        AgendaCtrl.createAgendaCtrl().selectPesqProfTb(p, modelo); 
+    public void preencherTabela(int id, String nome, String disciplina, int DiaS, int DiaH) {
+        DefaultTableModel model = (DefaultTableModel) aulasTb.getModel();
+        
+        model.setValueAt(nome, id, 0);
+        model.setValueAt(disciplina, id, 1);
+        model.setValueAt(DiaS, id, 2);
+        model.setValueAt(DiaH, id, 3);
     }
     
-    public void matPesqTb(String m){
-        DefaultTableModel modelo = (DefaultTableModel) aulasTb.getModel();
-        AgendaCtrl.createAgendaCtrl().selectPesqMatTb(m, modelo); 
-    }
+    private void aulasTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasTbMouseClicked
+        rowH = aulasTb.getSelectedRow();
+        
+        for(int i = 0; i < 4; i++) {
+            
+        }
+        
+    }//GEN-LAST:event_aulasTbMouseClicked
+
     
     public void voltar(){
         dispose();
