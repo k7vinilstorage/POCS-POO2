@@ -72,6 +72,11 @@ public class ViewAlunoTable extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        alunoTab.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                alunoTabFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(alunoTab);
 
         voltarBt.setText("Voltar");
@@ -113,11 +118,15 @@ public class ViewAlunoTable extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarBtActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        
+    }//GEN-LAST:event_formFocusGained
+
+    private void alunoTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_alunoTabFocusGained
         DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();
         modelo.setRowCount(0);
         
         CoordenadorCtrl.CoordenadorCtrlCreate().selectFillAluno();
-    }//GEN-LAST:event_formFocusGained
+    }//GEN-LAST:event_alunoTabFocusGained
     
     public void preencherTabela(Object[] linha){
         DefaultTableModel modelo = (DefaultTableModel) alunoTab.getModel();

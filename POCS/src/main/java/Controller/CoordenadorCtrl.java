@@ -106,10 +106,10 @@ public class CoordenadorCtrl {
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-            String fillProf = "SELECT Codigo, Nome, Cpf, Celular, Idade, Desenvolvimento, Escola, Email FROM Aluno";
+            String fillAluno = "SELECT Codigo, Nome, Cpf, Celular, Idade, Desenvolvimento, Escola, Email FROM Aluno";
             
             st = con.createStatement();
-            rs = st.executeQuery(fillProf);
+            rs = st.executeQuery(fillAluno);
             
             while(rs.next()){
                 Object[] linha ={
