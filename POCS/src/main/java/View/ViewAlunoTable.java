@@ -11,13 +11,26 @@ package View;
 public class ViewAlunoTable extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewAlunoTable.class.getName());
-
+    
+    private static ViewAlunoTable viewAlunoTableUnic;
+    
+    private ViewAlunoTable(){
+        initComponents();
+    }
+    
+    public static ViewAlunoTable geraViewAlunoTable(){
+        if(viewAlunoTableUnic == null){
+            viewAlunoTableUnic = new ViewAlunoTable();
+        }
+        return viewAlunoTableUnic;
+    }
+    
+    
+    
+    
     /**
      * Creates new form ViewAlunoTable
      */
-    public ViewAlunoTable() {
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
