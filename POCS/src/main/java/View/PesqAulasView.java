@@ -144,22 +144,29 @@ public class PesqAulasView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscaAulaMatTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaMatTfActionPerformed
-        
+        String pesqMat = buscaAulaMatTf.getText();
+        System.out.println("Estamos no botão"+ pesqMat);
+        matPesqTb(pesqMat);
     }//GEN-LAST:event_buscaAulaMatTfActionPerformed
 
     private void buscaAulaProfBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaProfBtActionPerformed
         String pesqProf = buscaAulaProfTf.getText();
         System.out.println("Estamos no botao"+ pesqProf);
-        pesquisaPesqTb(pesqProf);
+        profPesqTb(pesqProf);
     }//GEN-LAST:event_buscaAulaProfBtActionPerformed
 
     private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
         voltar();
     }//GEN-LAST:event_voltarBtActionPerformed
 
-    public void pesquisaPesqTb(String p){
+    public void profPesqTb(String p){
         DefaultTableModel modelo = (DefaultTableModel) aulasTb.getModel();
         AgendaCtrl.createAgendaCtrl().selectPesqProfTb(p, modelo); 
+    }
+    
+    public void matPesqTb(String m){
+        DefaultTableModel modelo = (DefaultTableModel) aulasTb.getModel();
+        AgendaCtrl.createAgendaCtrl().selectPesqMatTb(m, modelo); 
     }
     
     public void voltar(){
