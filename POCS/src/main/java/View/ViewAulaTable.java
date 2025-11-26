@@ -4,6 +4,9 @@
  */
 package View;
 
+import Controller.CoordenadorCtrl;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author arthu
@@ -41,6 +44,7 @@ public class ViewAulaTable extends javax.swing.JFrame {
         aulaLb = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         aulaTab = new javax.swing.JTable();
+        voltarBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -58,32 +62,63 @@ public class ViewAulaTable extends javax.swing.JFrame {
                 "Professor", "Aluno", "Dia", "Horário"
             }
         ));
+        aulaTab.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                aulaTabFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(aulaTab);
+
+        voltarBt.setText("Voltar");
+        voltarBt.addActionListener(this::voltarBtActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(aulaLb)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(aulaLb)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(voltarBt)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(23, 23, 23)
                 .addComponent(aulaLb)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(voltarBt)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
+        dispose();
+    }//GEN-LAST:event_voltarBtActionPerformed
+
+    private void aulaTabFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aulaTabFocusGained
+        DefaultTableModel modelo = (DefaultTableModel) aulaTab.getModel();
+        modelo.setRowCount(0);
+        
+        CoordenadorCtrl.CoordenadorCtrlCreate().selectFillAula();
+    }//GEN-LAST:event_aulaTabFocusGained
+
+    public void preencherTabela(Object[] linha){
+        DefaultTableModel modelo = (DefaultTableModel) aulaTab.getModel();
+        modelo.addRow(linha);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -113,5 +148,6 @@ public class ViewAulaTable extends javax.swing.JFrame {
     private javax.swing.JLabel aulaLb;
     private javax.swing.JTable aulaTab;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton voltarBt;
     // End of variables declaration//GEN-END:variables
 }
