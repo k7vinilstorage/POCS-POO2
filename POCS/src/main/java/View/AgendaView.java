@@ -130,8 +130,7 @@ public class AgendaView extends javax.swing.JFrame {
         }
         else {
             DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
-            System.out.println(model.getValueAt(rowH, colD).toString());
-            if(model.getValueAt(rowH, colD).toString().equals("Reservado")) {
+            if(model.getValueAt(rowH, colD + 3).toString().equals("Reservado")) {
                 DialogsView.createDialogs().infoDialog("Não é possível remover um horário cadastrado", "Aviso");
             }
             else if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
