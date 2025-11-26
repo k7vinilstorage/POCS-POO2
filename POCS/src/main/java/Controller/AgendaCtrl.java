@@ -122,6 +122,12 @@ public class AgendaCtrl {
         }
     }
     
+    public void deleteTabela(String codigo){
+        String delete = "DELETE FROM Agenda WHERE Codigo = ?";
+        
+        
+    }
+    
     public void selectPesqProfTb(String p, DefaultTableModel modelo){
         try {
             Class.forName(driver);

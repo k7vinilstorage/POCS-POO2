@@ -175,7 +175,14 @@ public class AgendaView extends javax.swing.JFrame {
     }
     
     public void removerHor() {
+        if(colD < 0){
+            return;
+        }
         
+        //Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
+        //if(AgendaCtrl.createAgendaCtrl()){
+        
+        //}
     }
     
     public void updateTable() {
