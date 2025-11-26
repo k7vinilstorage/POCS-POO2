@@ -188,15 +188,15 @@ public class CoordPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_sairBtActionPerformed
 
     private void verProfMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProfMenuMouseClicked
-        //ViewProfTable.geraViewProfTable().setVisible(true);
+        ViewProfTable.geraViewProfTable().setVisible(true);
     }//GEN-LAST:event_verProfMenuMouseClicked
 
     private void verAluMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verAluMenuMouseClicked
-        //ViewAlunoTable.geraViewAlunoTable().setVisible(true);
+        ViewAlunoTable.geraViewAlunoTable().setVisible(true);
     }//GEN-LAST:event_verAluMenuMouseClicked
 
     private void verAulasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verAulasMenuMouseClicked
-        //ViewAulaTable.geraViewAulaTable().setVisible(true);
+        ViewAulaTable.geraViewAulaTable().setVisible(true);
     }//GEN-LAST:event_verAulasMenuMouseClicked
 
     private void preencherDados(){
