@@ -162,6 +162,9 @@ public class PesqAulasView extends javax.swing.JFrame {
     }//GEN-LAST:event_buscaAulaMatTfActionPerformed
 
     private void buscaAulaProfBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaProfBtActionPerformed
+        DefaultTableModel model = (DefaultTableModel) aulasTb.getModel();
+        model.setRowCount(0);
+        
         String pesqProf = buscaAulaProfTf.getText();
         System.out.println("Estamos no botao"+ pesqProf);
         AgendaCtrl.createAgendaCtrl().selectPesqProfTb(pesqProf); 
@@ -172,6 +175,9 @@ public class PesqAulasView extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarBtActionPerformed
 
     private void buscaAulaMatBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaMatBtActionPerformed
+        DefaultTableModel model = (DefaultTableModel) aulasTb.getModel();
+        model.setRowCount(0);
+        
         String pesqMat = buscaAulaMatTf.getText();
         System.out.println("Estamos no botão"+ pesqMat);
         AgendaCtrl.createAgendaCtrl().selectPesqMatTb(pesqMat);
