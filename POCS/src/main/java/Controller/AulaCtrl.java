@@ -63,7 +63,7 @@ public class AulaCtrl {
             con = DriverManager.getConnection(url,user,senha);
             System.out.println("Inserindo na Tabela..."); 
             
-            String insertAln = "INSERT INTO Agenda (Pcod, Acod, DiaS, DiaH) VALUES (?,?,?,?)";
+            String insertAln = "INSERT INTO Aula (pCod, aCod, DiaS, DiaH) VALUES (?,?,?,?)";
             
             PreparedStatement ps = con.prepareStatement(insertAln);
             
