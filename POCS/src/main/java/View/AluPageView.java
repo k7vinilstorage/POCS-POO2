@@ -229,7 +229,7 @@ public class AluPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_aulasBuscaMenuMouseClicked
 
     private void aulasCadasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasCadasMenuMouseClicked
-        AgendaView.createAgendaView().limpaTabela();
+        AgendaView.destroyAgendaView();
         AgendaView.createAgendaView().setVisible(true);
     }//GEN-LAST:event_aulasCadasMenuMouseClicked
 

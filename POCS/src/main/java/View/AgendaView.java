@@ -47,6 +47,13 @@ public class AgendaView extends javax.swing.JFrame {
         return singleAgendaView;
     }
     
+    public static void destroyAgendaView() {
+        if (singleAgendaView != null) {
+            singleAgendaView.dispose();
+            singleAgendaView = null;  
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -268,11 +275,6 @@ public class AgendaView extends javax.swing.JFrame {
         model.setValueAt(null, rowH, colD + 3);
     }
     
-    public void limpaTabela() {
-        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
-        model.setRowCount(0);
-        carregaHor();
-    }
     
     public void updateTable() {
         if(prof != null) {
