@@ -42,7 +42,7 @@ public class ViewAulaTable extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         aulaTab = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         aulaLb.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         aulaLb.setText("Aulas");
