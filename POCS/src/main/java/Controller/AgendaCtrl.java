@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Utils.Utils;
 import View.PesqAulasView;
 import Model.Horario;
 import Model.Professor;
@@ -163,8 +164,8 @@ public class AgendaCtrl {
                 Object[] linha = {
                     rs.getString("Nome"),
                     rs.getString("Disciplina"),
-                    Utils.Utils.createUtils().converteDia(rs.getInt("DiaS")),
-                    Utils.Utils.createUtils().converteHorario(rs.getInt("DiaH"))
+                    Utils.createUtils().converteDia(rs.getInt("DiaS")),
+                    Utils.createUtils().converteHorario(rs.getInt("DiaH"))
                 };
                 PesqAulasView.geraPesqAulasView().preencherTabela(linha);
             }
@@ -182,8 +183,7 @@ public class AgendaCtrl {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
-            String joinProf = "SELECT Professor.Codigo,"
-                    + " Professor.Nome,"
+            String joinProf = "SELECT Professor.Nome,"
                     + " Professor.Disciplina,"
                     + " Agenda.DiaS, "
                     + "Agenda.DiaH FROM Professor INNER JOIN Agenda ON Professor.Codigo = Agenda.Pcod WHERE Professor.Disciplina LIKE ?";
@@ -195,10 +195,8 @@ public class AgendaCtrl {
                 Object[] linha = {
                     rs.getString("Nome"),
                     rs.getString("Disciplina"),
-                    Utils.Utils.createUtils().converteDia(rs.getInt("DiaS")),
-                    Utils.Utils.createUtils().converteHorario(rs.getInt("DiaH")),
-                    rs.getString("Codigo")
-                    
+                    Utils.createUtils().converteDia(rs.getInt("DiaS")),
+                    Utils.createUtils().converteHorario(rs.getInt("DiaH"))
                 };
                 PesqAulasView.geraPesqAulasView().preencherTabela(linha);
             }

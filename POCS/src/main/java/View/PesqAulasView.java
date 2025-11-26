@@ -5,6 +5,10 @@
 package View;
 
 import Controller.AgendaCtrl;
+import Controller.AulaCtrl;
+import Controller.ProfessorCtrl;
+import Model.Horario;
+import Model.Professor;
 import Utils.Utils;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +27,7 @@ public class PesqAulasView extends javax.swing.JFrame {
     private PesqAulasView() {
         initComponents();
         setLocationRelativeTo(null);
+        AulaCtrl.createAulaCtrl().criarTabela();
     }
     
     public static PesqAulasView geraPesqAulasView(){
@@ -183,9 +188,12 @@ public class PesqAulasView extends javax.swing.JFrame {
         
         rowH = aulasTb.getSelectedRow();
         
-        Utils.createUtils().desConverteDia(model.getValueAt(rowH, 2).toString());
-        Utils.createUtils().desConverteHorario(model.getValueAt(rowH, 3).toString());
-        System.out.println(model.getValueAt(rowH, 4));
+        Professor p = ProfessorCtrl.ProfessorCtrlCreate().selectTabela("Nome", model.getValueAt(rowH, 0).toString());
+        Horario h = new Horario(Utils.createUtils().desConverteDia(model.getValueAt(rowH, 2).toString()), Utils.createUtils().desConverteHorario(model.getValueAt(rowH, 3).toString()), false);
+        
+        if(DialogsView.createDialogs().infoOpDialog("Deseja reservar horário?", "Reservar horário") == 0) {
+            AulaCtrl.createAulaCtrl().inserirTabela(h, p);
+        }
     }//GEN-LAST:event_aulasTbMouseClicked
 
     
