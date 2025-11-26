@@ -92,12 +92,27 @@ public class CoordPageView extends javax.swing.JFrame {
         });
 
         verProfMenu.setText("Ver Professores");
+        verProfMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verProfMenuMouseClicked(evt);
+            }
+        });
         coordMenuBar.add(verProfMenu);
 
         verAluMenu.setText("Ver alunos");
+        verAluMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verAluMenuMouseClicked(evt);
+            }
+        });
         coordMenuBar.add(verAluMenu);
 
         verAulasMenu.setText("Ver aulas");
+        verAulasMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verAulasMenuMouseClicked(evt);
+            }
+        });
         coordMenuBar.add(verAulasMenu);
 
         setJMenuBar(coordMenuBar);
@@ -171,6 +186,18 @@ public class CoordPageView extends javax.swing.JFrame {
     private void sairBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBtActionPerformed
         sair();
     }//GEN-LAST:event_sairBtActionPerformed
+
+    private void verProfMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verProfMenuMouseClicked
+        //ViewProfTable.geraViewProfTable().setVisible(true);
+    }//GEN-LAST:event_verProfMenuMouseClicked
+
+    private void verAluMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verAluMenuMouseClicked
+        //ViewAlunoTable.geraViewAlunoTable().setVisible(true);
+    }//GEN-LAST:event_verAluMenuMouseClicked
+
+    private void verAulasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verAulasMenuMouseClicked
+        //ViewAulaTable.geraViewAulaTable().setVisible(true);
+    }//GEN-LAST:event_verAulasMenuMouseClicked
 
     private void preencherDados(){
         userTf.setText(login.getCoordenadorAtual().getcCod());
