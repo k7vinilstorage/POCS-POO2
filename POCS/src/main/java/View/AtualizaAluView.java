@@ -11,9 +11,12 @@ import Controller.*;
 public class AtualizaAluView extends javax.swing.JFrame {
 
     private static AtualizaAluView atualizaUnic;
+    private LoginCtrl loginCtrl;
     
     private AtualizaAluView() {
         initComponents();
+        setLocationRelativeTo(null);
+        loginCtrl = LoginCtrl.createLoginCtrl();
         cxCelular.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getCelular());
         cxEmail.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getEmail());
     }
@@ -55,10 +58,20 @@ public class AtualizaAluView extends javax.swing.JFrame {
         lbEmail.setText("Email:");
 
         btAtualizaCelular.setText("Atualizar");
+        btAtualizaCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAtualizaCelularActionPerformed(evt);
+            }
+        });
 
         btAtualizaEmail.setText("Atualizar");
 
         btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,6 +121,15 @@ public class AtualizaAluView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        AluPageView.geraAluPageView().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btAtualizaCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaCelularActionPerformed
+        AlunoCtrl.AlunoCtrlCreate().atualizaAluno(cxCelular.getText(), loginCtrl.getAlunoAtual().getaCod());
+    }//GEN-LAST:event_btAtualizaCelularActionPerformed
 
     /**
      * @param args the command line arguments
