@@ -35,12 +35,6 @@ public class AgendaView extends javax.swing.JFrame {
     private AgendaView() {
         initComponents();
         carregaHor();
-        if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
-            prof = LoginCtrl.createLoginCtrl().getProfessorAtual();
-        }
-        else {
-            alu = LoginCtrl.createLoginCtrl().getAlunoAtual();
-        }
         AgendaCtrl.createAgendaCtrl().criarTabela();
         AulaCtrl.createAulaCtrl().criarTabela();
     }
@@ -80,6 +74,11 @@ public class AgendaView extends javax.swing.JFrame {
             }
         });
         addWindowStateListener(this::formWindowStateChanged);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         agendaTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,13 +185,17 @@ public class AgendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowStateChanged
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+
+    }//GEN-LAST:event_formComponentShown
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
             prof = LoginCtrl.createLoginCtrl().getProfessorAtual();
         }
         else {
             alu = LoginCtrl.createLoginCtrl().getAlunoAtual();
         }
-    }//GEN-LAST:event_formComponentShown
+    }//GEN-LAST:event_formWindowActivated
 
     public void carregaHor() {
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
