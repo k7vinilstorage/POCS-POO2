@@ -137,7 +137,7 @@ public class ViewProfTable extends javax.swing.JFrame {
                 DialogsView.createDialogs().infoDialog("Professor excluido com sucesso", "Excluir");
             }
             else {
-                DialogsView.createDialogs().errorDialog("Erro ao Excluir Professor", "Erro");
+                DialogsView.createDialogs().errorDialog("Erro ao Excluir Professor \n O professor possui horarios cadastrados na agenda", "Erro");
             }
         }
     }//GEN-LAST:event_profTabMouseClicked
