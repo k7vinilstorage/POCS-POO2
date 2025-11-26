@@ -28,6 +28,8 @@ public class LoginView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         alunoCtrl.criarTabela();
         professorCtrl.criarTabela();
+        AulaCtrl.createAulaCtrl().criarTabela();
+        AgendaCtrl.createAgendaCtrl().criarTabela();
     }
 
     public static LoginView geraLogin(){

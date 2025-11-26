@@ -109,8 +109,6 @@ public class ProfessorCtrl {
     }
     
     public void inserirTabela(Professor prof){
-        
-        criarTabela();
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);

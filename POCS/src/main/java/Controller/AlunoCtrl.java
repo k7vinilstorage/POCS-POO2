@@ -110,8 +110,6 @@ public class AlunoCtrl {
     }
     //alterado 21/11/25
     public void inserirTabela(Aluno aln){
-        
-        criarTabela();
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);

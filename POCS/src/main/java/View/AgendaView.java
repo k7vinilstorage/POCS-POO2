@@ -35,8 +35,6 @@ public class AgendaView extends javax.swing.JFrame {
     private AgendaView() {
         initComponents();
         carregaHor();
-        AgendaCtrl.createAgendaCtrl().criarTabela();
-        AulaCtrl.createAulaCtrl().criarTabela();
     }
 
     public static AgendaView createAgendaView() {
