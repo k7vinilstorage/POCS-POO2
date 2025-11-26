@@ -1,6 +1,7 @@
 package Controller;
 import Model.Horario;
 import Model.Professor;
+import Utils.BdInfo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,10 +18,10 @@ public class ProfessorCtrl {
     int pCod;
     
     static Connection con = null;
-    static String url = "jdbc:mysql://localhost:3306/teste2";
-    static String senha = "Gabriel123/";
-    static String user = "root";
-    static String driver = "com.mysql.cj.jdbc.Driver";
+    static String url = BdInfo.createBdInfo().getUrl();
+    static String senha = BdInfo.createBdInfo().getSenha();
+    static String user = BdInfo.createBdInfo().getUser();
+    static String driver = BdInfo.createBdInfo().getDriver();
     static Statement st = null;
     static ResultSet rs = null;
 

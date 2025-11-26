@@ -24,6 +24,7 @@ View/AluPageView$5.class
 View/ViewProfTable$4.class
 Model/Aula.class
 View/ProfPageView$2.class
+Utils/BdInfo.class
 Controller/CoordenadorCtrl.class
 Controller/AulaCtrl.class
 View/AgendaView$1.class

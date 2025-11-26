@@ -6,6 +6,7 @@ package Controller;
 
 import Model.Aluno;
 import Utils.Utils;
+import Utils.BdInfo;
 import View.PesqAulasView;
 import Model.Horario;
 import Model.Professor;
@@ -15,9 +16,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
+
 
 /**
  *
@@ -26,10 +25,10 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class AgendaCtrl {
     
     static Connection con = null;
-    static String url = "jdbc:mysql://localhost:3306/teste2";
-    static String senha = "Gabriel123/";
-    static String user = "root";
-    static String driver = "com.mysql.cj.jdbc.Driver";
+    static String url = BdInfo.createBdInfo().getUrl();
+    static String senha = BdInfo.createBdInfo().getSenha();
+    static String user = BdInfo.createBdInfo().getUser();
+    static String driver = BdInfo.createBdInfo().getDriver();
     static Statement st = null;
     static ResultSet rs = null;
     
