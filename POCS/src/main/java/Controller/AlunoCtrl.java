@@ -212,7 +212,7 @@ public class AlunoCtrl {
         return alunoReturn;
     }
     
-    public boolean atualizaAluno(){
+    public boolean atualizaAluno(String email, String id){
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
@@ -221,6 +221,15 @@ public class AlunoCtrl {
                     + "WHERE Codigo = ?";
             
             PreparedStatement ps = con.prepareStatement(mudanca);
+            
+            ps.setString(1,email);
+            ps.setString(2, id);
+            
+            ps.executeUpdate();
+            
+            ps.close();
+            con.close();
+            
             return true;
         }catch(Exception e){
             DialogsView.createDialogs().errorDialog("Não foi possível atualizar aluno", "Erro");
