@@ -41,6 +41,7 @@ public class AluPageView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         userLb = new javax.swing.JLabel();
         nomeLb = new javax.swing.JLabel();
         cpfLb = new javax.swing.JLabel();
@@ -56,11 +57,11 @@ public class AluPageView extends javax.swing.JFrame {
         sairBt = new javax.swing.JButton();
         aluMenuBar = new javax.swing.JMenuBar();
         aulasVistasMenu = new javax.swing.JMenu();
-        buscarAulasMenu = new javax.swing.JMenu();
-        buscaProfMenuI = new javax.swing.JMenuItem();
-        buscaMatMenuI = new javax.swing.JMenuItem();
         aulasCadasMenu = new javax.swing.JMenu();
         verAgendaMenuI = new javax.swing.JMenuItem();
+        aulasBuscaMenu = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Página do Aluno");
@@ -115,16 +116,6 @@ public class AluPageView extends javax.swing.JFrame {
         aulasVistasMenu.setText("Ver aulas vistas");
         aluMenuBar.add(aulasVistasMenu);
 
-        buscarAulasMenu.setText("Buscar aulas");
-
-        buscaProfMenuI.setText("Procurar pro professor");
-        buscarAulasMenu.add(buscaProfMenuI);
-
-        buscaMatMenuI.setText("Procurar por materia");
-        buscarAulasMenu.add(buscaMatMenuI);
-
-        aluMenuBar.add(buscarAulasMenu);
-
         aulasCadasMenu.setText("Aulas cadastradas");
 
         verAgendaMenuI.setText("Ver agenda");
@@ -136,6 +127,14 @@ public class AluPageView extends javax.swing.JFrame {
         aulasCadasMenu.add(verAgendaMenuI);
 
         aluMenuBar.add(aulasCadasMenu);
+
+        aulasBuscaMenu.setText("Buscar Aulas");
+        aulasBuscaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aulasBuscaMenuMouseClicked(evt);
+            }
+        });
+        aluMenuBar.add(aulasBuscaMenu);
 
         setJMenuBar(aluMenuBar);
 
@@ -219,6 +218,10 @@ public class AluPageView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_sairBtActionPerformed
 
+    private void aulasBuscaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasBuscaMenuMouseClicked
+        PesqAulasView.geraPesqAulasView().setVisible(true);
+    }//GEN-LAST:event_aulasBuscaMenuMouseClicked
+
     private void preencherDados() {
         userTf.setText(login.getAlunoAtual().getaCod());
         nomeTf.setText(login.getAlunoAtual().getNome());
@@ -266,11 +269,9 @@ public class AluPageView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar aluMenuBar;
+    private javax.swing.JMenu aulasBuscaMenu;
     private javax.swing.JMenu aulasCadasMenu;
     private javax.swing.JMenu aulasVistasMenu;
-    private javax.swing.JMenuItem buscaMatMenuI;
-    private javax.swing.JMenuItem buscaProfMenuI;
-    private javax.swing.JMenu buscarAulasMenu;
     private javax.swing.JLabel celLb;
     private javax.swing.JTextField celTf;
     private javax.swing.JLabel cpfLb;
@@ -279,6 +280,7 @@ public class AluPageView extends javax.swing.JFrame {
     private javax.swing.JTextField emailTf;
     private javax.swing.JLabel escolaLb;
     private javax.swing.JTextField escolaTf;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel nomeLb;
     private javax.swing.JTextField nomeTf;
     private javax.swing.JButton sairBt;

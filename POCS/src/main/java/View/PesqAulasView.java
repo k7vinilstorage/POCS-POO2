@@ -4,17 +4,30 @@
  */
 package View;
 
+import Controller.AgendaCtrl;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author joao
  */
 public class PesqAulasView extends javax.swing.JFrame {
 
+    private static PesqAulasView pesqAulasViewUnic;
     /**
      * Creates new form ProfPageView
      */
-    public PesqAulasView() {
+    private PesqAulasView() {
         initComponents();
+        setLocationRelativeTo(null);
+    }
+    
+    public static PesqAulasView geraPesqAulasView(){
+        if(pesqAulasViewUnic == null){
+            pesqAulasViewUnic = new PesqAulasView();
+        }
+        
+        return pesqAulasViewUnic;
     }
 
     /**
@@ -32,8 +45,10 @@ public class PesqAulasView extends javax.swing.JFrame {
         buscaAulaMatTf = new javax.swing.JTextField();
         aulasSp = new javax.swing.JScrollPane();
         aulasTb = new javax.swing.JTable();
+        buscaAulaProfBt = new javax.swing.JButton();
+        buscaAulaMatBt = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Professor");
 
         buscaAulaProfLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
@@ -61,6 +76,15 @@ public class PesqAulasView extends javax.swing.JFrame {
         ));
         aulasSp.setViewportView(aulasTb);
 
+        buscaAulaProfBt.setText("Buscar");
+        buscaAulaProfBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscaAulaProfBtActionPerformed(evt);
+            }
+        });
+
+        buscaAulaMatBt.setText("Buscar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,7 +100,11 @@ public class PesqAulasView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(buscaAulaProfTf, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                            .addComponent(buscaAulaMatTf))))
+                            .addComponent(buscaAulaMatTf))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buscaAulaProfBt)
+                            .addComponent(buscaAulaMatBt))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,9 +113,13 @@ public class PesqAulasView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buscaAulaProfTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buscaAulaProfTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buscaAulaProfBt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buscaAulaMatTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buscaAulaMatTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buscaAulaMatBt)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buscaAulaProfLb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -101,9 +133,20 @@ public class PesqAulasView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscaAulaMatTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaMatTfActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_buscaAulaMatTfActionPerformed
 
+    private void buscaAulaProfBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaAulaProfBtActionPerformed
+        String pesqProf = buscaAulaProfTf.getText();
+        System.out.println("Estamos no botao"+ pesqProf);
+        pesquisaPesqTb(pesqProf);
+    }//GEN-LAST:event_buscaAulaProfBtActionPerformed
+
+    public void pesquisaPesqTb(String p){
+        DefaultTableModel modelo = (DefaultTableModel) aulasTb.getModel();
+        AgendaCtrl.createAgendaCtrl().selectPesqTb(p, modelo); 
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -143,8 +186,10 @@ public class PesqAulasView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane aulasSp;
     private javax.swing.JTable aulasTb;
+    private javax.swing.JButton buscaAulaMatBt;
     private javax.swing.JLabel buscaAulaMatLb;
     private javax.swing.JTextField buscaAulaMatTf;
+    private javax.swing.JButton buscaAulaProfBt;
     private javax.swing.JLabel buscaAulaProfLb;
     private javax.swing.JTextField buscaAulaProfTf;
     // End of variables declaration//GEN-END:variables

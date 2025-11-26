@@ -2,29 +2,17 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="aluMenuBar">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="aulasVistasMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver aulas vistas"/>
           </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="buscarAulasMenu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Buscar aulas"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="buscaProfMenuI">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Procurar pro professor"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="buscaMatMenuI">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Procurar por materia"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="aulasCadasMenu">
           <Properties>
@@ -40,6 +28,14 @@
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="aulasBuscaMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Buscar Aulas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aulasBuscaMenuMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
