@@ -104,6 +104,7 @@ public class AulaCtrl {
             
             while(rs.next()){
                 pCod = rs.getString("pCod");
+                System.out.println(pCod);
             }
             
             rs.close();

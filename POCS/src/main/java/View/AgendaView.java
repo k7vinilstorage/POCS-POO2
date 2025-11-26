@@ -189,6 +189,9 @@ public class AgendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentShown
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+        model.setRowCount(0);
+        carregaHor();
         if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
             prof = LoginCtrl.createLoginCtrl().getProfessorAtual();
         }
@@ -257,7 +260,8 @@ public class AgendaView extends javax.swing.JFrame {
             AgendaCtrl.createAgendaCtrl().changeReserved(h, false, AulaCtrl.createAulaCtrl().selectPcodAula(alu, colD, rowH));
             
             DialogsView.createDialogs().infoDialog("Reserva removida com sucesso","Sucesso");
-        }else{
+        }
+        else{
             DialogsView.createDialogs().errorDialog("Erro ao Remover reserva", "Erro");
         }
         
