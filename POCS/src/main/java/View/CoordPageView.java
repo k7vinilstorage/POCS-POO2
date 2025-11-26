@@ -4,12 +4,15 @@
  */
 package View;
 
+import Controller.LoginCtrl;
+
 /**
  *
  * @author joao
  */
 public class CoordPageView extends javax.swing.JFrame {
 
+    LoginCtrl login = LoginCtrl.createLoginCtrl();
     /**
      * Creates new form ProfPageView
      */
@@ -160,6 +163,16 @@ public class CoordPageView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sairBtActionPerformed
 
+    private void preencherDados(){
+//        userTf.setText(login.getCoordAtual().getcCod());
+//        nomeTf.setText(login.getCoordAtual().getNome());
+//        cpfTf.setText(login.getCoordAtual().getCpf());
+//        emailTf.setText(login.getCoordAtual().getEmail());
+//        celTf.setText(login.getCoordAtual().getCelular());
+    }
+               
+            
+            
     /**
      * @param args the command line arguments
      */

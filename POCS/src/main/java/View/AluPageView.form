@@ -16,8 +16,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="aulasCadasMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Aulas cadastradas"/>
+            <Property name="text" type="java.lang.String" value="Aulas reservadas"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aulasCadasMenuMouseClicked"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="verAgendaMenuI">
               <Properties>

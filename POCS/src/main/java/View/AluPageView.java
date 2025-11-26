@@ -116,7 +116,12 @@ public class AluPageView extends javax.swing.JFrame {
         aulasVistasMenu.setText("Ver aulas vistas");
         aluMenuBar.add(aulasVistasMenu);
 
-        aulasCadasMenu.setText("Aulas cadastradas");
+        aulasCadasMenu.setText("Aulas reservadas");
+        aulasCadasMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aulasCadasMenuMouseClicked(evt);
+            }
+        });
 
         verAgendaMenuI.setText("Ver agenda");
         verAgendaMenuI.addActionListener(new java.awt.event.ActionListener() {
@@ -221,6 +226,10 @@ public class AluPageView extends javax.swing.JFrame {
     private void aulasBuscaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasBuscaMenuMouseClicked
         PesqAulasView.geraPesqAulasView().setVisible(true);
     }//GEN-LAST:event_aulasBuscaMenuMouseClicked
+
+    private void aulasCadasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aulasCadasMenuMouseClicked
+        AgendaView.createAgendaView().setVisible(true);
+    }//GEN-LAST:event_aulasCadasMenuMouseClicked
 
     private void preencherDados() {
         userTf.setText(login.getAlunoAtual().getaCod());
