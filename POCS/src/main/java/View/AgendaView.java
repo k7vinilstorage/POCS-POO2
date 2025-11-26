@@ -31,7 +31,7 @@ public class AgendaView extends javax.swing.JFrame {
     private AgendaView() {
         initComponents();
         carregaHor();
-        //AgendaCtrl.createAgendaCtrl().criarTabela();
+        AgendaCtrl.createAgendaCtrl().criarTabela();
         AulaCtrl.createAulaCtrl().criarTabela();
     }
 
@@ -199,10 +199,15 @@ public class AgendaView extends javax.swing.JFrame {
         AgendaCtrl.createAgendaCtrl().selectTabela(LoginCtrl.createLoginCtrl().getProfessorAtual());
     }
     
-    public void preencherTabela(int rowH, int colD) {
+    public void preencherTabela(int rowH, int colD, boolean reserved) {
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
         
-        model.setValueAt("Disponível", rowH, colD + 3);
+        if(reserved) {
+            model.setValueAt("Reservado", rowH, colD + 3);
+        }
+        else{
+            model.setValueAt("Disponível", rowH, colD + 3);
+        }
     }
     
     /**

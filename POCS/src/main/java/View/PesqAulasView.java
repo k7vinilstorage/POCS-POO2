@@ -199,6 +199,7 @@ public class PesqAulasView extends javax.swing.JFrame {
         if(DialogsView.createDialogs().infoOpDialog("Deseja reservar horário?", "Reservar horário") == 0) {
             if(AulaCtrl.createAulaCtrl().inserirTabela(h, p)) {
                 DialogsView.createDialogs().infoDialog("Aula criada com sucesso", "Sucesso");
+                model.removeRow(rowH);
             }
         }
     }//GEN-LAST:event_aulasTbMouseClicked

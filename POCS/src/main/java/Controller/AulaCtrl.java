@@ -84,6 +84,8 @@ public class AulaCtrl {
             return false;
         }
         
+        AgendaCtrl.createAgendaCtrl().changeReserved(h, true, p.getpCod());
+        
         return true;
     }
     
