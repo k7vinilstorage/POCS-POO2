@@ -64,7 +64,7 @@ public class AluPageView extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Aluno");
 
         userLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N

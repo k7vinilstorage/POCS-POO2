@@ -61,7 +61,7 @@ public class ProfPageView extends javax.swing.JFrame {
         aulasDadasMenu = new javax.swing.JMenu();
         aulasResMenu = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Professor");
 
         userLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N

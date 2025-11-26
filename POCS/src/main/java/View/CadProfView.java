@@ -58,7 +58,7 @@ public class CadProfView extends javax.swing.JFrame {
         senhaTf = new javax.swing.JTextField();
         senhaLb = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de professor");
 
         nomeLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N

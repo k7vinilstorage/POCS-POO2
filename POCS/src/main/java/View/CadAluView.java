@@ -51,7 +51,7 @@ public class CadAluView extends javax.swing.JFrame {
         senhaLb = new javax.swing.JLabel();
         senhaTf = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de aluno");
 
         nomeLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
