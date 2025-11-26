@@ -122,7 +122,7 @@ public class AgendaCtrl {
         }
     }
     
-    public void deleteTabela(String codigo, int diaS, int diaH){
+    public boolean deleteTabela(String codigo, int diaS, int diaH){
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, senha);
@@ -141,7 +141,9 @@ public class AgendaCtrl {
         }
         catch (Exception e) {
             System.out.println("Erro ao deletar");
+            return false;
         }
+        return true;
     }
 
     

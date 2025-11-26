@@ -183,7 +183,11 @@ public class AgendaView extends javax.swing.JFrame {
         
         Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
         
-        AgendaCtrl.createAgendaCtrl().deleteTabela(p.getpCod(), colD, rowH);
+        if(AgendaCtrl.createAgendaCtrl().deleteTabela(p.getpCod(), colD, rowH)){
+            DialogsView.createDialogs().infoDialog("Horario removido com sucesso","Sucesso");
+        }else{
+            DialogsView.createDialogs().errorDialog("Erro ao adicionar horário", "Erro");
+        }
         
         model.setValueAt("", rowH, colD + 3);
         
