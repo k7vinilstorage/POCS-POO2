@@ -17,8 +17,7 @@ public class AtualizaAluView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         loginCtrl = LoginCtrl.createLoginCtrl();
-        cxCelular.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getCelular());
-        cxEmail.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getEmail());
+        atualizarPagina();
     }
     
     public static AtualizaAluView geraAtualizaAluView(){
@@ -128,9 +127,16 @@ public class AtualizaAluView extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btAtualizaCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAtualizaCelularActionPerformed
-        AlunoCtrl.AlunoCtrlCreate().atualizaAluno(cxCelular.getText(), loginCtrl.getAlunoAtual().getaCod());
+        if(AlunoCtrl.AlunoCtrlCreate().atualizaCelularAluno(cxCelular.getText(), loginCtrl.getAlunoAtual().getaCod())){
+            atualizarPagina();
+        }
+        
     }//GEN-LAST:event_btAtualizaCelularActionPerformed
 
+    private void atualizarPagina(){
+        cxCelular.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getCelular());
+        cxEmail.setText(LoginCtrl.createLoginCtrl().getAlunoAtual().getEmail());
+    }
     /**
      * @param args the command line arguments
      */

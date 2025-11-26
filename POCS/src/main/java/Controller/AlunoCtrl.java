@@ -212,7 +212,7 @@ public class AlunoCtrl {
         return alunoReturn;
     }
     
-    public boolean atualizaAluno(String email, String id){
+    public boolean atualizaEmailAluno(String email, String id){
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url,user,senha);
@@ -237,6 +237,32 @@ public class AlunoCtrl {
         }
     }
 
+    public boolean atualizaCelularAluno(String celular, String id){
+        try{
+            Class.forName(driver);
+            con = DriverManager.getConnection(url,user,senha);
+            
+            String mudanca = "UPDATE Aluno SET Celular = ?"
+                    + "WHERE Codigo = ?";
+            
+            PreparedStatement ps = con.prepareStatement(mudanca);
+            
+            ps.setString(1,celular);
+            ps.setString(2, id);
+            
+            ps.executeUpdate();
+            
+            ps.close();
+            con.close();
+            
+            DialogsView.createDialogs().infoDialog("Atualizacao realizada com sucesso", "Atualização");
+            return true;
+        }catch(Exception e){
+            DialogsView.createDialogs().errorDialog("Não foi possível atualizar aluno", "Erro");
+            return false;
+        }
+    }
+    
     public boolean deleteTabela(String aCod){
         try {
             Class.forName(driver);
