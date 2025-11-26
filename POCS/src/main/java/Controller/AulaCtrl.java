@@ -98,6 +98,8 @@ public class AulaCtrl {
             String findCpf = "SELECT * FROM Aula WHERE aCod = ? AND DiaS = ? AND DiaH = ?";
             PreparedStatement ps = con.prepareStatement(findCpf);
             ps.setString(1, a.getaCod());
+            ps.setInt(2, diaS);
+            ps.setInt(3, diaH);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){

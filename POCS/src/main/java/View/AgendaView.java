@@ -157,12 +157,12 @@ public class AgendaView extends javax.swing.JFrame {
         }
         else {
             DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
-                if(model.getValueAt(rowH, colD + 3).toString().equals("Reservado")) {
-                    if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
-                        removeReserva();
-                        updateTable();
-                    }
+            if(model.getValueAt(rowH, colD + 3) != null) {
+                if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
+                    removeReserva();
+                    updateTable();
                 }
+            }  
         }
     
     }//GEN-LAST:event_agendaTbMouseClicked
@@ -240,7 +240,7 @@ public class AgendaView extends javax.swing.JFrame {
             DialogsView.createDialogs().errorDialog("Erro ao Remover horário", "Erro");
         }
         
-        model.setValueAt("", rowH, colD + 3);
+        model.setValueAt(null, rowH, colD + 3);
         
     }
     
@@ -261,7 +261,7 @@ public class AgendaView extends javax.swing.JFrame {
             DialogsView.createDialogs().errorDialog("Erro ao Remover reserva", "Erro");
         }
         
-        model.setValueAt("", rowH, colD + 3);
+        model.setValueAt(null, rowH, colD + 3);
     }
     
     public void updateTable() {
