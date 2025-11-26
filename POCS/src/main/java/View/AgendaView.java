@@ -129,7 +129,11 @@ public class AgendaView extends javax.swing.JFrame {
             }
         }
         else {
-            if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
+            DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+            if(model.getValueAt(rowH, colD).toString().equals("Reservado")) {
+                DialogsView.createDialogs().infoDialog("Não é possível remover um horário cadastrado", "Aviso");
+            }
+            else if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
                 removerHor();
                 updateTable();
             }
@@ -180,11 +184,6 @@ public class AgendaView extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
         
         if(colD < 0){
-            return;
-        }
-        
-        if(model.getValueAt(rowH, colD) == "Reservado") {
-            DialogsView.createDialogs().errorDialog("Erro ao remover horário \n Horário reservado", "Erro");
             return;
         }
         
