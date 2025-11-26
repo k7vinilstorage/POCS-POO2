@@ -11,13 +11,23 @@ package View;
 public class ViewAulaTable extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewAulaTable.class.getName());
-
+    
+    private static ViewAulaTable viewAulaTableUnic;
+    
+    private ViewAulaTable(){
+        initComponents();
+    }
+    
+    public static ViewAulaTable geraViewAulaTable(){
+        if(viewAulaTableUnic == null){
+            viewAulaTableUnic = new ViewAulaTable();
+        }
+        return viewAulaTableUnic;
+    }
+    
     /**
      * Creates new form ViewAulaTable
      */
-    public ViewAulaTable() {
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +55,7 @@ public class ViewAulaTable extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Professor", "Aluno", "Dia", "Horário"
             }
         ));
         jScrollPane1.setViewportView(aulaTab);
