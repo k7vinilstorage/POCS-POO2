@@ -5,6 +5,7 @@
 package View;
 
 import Controller.AgendaCtrl;
+import Controller.AulaCtrl;
 import Controller.LoginCtrl;
 import Model.Horario;
 import Model.Professor;
@@ -31,6 +32,7 @@ public class AgendaView extends javax.swing.JFrame {
         initComponents();
         carregaHor();
         //AgendaCtrl.createAgendaCtrl().criarTabela();
+        AulaCtrl.createAulaCtrl().criarTabela();
     }
 
     public static AgendaView createAgendaView() {

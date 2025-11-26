@@ -27,7 +27,6 @@ public class PesqAulasView extends javax.swing.JFrame {
     private PesqAulasView() {
         initComponents();
         setLocationRelativeTo(null);
-        AulaCtrl.createAulaCtrl().criarTabela();
     }
     
     public static PesqAulasView geraPesqAulasView(){
