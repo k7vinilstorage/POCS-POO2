@@ -182,6 +182,9 @@ public class LoginView extends javax.swing.JFrame {
             System.out.println(login.getProfessorAtual().getpCod());
             ProfPageView.geraProfPageView().setVisible(true);
             dispose();
+        }else if(verificaSenha == 1 && tipo == 3){
+            //login.setCoordenadorAtual(coordenadorCtrl.select("Codigo", userTf.getText()));
+            
         }
         
     }//GEN-LAST:event_loginBtActionPerformed
