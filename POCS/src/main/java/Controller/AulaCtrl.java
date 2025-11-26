@@ -89,5 +89,28 @@ public class AulaCtrl {
         return true;
     }
     
+    public boolean deleteTabela(String codigo, int diaS, int diaH){
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+
+            String sql = "DELETE FROM Aula WHERE aCod = ? AND DiaS = ? AND DiaH = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, codigo);
+            ps.setInt(2, diaS);
+            ps.setInt(3, diaH);
+
+            ps.executeUpdate();
+
+            ps.close();
+            con.close();
+        }
+        catch (Exception e) {
+            System.out.println("Erro ao deletar");
+            return false;
+        }
+        return true;
+    }
     
 }

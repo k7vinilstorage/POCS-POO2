@@ -7,6 +7,7 @@ package View;
 import Controller.AgendaCtrl;
 import Controller.AulaCtrl;
 import Controller.LoginCtrl;
+import Model.Aluno;
 import Model.Horario;
 import Model.Professor;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +20,9 @@ public class AgendaView extends javax.swing.JFrame {
     
     int rowH = 0;
     int colD = 0;
+    
+    Aluno alu = null;
+    Professor prof = null;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AgendaView.class.getName());
 
@@ -57,6 +61,11 @@ public class AgendaView extends javax.swing.JFrame {
         voltarBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -64,6 +73,7 @@ public class AgendaView extends javax.swing.JFrame {
             public void windowLostFocus(java.awt.event.WindowEvent evt) {
             }
         });
+        addWindowStateListener(this::formWindowStateChanged);
 
         agendaTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,24 +132,34 @@ public class AgendaView extends javax.swing.JFrame {
         rowH = agendaTb.getSelectedRow();
         colD = agendaTb.getSelectedColumn() - 3;
         
-        if(AgendaCtrl.createAgendaCtrl().verificaHorarioExistente(LoginCtrl.createLoginCtrl().getProfessorAtual(), rowH, colD)) {
-            if(DialogsView.createDialogs().infoOpDialog("Gostaria de adicionar o horário?", "Adicionar Horário") == 0) {
-                adicionarHor();
-                updateTable();
+        if(prof != null) {
+            if(AgendaCtrl.createAgendaCtrl().verificaHorarioExistente(prof, rowH, colD)) {
+                if(DialogsView.createDialogs().infoOpDialog("Gostaria de adicionar o horário?", "Adicionar Horário") == 0) {
+                    adicionarHor();
+                    updateTable();
+                }
+            }
+            else {
+                DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+                if(model.getValueAt(rowH, colD + 3).toString().equals("Reservado")) {
+                    DialogsView.createDialogs().infoDialog("Não é possível remover um horário Reservado", "Aviso");
+                }
+                else if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
+                    removerHor();
+                    updateTable();
+                }
             }
         }
         else {
             DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
-            if(model.getValueAt(rowH, colD + 3).toString().equals("Reservado")) {
-                DialogsView.createDialogs().infoDialog("Não é possível remover um horário Reservado", "Aviso");
-            }
-            else if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
-                removerHor();
-                updateTable();
-            }
+                if(model.getValueAt(rowH, colD + 3).toString().equals("Reservado")) {
+                    if(DialogsView.createDialogs().infoOpDialog("Gostaria de remover o horário?", "Remover Horário") == 0) {
+                        removeReserva();
+                        updateTable();
+                    }
+                }
         }
-        
-        
+    
     }//GEN-LAST:event_agendaTbMouseClicked
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
@@ -149,9 +169,24 @@ public class AgendaView extends javax.swing.JFrame {
     private void voltarBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBtActionPerformed
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
         model.setRowCount(0);
+        prof = null;
+        alu = null;
         carregaHor();
         dispose();
     }//GEN-LAST:event_voltarBtActionPerformed
+
+    private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowStateChanged
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
+            prof = LoginCtrl.createLoginCtrl().getProfessorAtual();
+        }
+        else {
+            alu = LoginCtrl.createLoginCtrl().getAlunoAtual();
+        }
+    }//GEN-LAST:event_formComponentShown
 
     public void carregaHor() {
         DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
@@ -174,8 +209,7 @@ public class AgendaView extends javax.swing.JFrame {
             return;
         }
         Horario h = new Horario(colD, rowH, false);
-        Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
-        if(AgendaCtrl.createAgendaCtrl().inserirTabela(h, p)) {
+        if(AgendaCtrl.createAgendaCtrl().inserirTabela(h, prof)) {
             DialogsView.createDialogs().infoDialog("Horário cadastrado com sucesso", "Sucesso");
         }
         else {
@@ -190,9 +224,8 @@ public class AgendaView extends javax.swing.JFrame {
             return;
         }
         
-        Professor p = LoginCtrl.createLoginCtrl().getProfessorAtual();
         
-        if(AgendaCtrl.createAgendaCtrl().deleteTabela(p.getpCod(), colD, rowH)){
+        if(AgendaCtrl.createAgendaCtrl().deleteTabela(prof.getpCod(), colD, rowH)){
             DialogsView.createDialogs().infoDialog("Horario removido com sucesso","Sucesso");
         }else{
             DialogsView.createDialogs().errorDialog("Erro ao Remover horário", "Erro");
@@ -202,12 +235,28 @@ public class AgendaView extends javax.swing.JFrame {
         
     }
     
+    public void removeReserva() {
+        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+        
+        if(colD < 0){
+            return;
+        }
+        
+        if(AulaCtrl.createAulaCtrl().deleteTabela(alu.getaCod(), colD, rowH)){
+            DialogsView.createDialogs().infoDialog("Reserva removida com sucesso","Sucesso");
+        }else{
+            DialogsView.createDialogs().errorDialog("Erro ao Remover reserva", "Erro");
+        }
+        
+        model.setValueAt("", rowH, colD + 3);
+    }
+    
     public void updateTable() {
-        if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
-            AgendaCtrl.createAgendaCtrl().selectTabelaProf(LoginCtrl.createLoginCtrl().getProfessorAtual());
+        if(prof != null) {
+            AgendaCtrl.createAgendaCtrl().selectTabelaProf(prof);
         }
         else {
-            AgendaCtrl.createAgendaCtrl().selectTabelaAlu(LoginCtrl.createLoginCtrl().getAlunoAtual());
+            AgendaCtrl.createAgendaCtrl().selectTabelaAlu(alu);
         }
        
     }
