@@ -56,7 +56,7 @@ public class PesqAulasView extends javax.swing.JFrame {
         voltarBt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Página do Professor");
+        setTitle("Buscar Aulas");
 
         buscaAulaProfLb.setFont(new java.awt.Font("Monocraft", 0, 18)); // NOI18N
         buscaAulaProfLb.setText("Pesquisar por professor:");
