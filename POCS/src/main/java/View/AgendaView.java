@@ -189,9 +189,7 @@ public class AgendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentShown
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
-        model.setRowCount(0);
-        carregaHor();
+
         if(LoginCtrl.createLoginCtrl().getProfessorAtual() != null) {
             prof = LoginCtrl.createLoginCtrl().getProfessorAtual();
         }
@@ -235,8 +233,6 @@ public class AgendaView extends javax.swing.JFrame {
         if(colD < 0){
             return;
         }
-        
-        
         if(AgendaCtrl.createAgendaCtrl().deleteTabela(prof.getpCod(), colD, rowH)){
             DialogsView.createDialogs().infoDialog("Horario removido com sucesso","Sucesso");
         }else{
@@ -270,6 +266,12 @@ public class AgendaView extends javax.swing.JFrame {
         }
         
         model.setValueAt(null, rowH, colD + 3);
+    }
+    
+    public void limpaTabela() {
+        DefaultTableModel model = (DefaultTableModel) agendaTb.getModel();
+        model.setRowCount(0);
+        carregaHor();
     }
     
     public void updateTable() {

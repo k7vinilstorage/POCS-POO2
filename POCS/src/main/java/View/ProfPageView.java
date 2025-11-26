@@ -245,6 +245,7 @@ public class ProfPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_agendaMenuActionPerformed
 
     private void agendaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agendaMenuMouseClicked
+        AgendaView.createAgendaView().limpaTabela();
         AgendaView.createAgendaView().setVisible(true);
     }//GEN-LAST:event_agendaMenuMouseClicked
 
