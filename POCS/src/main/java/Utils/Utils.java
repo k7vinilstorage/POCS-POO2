@@ -27,6 +27,7 @@ public class Utils {
     private DialogsView aviso = DialogsView.createDialogs();
     private AlunoCtrl alunoCtrl = AlunoCtrl.AlunoCtrlCreate();
     private ProfessorCtrl professorCtrl = ProfessorCtrl.ProfessorCtrlCreate();
+    private CoordenadorCtrl coordenadorCtrl = CoordenadorCtrl.CoordenadorCtrlCreate();
     
     public static Utils createUtils() {
         if(singleUtils == null) {
@@ -164,6 +165,7 @@ public class Utils {
     public int verificaSenha(int tipo, String id, String senha){
         Aluno a1 = null;
         Professor p1 = null;
+        Coordenador c1 = null;
         
         switch(tipo){
             case 1: 
@@ -178,6 +180,13 @@ public class Utils {
                     return 1;
                 }
                 break;
+            case 3: 
+                //c1 = coordenadorCtrl.selectTabela("Codigo", id);
+                if(c1.getSenha().equals(senha)){
+                    return 1;
+                }
+            default:
+                return 0;
         }
                 
         return 0;
