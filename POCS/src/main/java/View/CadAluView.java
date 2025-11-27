@@ -306,6 +306,8 @@ public class CadAluView extends javax.swing.JFrame {
         emailTf.setText("");
         celTf.setText("");
         escolaTf.setText("");
+        idadeTf.setText("");
+        anoEscolarTf.setText("");
     }
     
     

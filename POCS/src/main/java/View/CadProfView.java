@@ -312,6 +312,7 @@ public class CadProfView extends javax.swing.JFrame {
         celTf.setText("");
         disciplinaTf.setText("");
         formacaoTf.setText("");
+        idadeTf.setText("");
     }
     
     
